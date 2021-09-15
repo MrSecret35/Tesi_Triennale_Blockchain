@@ -5,7 +5,7 @@
 \usepackage[T1]{fontenc} 
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx} %immagini
-
+\usepackage{hyperref}
 
 \graphicspath{ {./img/} }
 
@@ -51,8 +51,8 @@ Il problema dei generali bizantini è un problema informatico su come raggiunger
 	\label{fig:blockchain1}
 \end{figure}
 
-Una Blockchain come suggerisce l'etimologia della parola è una catena di blocchi. È una struttura dati formata da un insieme di blocchi(struttura prioritaria) collegati univocamente 1 ad 1 così da creare una metaforica catena. Una blockchain è considerata una struttura condivisa e immutabile in quanto il suo contenuto una volta scritto non è più né modificabile né eliminabile, a meno di non invalidare l'intera struttura. Questa tecnologia fà parte dei Distributed Legder cioè dei "libri mastro distribuiti" o registri condivisi infatti tutti i partecipanti della blockchain, detti anche nodi, posseggono lo stesso registro cioè le stesse informazioni andando a costruire il contrapposto di una struttura centralizzata come un Database, quindi una struttura Decentralizzata in cui ogni nodo ha la possibilità di leggere autonomamente le informazioni contenute.
-Nella figura \ref{fig:blockchain1} viene visualizzata una semplice blockchain in cui sono presenti tre tipologie di blocchi quali, il blocco verde visto come il blocco di genesi, i blocchi neri che vanno a costituire la catena principale e i blocchi viola considerati blocchi orfani. L'aggiunta di un nuovo blocco è globalmente regolata da un protocollo condiviso e se autorizzata ogni nodo aggiorna la propria copia privata del registro così da evitare manipolazioni future.
+Una Blockchain come suggerisce l'etimologia della parola è una catena di blocchi o DLT - Distributed Ledger Technology. È una struttura dati formata da un insieme di blocchi(struttura prioritaria) collegati univocamente 1 ad 1 così da creare una metaforica catena. Una blockchain è considerata una struttura condivisa e immutabile in quanto il suo contenuto una volta scritto non è più né modificabile né eliminabile, a meno di non invalidare l'intera struttura. Questa tecnologia fà parte dei Distributed Legder cioè dei "libri mastro distribuiti" o registri condivisi infatti tutti i partecipanti della blockchain, detti anche nodi, posseggono lo stesso registro cioè le stesse informazioni andando a costruire il contrapposto di una struttura centralizzata come un Database, quindi una struttura Decentralizzata in cui ogni nodo ha la possibilità di leggere autonomamente le informazioni contenute.
+Nella figura \ref{fig:blockchain1} viene visualizzata una semplice blockchain in cui sono presenti tre tipologie di blocchi quali, il blocco verde visto come il blocco di genesi, i blocchi neri che vanno a costituire la catena principale e i blocchi viola considerati blocchi orfani. L'aggiunta di un nuovo blocco è globalmente regolata da un protocollo condiviso e se autorizzata ogni nodo aggiorna la propria copia privata del registro così da evitare manipolazioni future. In una blockchain i nodi partecipanti vengono anche chiamati minatori- miner o validatori, riferendosi al loro compito nella rete rispetto ai blocchi.
 
 \section{Hashing}
 Un codice hash è una qualunque sequenza di caratteri alfanumerici generati da una particolare funzione di hash. Questa funzione prende in input un qualunque tipo di informazione e restituisce una stringa di lunghezza prefissata, questo rende la funzione one-way o non invertibile in quanto conoscendo il digest(codice hash restituito) non è possibile risalire all'informazione che lo ha generato. In una blockchain l'Hash viene utilizzato per la costruzione della catena, viene calcolato l'hash di un blocco e il blocco che lo succederà avrà come parametro questo hash. In questo modo ogni blocco è legato univocamente al blocco precedente e siccome il codice hash di un blocco viene calcolato utilizzando anche il codice hash precedente modificando un singolo blocco verrà invalidata tutta la struttura blockchain immediatamente successiva.
@@ -64,10 +64,56 @@ Un codice hash è una qualunque sequenza di caratteri alfanumerici generati da u
 \end{figure}
 
 \section{Transazioni}
-In una blockchain i dati vengono scritti sotto forma di Transazioni in seguito contenute in vari blocchi. L'uso più comune delle transazioni è l'invio di denaro o in qualche modo una moneta equivalente. Le transazioni devono quindi avere un mittente, un destinatario e un 'value' cioè il valore trasmesso.
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{flusso_bc}
+	\centering
+	\caption{Flusso di esecuzione di una Transazione}
+	\label{fig:fl_bc}
+\end{figure}
+In una blockchain i dati vengono scritti sotto forma di Transazioni in seguito contenute in vari blocchi. L'uso più comune delle transazioni è l'invio di denaro o in qualche modo una moneta equivalente. Le transazioni devono quindi avere un mittente, un destinatario, un 'value' cioè il valore trasmesso, vengono quindi considerate come un cambio di stato riferendosi alle informazioni nella blockchain e saranno identificate da un Transaction Hash. Una volta inviata, la transazione entra in un transaction pool, da dove i miner andranno a selezionare randomicamente transazioni da includere nel prossimo blocco. Una transazione per essere considerata valida deve essere accettata da un nodo che la inserirà nel blocco che sta minando, non è certo che due nodi che minano lo stesso blocco la inseriscano nella stessa posizione.
+
+
 \section{Blocchi}
+La blockchain è una sequanza di blocchi che contengono una collezione di Transazioni.  il numero di transazioni all'interno di ognuno di questi blocchi varia in base alla dimensione della transazione stessa.I blocchi sono prodotti dai nodi validators e vengono generati in un lasso di tempo definito dalle regole della blockchain(Es: 15 secondi per Ethereum, 10 min per BitCoin), nel momento in cui il blocco viene completato i dati contenuti diventano verificati.
+
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{bcbl}
+	\centering
+	\caption{Struttura di un Blocco}
+	\label{fig:blockblockchain1}
+\end{figure}
+
+Un Blolcco è diviso in due parti, l`header e il body. Le transazioni sono racchiuse nel body del blocco e nell'header sono presenti i campi di gestione del blocco stesso come descritto nella figura \ref{fig:blockblockchain1}.
+
+
+\begin{itemize}
+  \item Versione del blocco: indica le regole di validazione del blocco da rispettare
+  \item Merkle Tree Root Hash valore della radice del Merkle Tree in cui sono salvate le transazioni del blocco
+  \item TimeStamp: Marca temporale salvata come Timestamp UNIX che indica l`inserimento del blocco nella blockchain
+  \item nBits: è la soglia target di un hash di blocco valido
+  \item Nonce: è un campo il cui valore è settato dai miner così che l’hash del blocco
+calcolato sia minore o uguale al target attuale della rete(difficoltà). Dato che non
+è possibile prevedere la combinazione di bit che risulterebbero nell’hash voluto,
+numerosi valori di nonce sono calcolati fino a quando l’hash risultante rispetti i
+requisiti attuali della rete.
+\item Parent Block Hash: segna l'hash del blocco a cui verrà agganciato
+\end{itemize}
+
+Il Body è composto da un contatore di transazioni (transaction counter) e dalle transazioni (TX), queste vengono memorizzate e organizzate tramite un Merkle Tree cioè una struttura ad albero in cui le foglie contengono i digest hash delle informazioni mentre i nodi contengono i digest hash dei nodi sottostanti(figli)
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Hash_Tree}
+	\centering
+	\caption{Merkle Tree}
+	\label{fig:Tree1}
+\end{figure}
+
 \section{Mining e Meccanismi del consenso}
+I miner sono i nodi partecipanti alla rete che  ascoltano le transazioni inviate, verificano che non siano malevole e compongono un blocco organizzando le transazioni in un Merkle Tree.
+I minatori che 'calcolano' un blocco valido vengono premiati con un incentivo (Es: criptovaluta)
+È anche possibile che più miner producano lo stesso blocco e la scelta del blocco da seguire per la catena spetta al meccanismo del consenso cioè  il set di regole che permette la finalizzazione delle transazioni e il funzionamento del sistema così che tutti i nodi della rete convergano ad una sola versione condivisa della catena.
+
 \subsection{Consenso Trustless}
+La blockhain è spesso considerata Trustless, letteralmente "senza fiducia" poiché a differenza di un sistema centralizzando non esiste nessun ente centrale in cui riporre la fiducia(come ad esempio una Banca,governi o istituti finanziari). Utilizzando un sistema decentralizzato la fiducia non viene eliminata definitivamente ma viene suddivisa tra tutti i partecipanti, in questo modo più sarà alto il numero dei partecipanti meno fiducia si dovrà affidare ad ogni singolo nodo. 
 \subsection{Proof of Work}
 \subsection{Proof of Stake}
 \subsection{Proof of Authority}
