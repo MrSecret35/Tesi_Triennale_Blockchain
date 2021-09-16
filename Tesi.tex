@@ -27,18 +27,18 @@
 \graphicspath{ {./img/} }
 \linespread{1.22}
 
-\input{solidity-highlighting.tex} %olidity color
+\input{solidity-highlighting.tex} %solidity color
 %\begin{lstlisting}[language=Solidity]
 %\end{lstlisting}
 
 \begin{document}
 \author{Giorgio Mecca}
-\title{Dal Vangelo secondo Giorgio}
+\title{ Utilizzo della blockchain nel Mobility as a Service}
 \maketitle
 
 %abstract
 \begin{abstract} 
-... 
+Il seguente elaborato descrive lo studio effettuato sulla tecnologia blockchain durante il tirocinio presso la 2+consulting. Lo studio è stato svolto ponendo particolare attenzione sulle blockchain private, la differenza e i vantaggi con le tecnologie pubbliche. In seguito ho dedicato la mia concentrazione allo studio di come e se fosse possibile avviare una blockchain privata scegliendo come tecnologia il client Besu, client facente parte del gruppo Hyperlegder che utilizza la tecnologia Etherium. Una volta definiti e studiati i parametri di essa, come ad esempio il meccanismo del consenso da utilizzare scegliendo IBFT 2.0 basato su PoA, ho studiato il modello di gestione e utilizzo di blockchain con gli Smart Contract, che permettono inoltre di inserire e memorizzare dati su blockchain includendo dati sulle transazioni pubbliche da certificare. In questo modo si è svolto uno studio sui dati utilizzati e come gestire il modello di Blockchain Ibrida, cioè l'utilizzo concatenato di una blockchain privata utilizzata per le sue proprietà sulla sicurezza e quindi come ente certificatore decentralizzato e un DataBase relazionale così da poter interrogare e accedere con facilità ai dati. Il passo finale è stato sviluppare una Web app con tipologia Single Page Application utilizzando come server la tecnologia Node Js con l'utilizzo del framework Web3 per l'interfacciamento alla blockchain. La Web app è sviluppata con l'ideologia della possibile integrazione nel Mobility as Service. Questa caratteristica è stata sviluppata con l'ideologia di fornire ai vari enti partecipanti un diverso account(coppia di chiavi pubblica e privata) che si utilizzerà per l'interfacciamento e gli fornirà determinati accessi. La WebApp ha quindi permesso la distinzione dei vari utenti che, in base al loro ruolo, avranno accessi e possibilità diverse sull'app. Queste possibilità riguardano chi e quali dati dovrà inserire e chi invece può interrogare le informazioni a cui ha accesso.
 \end{abstract}
 
 %indice
@@ -148,9 +148,21 @@ In questo modo se con il PoW era possibile inserire transazione fraudolente qui 
 L’elezione del blocco leader (da aggiungere) avviene tramite l’algoritmo VFR – Verifiable random function che utilizza l’algoritmo “follow-the-coin” - “più denaro blocchi più hai fiducia”. Il PoS porta molteplici vantaggi rispetto al PoW come un minimo dispendio energetico e una maggiore sicurezza e decentralizzazione dovuta all`assenza di mining pool.
 
 \subsection{Proof of Authority}
+\begin{figure}[h]
+	\includegraphics[height=.4\textheight]{judge}
+\end{figure}
+Un ultimo algoritmo del consenso è il PoA - Proof of Autority. Qui viene meno il concetto di decentralizzazione in quanto si basa sull'utilizza di nodi validatori noti. Il PoA viene spesso utilizzato in ambito privato o militare e si utilizza, come intuibile dal nome, il concetto di Autorità che quindi avrà il potere di decidere i nodi validatori, cioè gli unici nodi che potranno produrre blocchi, mentre gli altri nodi avranno soltanto la possibilità di lettura. Il PoA fa si che i nodi validatori mettano in "Stake" la loro reputazione a differenza di una moneta. Il modello Proof of Authority consente alle imprese di mantenere la propria privacy e allo stesso tempo avvalersi dei vantaggi della tecnologia blockchain. Inoltre il modello PoA riduce il problema del consumo in quanto diventa inutilizzabile il concetto di concorrenza nel mining e di conseguenza le mining pool. Riferendosi al Trilemma della scalabilità PoA rinuncia alla decentralizzazione a favore della sicurezza.
 
 \section{Attacchi}
+Nonostante la blockchain sta avendo molteplici riscontri positivi negli ultimi anni la sua caratteristica di decentralizzazione la rende si più affidabile rispetto ad un sistema centralizzato ma risultano comunque possibili e attuabili degli Attacchi ad essa.
+
 \subsection{Selfish Mining Attack}
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Selfish-mining-attack}
+	\centering
+	\caption{Selfish-mining-attack}
+	\label{fig:SM-attack}
+\end{figure}
 \subsection{Double Spending Attack}
 \section{Blockchain Pubbliche/Private}
 \section{Etherium}
