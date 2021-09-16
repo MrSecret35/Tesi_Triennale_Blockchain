@@ -1,4 +1,4 @@
-\documentclass[a4paper]{report}
+\documentclass[12pt]{report}
 
 
 \usepackage[italian]{babel} %italiano
@@ -6,8 +6,26 @@
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx} %immagini
 \usepackage{hyperref}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\renewcommand{\chaptermark}[1]%
+{\markboth{\MakeUppercase{\thechapter.\ #1}}{}}
+\renewcommand{\sectionmark}[1]%
+{\markright{\MakeUppercase{\thesection.\ #1}}}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0pt}
+\newcommand{\helv}{%
+\fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont}
+\fancyhf{}
+\fancyhead[LE,RO]{\helv \thepage}
+\fancyhead[LO]{\helv \rightmark}
+\fancyhead[RE]{\helv \leftmark}
+
 
 \graphicspath{ {./img/} }
+\linespread{1.22}
 
 \input{solidity-highlighting.tex} %olidity color
 %\begin{lstlisting}[language=Solidity]
@@ -15,7 +33,7 @@
 
 \begin{document}
 \author{Giorgio Mecca}
-\title{Blockchain come certificatore}
+\title{Dal Vangelo secondo Giorgio}
 \maketitle
 
 %abstract
@@ -72,7 +90,6 @@ Un codice hash è una qualunque sequenza di caratteri alfanumerici generati da u
 \end{figure}
 In una blockchain i dati vengono scritti sotto forma di Transazioni in seguito contenute in vari blocchi. L'uso più comune delle transazioni è l'invio di denaro o in qualche modo una moneta equivalente. Le transazioni devono quindi avere un mittente, un destinatario, un 'value' cioè il valore trasmesso, vengono quindi considerate come un cambio di stato riferendosi alle informazioni nella blockchain e saranno identificate da un Transaction Hash. Una volta inviata, la transazione entra in un transaction pool, da dove i miner andranno a selezionare randomicamente transazioni da includere nel prossimo blocco. Una transazione per essere considerata valida deve essere accettata da un nodo che la inserirà nel blocco che sta minando, non è certo che due nodi che minano lo stesso blocco la inseriscano nella stessa posizione.
 
-
 \section{Blocchi}
 La blockchain è una sequanza di blocchi che contengono una collezione di Transazioni.  il numero di transazioni all'interno di ognuno di questi blocchi varia in base alla dimensione della transazione stessa.I blocchi sono prodotti dai nodi validators e vengono generati in un lasso di tempo definito dalle regole della blockchain(Es: 15 secondi per Ethereum, 10 min per BitCoin), nel momento in cui il blocco viene completato i dati contenuti diventano verificati.
 
@@ -110,13 +127,28 @@ Il Body è composto da un contatore di transazioni (transaction counter) e dalle
 \section{Mining e Meccanismi del consenso}
 I miner sono i nodi partecipanti alla rete che  ascoltano le transazioni inviate, verificano che non siano malevole e compongono un blocco organizzando le transazioni in un Merkle Tree.
 I minatori che 'calcolano' un blocco valido vengono premiati con un incentivo (Es: criptovaluta)
-È anche possibile che più miner producano lo stesso blocco e la scelta del blocco da seguire per la catena spetta al meccanismo del consenso cioè  il set di regole che permette la finalizzazione delle transazioni e il funzionamento del sistema così che tutti i nodi della rete convergano ad una sola versione condivisa della catena.
+È anche possibile che più miner producano lo stesso blocco e la scelta del blocco da seguire per la catena spetta al meccanismo del consenso cioè  il set di regole che permette la finalizzazione delle transazioni e il funzionamento del sistema così che tutti i nodi della rete convergano ad una sola versione condivisa della catena, questo andrà a creare una biforcazione o Fork da cui si avranno una sequenza valida(quella che verrà continuata) e una sequenza(anche un singolo nodo) orfana(Figura \ref{fig:blockchain1}).
 
 \subsection{Consenso Trustless}
-La blockhain è spesso considerata Trustless, letteralmente "senza fiducia" poiché a differenza di un sistema centralizzando non esiste nessun ente centrale in cui riporre la fiducia(come ad esempio una Banca,governi o istituti finanziari). Utilizzando un sistema decentralizzato la fiducia non viene eliminata definitivamente ma viene suddivisa tra tutti i partecipanti, in questo modo più sarà alto il numero dei partecipanti meno fiducia si dovrà affidare ad ogni singolo nodo. 
+La blockhain è considerata Trustless, letteralmente "senza fiducia" poiché a differenza di un sistema centralizzando non esiste nessun ente centrale in cui riporre la fiducia(come ad esempio una Banca,governi o istituti finanziari). Utilizzando un sistema decentralizzato la fiducia non viene eliminata definitivamente ma viene suddivisa tra tutti i partecipanti, in questo modo più sarà alto il numero dei partecipanti meno fiducia si dovrà affidare ad ogni singolo nodo. La fiducia viene quindi riposta nei singoli nodi e che questi rispettino le regole considerate valide.
+
 \subsection{Proof of Work}
+L'algoritmo del consenso più famoso ed utilizzato(come da Bitcoin, Ethereum e Monero) nonché il primo algoritmo del consenso mai creato è il PROOF OF WORK abbreviato PoW. Questo si basa sulla "Prova del Lavoro" svolto dai miner che dovranno risolvere unauna serie di operazioni considerate u puzzle matematico per poter creare un blocco valido. Il primo miner che costruisce il blocco lo aggiunge alla catena, notifica in broadcast il resto della rete e di conseguenza tutte le transazioni in esso presenti vengono validate, infine il miner viene ricompensato con un incentivo come una moneta che sarà relativa quello che gli utenti pagano per effettuare le transazioni, cioè le "tasse" - fees. I miner quindi utilizzano la loro potenza e le risorse computazionali per provare che hanno svolto del lavoro(questo produce anche un massivo consumo di elettricità), talvolta è possibile che due o più nodi producano lo stesso blocco creando un fork e quindi due differenti catene. Il sistema è incentivato a scrivere nuovi blocchi sulla catena più lunga così da eliminare la biforcazione orfana e ricondurre tutta la rete a un`unica catena, questo implica che se si voglia creare un blocco "falso" e farlo accettare dalla blockchain bisognerà possedere una potenza di calcolo maggiore di tutta la rete. Il mining diventa sempre più competitivo con la partecipazione di sempre più gente e con l'aumentare della difficoltà, perciò si è vista la creazione delle Mining Pool cioè un insieme di persone che raggruppa la propria potenza di calcolo per il mining di criptomoneta, in questo modo la probabilità di costruire un blocco valido aumenta e di conseguenza aumenta anche il guadagno suddiviso tra i partecipanti
+
 \subsection{Proof of Stake}
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{pow-pos}
+	\centering
+	\caption{PoW-PoS}
+	\label{fig:pow-pos}
+\end{figure}
+
+Nel 2011 basandoci sui problemi del PoW come il dispendio di energia elettrica o la creazione di grosse Mining Pool che elimina la decentralizzazione si è sviluppata l`idea del PoS Proof of Stake. Il PoS sostituisce i miner con i validatori o coniatore, questi per far si che il loro blocco venga considerato valido devono depositare della moneta come "cauzione" che viene appunto chiamata Stake. 
+In questo modo se con il PoW era possibile inserire transazione fraudolente qui si andrebbe a perdere la somma congelata. Il criterio di scelta dei validatori si basa sulla quantità di moneta bloccata la durata del blocco, con il secondo parametro si va in contro al problema generato dal primo parametro cioè che solo i più ricchi possono essere scelti e quindi diventare più ricchi.
+L’elezione del blocco leader (da aggiungere) avviene tramite l’algoritmo VFR – Verifiable random function che utilizza l’algoritmo “follow-the-coin” - “più denaro blocchi più hai fiducia”. Il PoS porta molteplici vantaggi rispetto al PoW come un minimo dispendio energetico e una maggiore sicurezza e decentralizzazione dovuta all`assenza di mining pool.
+
 \subsection{Proof of Authority}
+
 \section{Attacchi}
 \subsection{Selfish Mining Attack}
 \subsection{Double Spending Attack}

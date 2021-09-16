@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.13)  15 SEP 2021 12:07
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.13)  16 SEP 2021 10:25
 entering extended mode
 **./Tesi.tex
 (Tesi.tex
@@ -6,8 +6,8 @@ LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-08-27>
 (C:\Users\mecca\AppData\Local\Programs\MiKTeX\tex/latex/base\report.cls
 Document Class: report 2021/02/12 v1.4n Standard LaTeX document class
-(C:\Users\mecca\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
-File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+(C:\Users\mecca\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count182
 \c@chapter=\count183
@@ -227,7 +227,29 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 86.
 )
 \Hy@SectionHShift=\skip49
-) (solidity-highlighting.tex
+)
+(C:\Users\mecca\AppData\Local\Programs\MiKTeX\tex/latex/fancyhdr\fancyhdr.sty
+Package: fancyhdr 2021/01/28 v4.0.1 Extensive control of page headers and foote
+rs
+\f@nch@headwidth=\skip50
+\f@nch@O@elh=\skip51
+\f@nch@O@erh=\skip52
+\f@nch@O@olh=\skip53
+\f@nch@O@orh=\skip54
+\f@nch@O@elf=\skip55
+\f@nch@O@erf=\skip56
+\f@nch@O@olf=\skip57
+\f@nch@O@orf=\skip58
+)
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 22.
+
+
+Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
+less on input line 24.
+
+(solidity-highlighting.tex
 (C:\Users\mecca\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
 \lst@mode=\count273
 \lst@gtempboxa=\box50
@@ -277,26 +299,26 @@ File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
 ) (Tesi.aux)
 \openout1 = `Tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 16.
-LaTeX Font Info:    ... okay on input line 16.
-LaTeX Info: Redefining \it@ocap on input line 16.
-LaTeX Info: Redefining \it@ccap on input line 16.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 34.
+LaTeX Font Info:    ... okay on input line 34.
+LaTeX Info: Redefining \it@ocap on input line 34.
+LaTeX Info: Redefining \it@ccap on input line 34.
 
 (C:\Users\mecca\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mk
 ii
@@ -323,7 +345,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 fg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 16.
+Package hyperref Info: Link coloring OFF on input line 34.
 
 (C:\Users\mecca\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -337,20 +359,18 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
 \c@section@level=\count288
 )
-LaTeX Info: Redefining \ref on input line 16.
-LaTeX Info: Redefining \pageref on input line 16.
-LaTeX Info: Redefining \nameref on input line 16.
+LaTeX Info: Redefining \ref on input line 34.
+LaTeX Info: Redefining \pageref on input line 34.
+LaTeX Info: Redefining \nameref on input line 34.
  (Tesi.out) (Tesi.out)
 \@outlinefile=\write3
 \openout3 = `Tesi.out'.
 
 \c@lstlisting=\count289
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 20.
+(Font)              <14.4> on input line 40.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 20.
-LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 20.
+(Font)              <7> on input line 40.
  [1
 
 {C:/Users/mecca/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]pdfTeX warning (
@@ -358,112 +378,146 @@ ext4): destination with the same identifier (name{page.1}) has been already use
 d, duplicate ignored
 <to be read again> 
                    \relax 
-l.24 \end{abstract}
+l.42 \end{abstract}
                     [1] (Tesi.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 4.
+(Font)              <12> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 4.
+(Font)              <8> on input line 4.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <6> on input line 4.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.40 ...umberline {4.2}Soluzione}{11}{section.4.2}
+l.25 ...erline {2.9.4}Dapps}{14}{subsection.2.9.4}
                                                   % [1
 
-])
+]
+LaTeX Font Info:    Trying to load font information for T1+phv on input line 57
+.
+
+(C:\Users\mecca\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
+File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
+)
+[2])
 \tf@toc=\write4
 \openout4 = `Tesi.toc'.
 
- [2]
+ [3]
 Capitolo 1.
-[3
+[4
 
 ]
 Capitolo 2.
-<./img//BF.jpg, id=300, 481.8pt x 216.05719pt>
+<./img//BF.jpg, id=304, 481.8pt x 216.05719pt>
 File: ./img//BF.jpg Graphic file (type jpg)
 <use ./img//BF.jpg>
-Package pdftex.def Info: ./img//BF.jpg  used on input line 38.
-(pdftex.def)             Requested size: 345.0pt x 154.71378pt.
-[4
+Package pdftex.def Info: ./img//BF.jpg  used on input line 56.
+(pdftex.def)             Requested size: 390.0pt x 174.89655pt.
+[5
 
  <./img//BF.jpg>]
-<./img//bl1.png, id=307, 408.02437pt x 204.765pt>
+<./img//bl1.png, id=312, 408.02437pt x 204.765pt>
 File: ./img//bl1.png Graphic file (type png)
 <use ./img//bl1.png>
-Package pdftex.def Info: ./img//bl1.png  used on input line 48.
-(pdftex.def)             Requested size: 345.0pt x 173.14496pt.
-<./img//bc1.png, id=310, 980.66376pt x 369.38pt>
+Package pdftex.def Info: ./img//bl1.png  used on input line 66.
+(pdftex.def)             Requested size: 390.0pt x 195.72855pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[6]
+<./img//bc1.png, id=319, 980.66376pt x 369.38pt>
 File: ./img//bc1.png Graphic file (type png)
 <use ./img//bc1.png>
-Package pdftex.def Info: ./img//bc1.png  used on input line 60.
-(pdftex.def)             Requested size: 345.0pt x 129.94437pt.
- [5 <./img//bl1.png>]
-<./img//flusso_bc.png, id=318, 770.88pt x 356.83313pt>
+Package pdftex.def Info: ./img//bc1.png  used on input line 78.
+(pdftex.def)             Requested size: 390.0pt x 146.8983pt.
+ [7 <./img//bl1.png>]
+<./img//flusso_bc.png, id=326, 770.88pt x 356.83313pt>
 File: ./img//flusso_bc.png Graphic file (type png)
 <use ./img//flusso_bc.png>
-Package pdftex.def Info: ./img//flusso_bc.png  used on input line 68.
-(pdftex.def)             Requested size: 345.0pt x 159.6968pt.
- [6 <./img//bc1.png (PNG copy)> <./img//flusso_bc.png>]
-<./img//bcbl.jpg, id=326, 578.16pt x 384.6872pt>
+Package pdftex.def Info: ./img//flusso_bc.png  used on input line 86.
+(pdftex.def)             Requested size: 390.0pt x 180.52327pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[8 <./img//bc1.png (PNG copy)>]
+<./img//bcbl.jpg, id=332, 578.16pt x 384.6872pt>
 File: ./img//bcbl.jpg Graphic file (type jpg)
 <use ./img//bcbl.jpg>
-Package pdftex.def Info: ./img//bcbl.jpg  used on input line 80.
-(pdftex.def)             Requested size: 345.0pt x 229.5462pt.
- [7 <./img//bcbl.jpg>]
-<./img//Hash_Tree.png, id=334, 1204.5pt x 766.865pt>
+Package pdftex.def Info: ./img//bcbl.jpg  used on input line 97.
+(pdftex.def)             Requested size: 390.0pt x 259.48828pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[9 <./img//flusso_bc.png>]
+<./img//Hash_Tree.png, id=342, 1204.5pt x 766.865pt>
 File: ./img//Hash_Tree.png Graphic file (type png)
 <use ./img//Hash_Tree.png>
-Package pdftex.def Info: ./img//Hash_Tree.png  used on input line 104.
-(pdftex.def)             Requested size: 345.0pt x 219.64703pt.
- [8 <./img//Hash_Tree.png>] [9]
+Package pdftex.def Info: ./img//Hash_Tree.png  used on input line 121.
+(pdftex.def)             Requested size: 390.0pt x 248.30376pt.
+ [10 <./img//bcbl.jpg>] [11 <./img//Hash_Tree.png>]
+[12]
+<./img//pow-pos.jpg, id=360, 1204.5pt x 501.875pt>
+File: ./img//pow-pos.jpg Graphic file (type jpg)
+<use ./img//pow-pos.jpg>
+Package pdftex.def Info: ./img//pow-pos.jpg  used on input line 140.
+(pdftex.def)             Requested size: 390.0pt x 162.50246pt.
+ [13 <./img//pow-pos.jpg>] [14]
 Capitolo 3.
-[10
+[15
 
 ]
 Capitolo 4.
-[11
+[16
 
-] [12] [13]
+] [17] [18] [19]
 Capitolo 5.
-[14
+[20
 
 ]
+Overfull \vbox (22.16699pt too high) has occurred while \output is active []
+
+
+[21]
 Capitolo 6.
-[15
+[22
 
 ] (Tesi.lof)
 \tf@lof=\write5
 \openout5 = `Tesi.lof'.
 
- [16
+ [23
 
 ] (Tesi.aux)
 Package rerunfilecheck Info: File `Tesi.out' has not changed.
 (rerunfilecheck)             Checksum: E406ECE0E19290F70DA447484E0FF3CB;6987.
  ) 
 Here is how much of TeX's memory you used:
- 11404 strings out of 478927
- 169854 string characters out of 2852535
- 501905 words of memory out of 3000000
- 29038 multiletter control sequences out of 15000+600000
- 414987 words of font info for 48 fonts, out of 8000000 for 9000
+ 11641 strings out of 478927
+ 173118 string characters out of 2852535
+ 502881 words of memory out of 3000000
+ 29259 multiletter control sequences out of 15000+600000
+ 417092 words of font info for 51 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,7n,66p,1684b,486s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,66p,1759b,540s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx
-1200.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
-0\tcrm1000.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
-/dpi600\ecbx1440.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx2074.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfour
-/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/
-ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.pk> <C:\Users\mecca\AppData\Local\MiKT
-eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\mecca\AppData\Loca
-l\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1728.pk>
-Output written on Tesi.pdf (18 pages, 614994 bytes).
+1440.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi60
+0\tcrm1200.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec
+/dpi600\ecbx1728.pk>{C:/Users/mecca/AppData/Local/Programs/MiKTeX/fonts/enc/dvi
+ps/base/8r.enc} <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/e
+c/dpi600\ecbx2488.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
+ppen/ec/dpi600\ecrm1200.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk/ljfou
+r/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fonts/pk
+/ljfour/jknappen/ec/dpi600\ecrm1440.pk> <C:\Users\mecca\AppData\Local\MiKTeX\fo
+nts/pk/ljfour/jknappen/ec/dpi600\ecrm2074.pk><C:/Users/mecca/AppData/Local/Prog
+rams/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on Tesi.pdf (25 pages, 659781 bytes).
 PDF statistics:
- 721 PDF objects out of 1000 (max. 8388607)
- 84 named destinations out of 1000 (max. 500000)
- 463 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 755 PDF objects out of 1000 (max. 8388607)
+ 92 named destinations out of 1000 (max. 500000)
+ 468 words of extra memory for PDF output out of 10000 (max. 10000000)
 
