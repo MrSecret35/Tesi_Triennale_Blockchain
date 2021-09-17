@@ -25,7 +25,7 @@
 
 
 \graphicspath{ {./img/} }
-\linespread{1.22}
+\linespread{1.23}
 
 \input{solidity-highlighting.tex} %solidity color
 %\begin{lstlisting}[language=Solidity]
@@ -151,7 +151,7 @@ L’elezione del blocco leader (da aggiungere) avviene tramite l’algoritmo VFR
 \begin{figure}[h]
 	\includegraphics[height=.4\textheight]{judge}
 \end{figure}
-Un ultimo algoritmo del consenso è il PoA - Proof of Autority. Qui viene meno il concetto di decentralizzazione in quanto si basa sull'utilizza di nodi validatori noti. Il PoA viene spesso utilizzato in ambito privato o militare e si utilizza, come intuibile dal nome, il concetto di Autorità che quindi avrà il potere di decidere i nodi validatori, cioè gli unici nodi che potranno produrre blocchi, mentre gli altri nodi avranno soltanto la possibilità di lettura. Il PoA fa si che i nodi validatori mettano in "Stake" la loro reputazione a differenza di una moneta. Il modello Proof of Authority consente alle imprese di mantenere la propria privacy e allo stesso tempo avvalersi dei vantaggi della tecnologia blockchain. Inoltre il modello PoA riduce il problema del consumo in quanto diventa inutilizzabile il concetto di concorrenza nel mining e di conseguenza le mining pool. Riferendosi al Trilemma della scalabilità PoA rinuncia alla decentralizzazione a favore della sicurezza.
+Un ultimo algoritmo del consenso è il PoA - Proof of Autority. Qui viene meno il concetto di decentralizzazione in quanto si basa sull'utilizzo di nodi validatori noti. Il PoA viene spesso utilizzato in ambito privato o militare e si utilizza, come intuibile dal nome, il concetto di Autorità che quindi avrà il potere di decidere i nodi validatori, cioè gli unici nodi che potranno produrre blocchi, mentre gli altri nodi avranno soltanto la possibilità di lettura. Il PoA fa si che i nodi validatori mettano in "Stake" la loro reputazione a differenza di una moneta. Il modello Proof of Authority consente alle imprese di mantenere la propria privacy e allo stesso tempo avvalersi dei vantaggi della tecnologia blockchain. Inoltre il modello PoA riduce il problema del consumo in quanto diventa inutilizzabile il concetto di concorrenza nel mining e di conseguenza le mining pool. Riferendosi al Trilemma della scalabilità PoA rinuncia alla decentralizzazione a favore della sicurezza.
 
 \section{Attacchi}
 Nonostante la blockchain sta avendo molteplici riscontri positivi negli ultimi anni la sua caratteristica di decentralizzazione la rende si più affidabile rispetto ad un sistema centralizzato ma risultano comunque possibili e attuabili degli Attacchi ad essa.
@@ -163,8 +163,21 @@ Nonostante la blockchain sta avendo molteplici riscontri positivi negli ultimi a
 	\caption{Selfish-mining-attack}
 	\label{fig:SM-attack}
 \end{figure}
+Il Selfish Mining Attack si basa su un sistema PoW e sfrutta la sua debolezza nel momento in cui si genera un Fork. Nel momento in cui si genera una biforcazione solo la catena più lunga viene considerata valida e le transazioni nella catena orfana vengono rese nulle. Per l`attuarsi del Selfish Mining Attack si ha bisogno che l`attaccante cioè il Faul-Miner generi un blocco che potrebbe creare un Fork (in cui si ha la possibilità di inserire transazioni fraudolente) ma lo tenga segreto, senza aggiungerlo alla Blockchain. Il Fault-Miner dovrà continuare a generare blocchi seguendo la sua catena e quando questa sarà più lunga di quella che attualmente gli altri miner stanno seguendo, pubblicherà il suo Fork e la sua catena che essendo più lunga secondo l`algoritmo del PoW verrà considerata valida e sarà quella che gli altri miner seguiranno da quel momento in poi. Per l`attuazione del Selfish Mining Attack si ha bisogno quindi che un singolo ente possegga più del 51% della potenza dell`intera rete.
+
 \subsection{Double Spending Attack}
+\begin{figure}[h]
+	\includegraphics[height=0.2\textheight]{dsa}
+	\centering
+	\caption{Double Spending Attack}
+	\label{fig:ds-attack}
+\end{figure}
+Il Double Spending Attack viene concepito per la possibilita di spedere due volte la stessa moneta. Questo potrebbe essere attuabile con la creazione di due diverse transazioni. Le due transazioni però dovranno appartenere a due blocchi diversi, e se due miner che competono nel minare un blocco utilizzano ognuno una transazione diversa? Allora verranno prodotti due blocchi con entrambe le transazioni MA verrà prodotto un Fork quindi sono una delle due transazioni verrà poi validata mentre la seconda sarà annullata, ricordando che una transazione o meglio un blocco ha una validità pari al numero di blocchi minati in seguito (In BitCoin un blocco è validato se sono stati prodotti 6 blocchi successivi).
+
 \section{Blockchain Pubbliche/Private}
+Una blockchain pubblica solitamente è anche detta permissionless, letteralmente "senza permessi" cioè un nuovo nodo non ha bisogno di speciali permessi per partecipare quindi minare o effettuare transazioni nella rete che quindi viene definita pubblica. Le reti permissionless sono quindi decentralizzate in quanto nessuno ha il controllo della rete.
+
+Le blockchain private sono conosciute come permissioned, sono caratterizzate dalla presenza di un’autorità centrale che decide chi può accedere e assegna loro un ruolo nella rete che determinerà cosa l’utente avrà il permesso di fare. La sicurezza di una blockchain privata fa maggiormente perno sull'affidabilità dei singoli partecipanti.
 \section{Etherium}
 \subsection{Smart Contract}
 \subsection{Solidity}
