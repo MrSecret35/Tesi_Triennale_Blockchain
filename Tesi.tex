@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[12pt,titlepage]{report}
 
 
 \usepackage[italian]{babel} %italiano
@@ -7,6 +7,7 @@
 \usepackage{graphicx} %immagini
 \usepackage{hyperref}
 \usepackage{fancyhdr}
+\usepackage[nouppercase]{frontespizio}
 
 \pagestyle{fancy}
 
@@ -32,9 +33,23 @@
 %\end{lstlisting}
 
 \begin{document}
-\author{Giorgio Mecca}
-\title{Studio e realizzazione di un prototipo di un sistema basato su blockchain per il mobility as a service}
-\maketitle
+
+\begin{frontespizio}
+\Universita{Torino}
+\Facolta{Scieze della Natura}
+\Corso[Laurea]{Informatica}
+\Logo{Unito-logo}
+\Titoletto{Tesi di laurea}
+\Titolo{Studio e realizzazione di un prototipo di un sistema basato su blockchain per il mobility as a service}
+\Candidato[880847]{Giorgio Mecca}
+\Relatore{Prof.~Claudio Schifanella}
+\Annoaccademico{2020-2021}
+\end{frontespizio}
+
+%\author{Giorgio Mecca}
+%\title{Studio e realizzazione di un prototipo di un sistema basato su blockchain per il mobility as a service}
+%\includegraphics[height=.2\textheight]{Unito-logo}
+%\maketitle
 %Study and realization of a prototype of a blockchain-based system for mobility as a service
 
 %abstract
@@ -178,11 +193,24 @@ Il Double Spending Attack viene concepito per la possibilita di spedere due volt
 \section{Blockchain Pubbliche/Private}
 Una blockchain pubblica solitamente è anche detta permissionless, letteralmente "senza permessi" cioè un nuovo nodo non ha bisogno di speciali permessi per partecipare quindi minare o effettuare transazioni nella rete che quindi viene definita pubblica. Le reti permissionless sono quindi decentralizzate in quanto nessuno ha il controllo della rete.
 
-Le blockchain private sono conosciute come permissioned, sono caratterizzate dalla presenza di un’autorità centrale che decide chi può accedere e assegna loro un ruolo nella rete che determinerà cosa l’utente avrà il permesso di fare. La sicurezza di una blockchain privata fa maggiormente perno sull'affidabilità dei singoli partecipanti.
-\section{Etherium}
+Le blockchain private sono conosciute come permissioned, sono caratterizzate dalla presenza di un’autorità centrale che decide chi può accedere e assegna loro un ruolo nella rete che determinerà cosa il nuovo nodo avrà il permesso di fare, se ha la possibilità di partecipare alla rete o se potrà essere un nodo validatore o sola lettura . La sicurezza di una blockchain privata fa maggiormente perno sull'affidabilità dei singoli partecipanti.
+
+\section{Ethereum}
+
+\begin{figure}[h]
+	\includegraphics[height=0.2\textheight]{eth}
+	\centering
+	\caption{Etherium Logo}
+	\label{fig:eth-logo}
+\end{figure}
+
+Ethereum è una piattaforma decentralizzata ideata nel 2013 (in seguito pubblicata nel 2015) come sostituto a BitCoin. Ethereum è una piattaforma basata su blockchain che permette quindi la gestione degli smart contract e come Bitcoin mette a disposizione una moneta che viene analogamente chiamata Ether e abbreviata con ETH. La moneta viene utilizzata per le varie transazioni ma viene anche usata per pagare le "tasse" - fee, nello specifico viene utilizzato un sottomultiplo dell'ETH chiamato wei che corrisponde a circa  $ 10^{-18} $ ETH  ( 1 ETH = $ 10^{18} $ wei). Per lo sviluppo e interfacciamento viene messa a disposizione da Ethereum la EVM - Ethereum Virtual Machine che funge da macchina turing completa in grado di eseguire byte code. La sua funzione è quella di consentire l'esecuzione di programmi o smart contract al fine di implementare una serie di funzionalità aggiuntive su detta blockchain; la Evm utilizza per gli smart contract un linguaggio di alto livello specializzato chiamato Solidity.
+
 \subsection{Smart Contract}
 \subsection{Solidity}
 \subsection{Gas}
+
+Quando si effettua una transazione o si carica uno smart contract la VM richiede un pagamento calcolato in gas. Il gas è una frazione dell'ether e viene richiesto per un'operazione come l'invio di una transazione infatti viene comunemente chiamato "transaction fee". Il gas viene anche richiesto quando si effettua una qualunque operazione tramite uno smart contract e dipende dala complessità di essa.
 \subsection{Dapps}
 
 %capitolo 3
