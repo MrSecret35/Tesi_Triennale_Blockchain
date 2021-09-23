@@ -8,21 +8,18 @@
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage[nouppercase]{frontespizio}
+\usepackage{wrapfig} 
 
 \pagestyle{fancy}
-
-\renewcommand{\chaptermark}[1]%
-{\markboth{\MakeUppercase{\thechapter.\ #1}}{}}
-\renewcommand{\sectionmark}[1]%
-{\markright{\MakeUppercase{\thesection.\ #1}}}
-\renewcommand{\headrulewidth}{0.5pt}
-\renewcommand{\footrulewidth}{0pt}
-\newcommand{\helv}{%
-\fontfamily{phv}\fontseries{b}\fontsize{9}{11}\selectfont}
-\fancyhf{}
-\fancyhead[LE,RO]{\helv \thepage}
-\fancyhead[LO]{\helv \rightmark}
-\fancyhead[RE]{\helv \leftmark}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+\fancyhf{} 
+\fancyhead[R]{\small\bfseries\thepage}
+\fancyhead[L]{\small\bfseries\thechapter\ \leftmark}
+\setlength{\headheight}{13.6pt} 
+\fancypagestyle{plain}{%
+  \fancyhead{}\fancyfoot[C]{\thepage}%
+  \renewcommand{\headrulewidth}{0pt}%
+}
 
 
 \graphicspath{ {./img/} }
@@ -164,9 +161,9 @@ In questo modo se con il PoW era possibile inserire transazione fraudolente qui 
 L’elezione del blocco leader (da aggiungere) avviene tramite l’algoritmo VFR – Verifiable random function che utilizza l’algoritmo “follow-the-coin” - “più denaro blocchi più hai fiducia”. Il PoS porta molteplici vantaggi rispetto al PoW come un minimo dispendio energetico e una maggiore sicurezza e decentralizzazione dovuta all`assenza di mining pool.
 
 \subsection{Proof of Authority}
-\begin{figure}[h]
-	\includegraphics[height=.4\textheight]{judge}
-\end{figure}
+\begin{wrapfigure}{l}{0.5\textwidth}
+	\includegraphics[height=0.3\textheight]{judge}
+\end{wrapfigure}
 Un ultimo algoritmo del consenso è il PoA - Proof of Autority. Qui viene meno il concetto di decentralizzazione in quanto si basa sull'utilizzo di nodi validatori noti. Il PoA viene spesso utilizzato in ambito privato o militare e si utilizza, come intuibile dal nome, il concetto di Autorità che quindi avrà il potere di decidere i nodi validatori, cioè gli unici nodi che potranno produrre blocchi, mentre gli altri nodi avranno soltanto la possibilità di lettura. Il PoA fa si che i nodi validatori mettano in "Stake" la loro reputazione a differenza di una moneta. Il modello Proof of Authority consente alle imprese di mantenere la propria privacy e allo stesso tempo avvalersi dei vantaggi della tecnologia blockchain. Inoltre il modello PoA riduce il problema del consumo in quanto diventa inutilizzabile il concetto di concorrenza nel mining e di conseguenza le mining pool. Riferendosi al Trilemma della scalabilità PoA rinuncia alla decentralizzazione a favore della sicurezza.
 
 \section{Attacchi}
@@ -207,11 +204,44 @@ Le blockchain private sono conosciute come permissioned, sono caratterizzate dal
 Ethereum è una piattaforma decentralizzata ideata nel 2013 (in seguito pubblicata nel 2015) come sostituto a BitCoin. Ethereum è una piattaforma basata su blockchain che permette quindi la gestione degli smart contract e come Bitcoin mette a disposizione una moneta che viene analogamente chiamata Ether e abbreviata con ETH. La moneta viene utilizzata per le varie transazioni ma viene anche usata per pagare le "tasse" - fee, nello specifico viene utilizzato un sottomultiplo dell'ETH chiamato wei che corrisponde a circa  $ 10^{-18} $ ETH  ( 1 ETH = $ 10^{18} $ wei). Per lo sviluppo e interfacciamento viene messa a disposizione da Ethereum la EVM - Ethereum Virtual Machine che funge da macchina turing completa in grado di eseguire byte code. La sua funzione è quella di consentire l'esecuzione di programmi o smart contract al fine di implementare una serie di funzionalità aggiuntive su detta blockchain; la Evm utilizza per gli smart contract un linguaggio di alto livello specializzato chiamato Solidity.
 
 \subsection{Smart Contract}
+\begin{wrapfigure}{l}{0.4\textwidth}
+	\includegraphics[height=0.2\textheight]{SmartC}
+	\centering
+\end{wrapfigure}
+
+Uno smart Contract, o contratto intelligente è un programma messo a disposizione da ethereum ed è una collezione di codice(funzioni) e di dati(stato). Lo smart Contract è identico ad un contratto reale ma grazie alla tecnologia blockchain non necessita di un terzo ente verificatore. Sono programmi scritti in un linguaggio di programmazione ad alto livello come Solidity (simil-JavaScript) o Vyper (simil-Python), compilati in bytecode e distribuiti sulla blockchain tramite speciali transazioni inviate ad un generico indirizzo 0x0 pagando un determinato gas. Nonostante siano caricati da un utente gli smart contract non hanno un proprietario ma appartengono alla rete, anche la loro sicurezza deriva da essa, vengono infatti definiti come programmi "on-chain" cioè programmi caricati su rete che mantengono uno stato sicuro e inviolabile al di fuori delle regole del contratto stesso infatti una volta caricato questo non può essere modificato. Ogni operazione gestita da uno smart contract che si vuole effettuare comporta una transazione che avrà come destinatario l'indirizzo del contratto e che come una qualunque transazione sarà considerata valida sono una volta che la rete l'avrà validata.
+
 \subsection{Solidity}
+Solidity è il linguaggio più diffuso nel contesto Ethereum ed è un linguaggio orientato agli oggetti, compilato, staticamente tipato e di alto livello usato per implementare smart contract eseguibili sull’Ethereum Virtual Machine. È stato sviluppato per essere simile alla sintassi ECMAScript per renderlo familiare agli sviluppatori web. Solidity è un linguaggio fortemente tipato, i tipi delle variabili sono gestiti in modo statico, 
+cioè il tipo va dichiarato nel momento in cui questa viene creata. Solidity gestisce i tipi di dato in tre suddivisioni:
+\begin{itemize}
+  \item Tipi Valore: possono essere utilizzati per lo storage di comuni valori come un INT oppure UINT per un unsigned int, ma vengono considerati tali anche i bool o le string;
+  \item Tipi indirizzo: come specificato dal nome indicano gli address di altre variabili/oggetti;
+  \item Tipi mapping: rappresentano strutture dati di tipo chiave/valore. Durante la creazione tutti i valori vengono inizializzati con i byte a zero, il loro uso è analogo ad un "array" visto da altri linguaggi o meglio ad una Hash map.
+\end{itemize}
+Le funzioni rappresentano il codice eseguibile di uno smart contract, possono prendere vai parametri in input e possono restituire più argomenti come output che andranno specificati nella firma. Queste posseggono una visibilità che può essere public, private, external, internal.
+Un contratto di esempio :
+\begin{lstlisting}[language=Solidity]
+pragma solidity >=0.4.0 <0.6.0;
+contract SimpleStorage {
+ uint storedData;
+
+ function set(uint x) public {
+ 	storedData = x;
+ }
+ function get() public view returns (uint) {
+ 	return storedData;
+ }
+}
+\end{lstlisting}
+Nella prima riga si nota la dicitura pragma solidity che indica la versione del linguaggio utilizzata per scrivere il contratto che quindi indica al compilatore la versione da utilizzare per una giusta compilazione. In seguito inizia la definizione del contratto. Questo possiede una variabile storedData di tipo Unsegned Int di 256bit, e due funzioni entrambi con visibilità pubblica, la prima set ha un argomento di tipo uint enessun return mentre nella seconda viene (nella firma) segnato il return e il tipo restituito (uint).
 \subsection{Gas}
 
-Quando si effettua una transazione o si carica uno smart contract la VM richiede un pagamento calcolato in gas. Il gas è una frazione dell'ether e viene richiesto per un'operazione come l'invio di una transazione infatti viene comunemente chiamato "transaction fee". Il gas viene anche richiesto quando si effettua una qualunque operazione tramite uno smart contract e dipende dala complessità di essa.
-\subsection{Dapps}
+Quando si effettua una transazione o si carica uno smart contract la VM richiede un pagamento calcolato in gas. Il gas è una frazione dell'ether e viene richiesto per un'operazione come l'invio di una transazione infatti viene comunemente chiamato "transaction fee". Il gas viene anche richiesto quando si effettua una qualunque operazione tramite uno smart contract ed è calcolato in base alla complessità di questa e da quanta memoria va a utilizzare. 
+
+\subsection{DApps}
+
+Le DApp - Decentralized APPlication sono applicazioni simili alle app tradizionali, con la differenza fondamentale che al posto di appoggiarsi su server centralizzati sfruttano le piattaforme blockchain e il loro network distribuito, in questo modo possono essere utilizzati da interfaccia con gli smart contract.
 
 %capitolo 3
 \chapter{Tecnologie utilizzate}

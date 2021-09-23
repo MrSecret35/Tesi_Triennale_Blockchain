@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.10)  23 SEP 2021 08:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.10)  23 SEP 2021 17:47
 entering extended mode
 **./Tesi.tex
 (Tesi.tex
@@ -273,34 +273,32 @@ Package: ifxetex 2019/10/25 v0.7 ifxetex legacy package. Use iftex instead.
 \front@out=\write3
 \openout3 = `Tesi-frn.tex'.
 
-)
-
-Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 23.
-
-
-Package fancyhdr Warning: \fancyhead's `E' option without twoside option is use
-less on input line 25.
-
-(solidity-highlighting.tex
+) (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/wrapfig\wrapfig.sty
+\wrapoverhang=\dimen146
+\WF@size=\dimen147
+\c@WF@wrappedlines=\count273
+\WF@box=\box52
+\WF@everypar=\toks21
+Package: wrapfig 2003/01/31  v 3.6
+) (solidity-highlighting.tex
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.sty
-\lst@mode=\count273
-\lst@gtempboxa=\box52
-\lst@token=\toks21
-\lst@length=\count274
-\lst@currlwidth=\dimen146
-\lst@column=\count275
-\lst@pos=\count276
-\lst@lostspace=\dimen147
-\lst@width=\dimen148
-\lst@newlines=\count277
-\lst@lineno=\count278
-\lst@maxwidth=\dimen149
+\lst@mode=\count274
+\lst@gtempboxa=\box53
+\lst@token=\toks22
+\lst@length=\count275
+\lst@currlwidth=\dimen148
+\lst@column=\count276
+\lst@pos=\count277
+\lst@lostspace=\dimen149
+\lst@width=\dimen150
+\lst@newlines=\count278
+\lst@lineno=\count279
+\lst@maxwidth=\dimen151
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-\c@lstnumber=\count279
-\lst@skipnumbers=\count280
-\lst@framebox=\box53
+\c@lstnumber=\count280
+\lst@skipnumbers=\count281
+\lst@framebox=\box54
 )
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/listings\listings.cfg
 File: listings.cfg 2020/03/24 1.8d listings configuration
@@ -327,46 +325,46 @@ Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-p
 dftex.def
 File: l3backend-pdftex.def 2021-08-04 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count281
-\l__pdf_internal_box=\box54
+\l__color_backend_stack_int=\count282
+\l__pdf_internal_box=\box55
 ) (Tesi.aux)
 \openout1 = `Tesi.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Info: Redefining \it@ocap on input line 35.
-LaTeX Info: Redefining \it@ccap on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
+LaTeX Font Info:    ... okay on input line 32.
+LaTeX Info: Redefining \it@ocap on input line 32.
+LaTeX Info: Redefining \it@ccap on input line 32.
 
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.
 mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count282
-\scratchdimen=\dimen150
-\scratchbox=\box55
-\nofMPsegments=\count283
-\nofMParguments=\count284
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count285
-\MPscratchDim=\dimen151
-\MPnumerator=\count286
-\makeMPintoPDFobject=\count287
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count283
+\scratchdimen=\dimen152
+\scratchbox=\box56
+\nofMPsegments=\count284
+\nofMParguments=\count285
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count286
+\MPscratchDim=\dimen153
+\MPnumerator=\count287
+\makeMPintoPDFobject=\count288
+\everyMPtoPDFconversion=\toks24
 )
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf
 -base.sty
@@ -378,7 +376,7 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 .cfg
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 32.
 
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
@@ -390,20 +388,20 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 itlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count288
+\c@section@level=\count289
 )
-LaTeX Info: Redefining \ref on input line 35.
-LaTeX Info: Redefining \pageref on input line 35.
-LaTeX Info: Redefining \nameref on input line 35.
+LaTeX Info: Redefining \ref on input line 32.
+LaTeX Info: Redefining \pageref on input line 32.
+LaTeX Info: Redefining \nameref on input line 32.
  (Tesi.out) (Tesi.out)
 \@outlinefile=\write4
 \openout4 = `Tesi.out'.
 
-\c@lstlisting=\count289
+\c@lstlisting=\count290
 <Tesi-frn.pdf, id=219, 597.50829pt x 845.0471pt>
 File: Tesi-frn.pdf Graphic file (type pdf)
 <use Tesi-frn.pdf>
-Package pdftex.def Info: Tesi-frn.pdf  used on input line 37.
+Package pdftex.def Info: Tesi-frn.pdf  used on input line 34.
 (pdftex.def)             Requested size: 597.50682pt x 845.04504pt.
  [1
 
@@ -412,7 +410,7 @@ Package pdftex.def Info: Tesi-frn.pdf  used on input line 37.
 as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.58 \end{abstract}
+l.55 \end{abstract}
                     [1] (Tesi.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <12> on input line 4.
@@ -424,17 +422,10 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.25 ...erline {2.9.4}Dapps}{19}{subsection.2.9.4}
+l.25 ...erline {2.9.4}DApps}{20}{subsection.2.9.4}
                                                   % [1
 
-]
-LaTeX Font Info:    Trying to load font information for T1+phv on input line 57
-.
-
-(C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/psnfss\t1phv.fd
-File: t1phv.fd 2020/03/25 scalable font definitions for T1/phv.
-)
-[2])
+] [2])
 \tf@toc=\write5
 \openout5 = `Tesi.toc'.
 
@@ -447,7 +438,7 @@ Capitolo 2.
 <./img//BF.jpg, id=331, 481.8pt x 216.05719pt>
 File: ./img//BF.jpg Graphic file (type jpg)
 <use ./img//BF.jpg>
-Package pdftex.def Info: ./img//BF.jpg  used on input line 72.
+Package pdftex.def Info: ./img//BF.jpg  used on input line 69.
 (pdftex.def)             Requested size: 390.0pt x 174.89655pt.
 [5
 
@@ -455,7 +446,7 @@ Package pdftex.def Info: ./img//BF.jpg  used on input line 72.
 <./img//bl1.png, id=339, 408.02437pt x 204.765pt>
 File: ./img//bl1.png Graphic file (type png)
 <use ./img//bl1.png>
-Package pdftex.def Info: ./img//bl1.png  used on input line 82.
+Package pdftex.def Info: ./img//bl1.png  used on input line 79.
 (pdftex.def)             Requested size: 390.0pt x 195.72855pt.
 
 
@@ -465,13 +456,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <./img//bc1.png, id=346, 980.66376pt x 369.38pt>
 File: ./img//bc1.png Graphic file (type png)
 <use ./img//bc1.png>
-Package pdftex.def Info: ./img//bc1.png  used on input line 94.
+Package pdftex.def Info: ./img//bc1.png  used on input line 91.
 (pdftex.def)             Requested size: 390.0pt x 146.8983pt.
  [7 <./img//bl1.png>]
 <./img//flusso_bc.png, id=353, 770.88pt x 356.83313pt>
 File: ./img//flusso_bc.png Graphic file (type png)
 <use ./img//flusso_bc.png>
-Package pdftex.def Info: ./img//flusso_bc.png  used on input line 102.
+Package pdftex.def Info: ./img//flusso_bc.png  used on input line 99.
 (pdftex.def)             Requested size: 390.0pt x 180.52327pt.
 
 
@@ -481,7 +472,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <./img//bcbl.jpg, id=359, 578.16pt x 384.6872pt>
 File: ./img//bcbl.jpg Graphic file (type jpg)
 <use ./img//bcbl.jpg>
-Package pdftex.def Info: ./img//bcbl.jpg  used on input line 113.
+Package pdftex.def Info: ./img//bcbl.jpg  used on input line 110.
 (pdftex.def)             Requested size: 390.0pt x 259.48828pt.
 
 
@@ -491,111 +482,112 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 <./img//Hash_Tree.png, id=373, 1204.5pt x 766.865pt>
 File: ./img//Hash_Tree.png Graphic file (type png)
 <use ./img//Hash_Tree.png>
-Package pdftex.def Info: ./img//Hash_Tree.png  used on input line 137.
+Package pdftex.def Info: ./img//Hash_Tree.png  used on input line 134.
 (pdftex.def)             Requested size: 390.0pt x 248.30376pt.
  [11 <./img//Hash_Tree.png>]
 [12]
 <./img//pow-pos.jpg, id=387, 1204.5pt x 501.875pt>
 File: ./img//pow-pos.jpg Graphic file (type jpg)
 <use ./img//pow-pos.jpg>
-Package pdftex.def Info: ./img//pow-pos.jpg  used on input line 156.
+Package pdftex.def Info: ./img//pow-pos.jpg  used on input line 153.
 (pdftex.def)             Requested size: 390.0pt x 162.50246pt.
  [13 <./img//pow-pos.jpg>]
 <./img//judge.jpg, id=393, 642.4pt x 642.4pt>
 File: ./img//judge.jpg Graphic file (type jpg)
 <use ./img//judge.jpg>
-Package pdftex.def Info: ./img//judge.jpg  used on input line 168.
-(pdftex.def)             Requested size: 219.39333pt x 219.39665pt.
+Package pdftex.def Info: ./img//judge.jpg  used on input line 165.
+(pdftex.def)             Requested size: 164.5499pt x 164.55167pt.
  [14 <./img//judge.jpg>]
 <./img//Selfish-mining-attack.jpg, id=398, 853.1875pt x 306.14375pt>
 File: ./img//Selfish-mining-attack.jpg Graphic file (type jpg)
 <use ./img//Selfish-mining-attack.jpg>
 Package pdftex.def Info: ./img//Selfish-mining-attack.jpg  used on input line 1
-77.
+74.
 (pdftex.def)             Requested size: 390.0pt x 139.94493pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[15]
-<./img//dsa.png, id=403, 266.9975pt x 189.70876pt>
+ [15 <./img//Selfish-mining-attack.jpg>]
+<./img//dsa.png, id=405, 266.9975pt x 189.70876pt>
 File: ./img//dsa.png Graphic file (type png)
 <use ./img//dsa.png>
-Package pdftex.def Info: ./img//dsa.png  used on input line 186.
+Package pdftex.def Info: ./img//dsa.png  used on input line 183.
 (pdftex.def)             Requested size: 154.3942pt x 109.69832pt.
- [16 <./img//Selfish-mining-attack.jpg> <./img//dsa.png>]
+ [16 <./img//dsa.png>]
 <./img//eth.png, id=412, 1204.5pt x 1204.5pt>
 File: ./img//eth.png Graphic file (type png)
 <use ./img//eth.png>
-Package pdftex.def Info: ./img//eth.png  used on input line 201.
+Package pdftex.def Info: ./img//eth.png  used on input line 198.
 (pdftex.def)             Requested size: 109.68686pt x 109.69832pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[17] [18 <./img//eth.png>] [19]
+ [17 <./img//eth.png>]
+<./img//SmartC.png, id=420, 200.75pt x 200.75pt>
+File: ./img//SmartC.png Graphic file (type png)
+<use ./img//SmartC.png>
+Package pdftex.def Info: ./img//SmartC.png  used on input line 208.
+(pdftex.def)             Requested size: 109.70216pt x 109.69832pt.
+ [18 <./img//SmartC.png>]
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
+24.
+ (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <10> not available
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 225.
+[19] [20]
 Capitolo 3.
-[20
+[21
 
 ]
 Capitolo 4.
-[21
+[22
 
-] [22] [23] [24] [25]
+] [23] [24] [25] [26]
 Capitolo 5.
-[26
+[27
 
 ]
 Overfull \vbox (24.94543pt too high) has occurred while \output is active []
 
 
-[27]
+[28]
 Capitolo 6.
-[28
+[29
 
 ] (Tesi.lof)
 \tf@lof=\write6
 \openout6 = `Tesi.lof'.
 
-
-
-Package frontespizio Warning: Remember to compile Tesi-frn with
-(frontespizio)                pdflatex Tesi-frn
-(frontespizio)                and then rerun pdflatex.
-
-[29
+ [30
 
 ] (Tesi.aux)
 Package rerunfilecheck Info: File `Tesi.out' has not changed.
-(rerunfilecheck)             Checksum: 8E4F86AD9FC8F41496139B5E40821DDF;6987.
+(rerunfilecheck)             Checksum: 2BFBF13E5CC2675A189953A9E8499EAB;6987.
  ) 
 Here is how much of TeX's memory you used:
- 11918 strings out of 478927
- 178497 string characters out of 2851587
- 506046 words of memory out of 3000000
- 29506 multiletter control sequences out of 15000+600000
- 415407 words of font info for 47 fonts, out of 8000000 for 9000
+ 12482 strings out of 478927
+ 184438 string characters out of 2851587
+ 528562 words of memory out of 3000000
+ 30052 multiletter control sequences out of 15000+600000
+ 415305 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,12n,66p,2033b,542s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,66p,2033b,2168s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ec
-bx1440.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
-pi600\tcrm1200.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
-pen/ec/dpi600\ecbx1728.pk>{C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts
-/enc/dvips/base/8r.enc} <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/
-jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk
-/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\
-fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk><C:/Users/Giorgio/AppData/Local/
-Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Giorgio/App
-Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/G
-iorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
-><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr12.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr8.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmsy8.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/f
-onts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on Tesi.pdf (31 pages, 988444 bytes).
+tt1000.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
+pi600\ecrm1000.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
+pen/ec/dpi600\ecbx1440.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfo
+ur/jknappen/ec/dpi600\tcrm1200.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts
+/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk> <C:\Users\Giorgio\AppData\Local\MiKT
+eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1095.pk> <C:\Users\Giorgio\AppData\Lo
+cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2488.pk> <C:\Users\Giorgio\Ap
+pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:\Users\Gi
+orgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk><C:/U
+sers/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx1
+2.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmbx9.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/pub
+lic/amsfonts/cm/cmcsc10.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/Giorgio/AppData/Local/Programs/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/Giorgio/AppData/Local/
+Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on Tesi.pdf (32 pages, 1012963 bytes).
 PDF statistics:
- 806 PDF objects out of 1000 (max. 8388607)
- 101 named destinations out of 1000 (max. 500000)
- 493 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 909 PDF objects out of 1000 (max. 8388607)
+ 114 named destinations out of 1000 (max. 500000)
+ 498 words of extra memory for PDF output out of 10000 (max. 10000000)
 
