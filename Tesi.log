@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.10)  21 SEP 2021 17:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.10)  23 SEP 2021 08:57
 entering extended mode
 **./Tesi.tex
 (Tesi.tex
@@ -444,7 +444,7 @@ Capitolo 1.
 
 ]
 Capitolo 2.
-<./img//BF.jpg, id=334, 481.8pt x 216.05719pt>
+<./img//BF.jpg, id=331, 481.8pt x 216.05719pt>
 File: ./img//BF.jpg Graphic file (type jpg)
 <use ./img//BF.jpg>
 Package pdftex.def Info: ./img//BF.jpg  used on input line 72.
@@ -452,7 +452,7 @@ Package pdftex.def Info: ./img//BF.jpg  used on input line 72.
 [5
 
  <./img//BF.jpg>]
-<./img//bl1.png, id=342, 408.02437pt x 204.765pt>
+<./img//bl1.png, id=339, 408.02437pt x 204.765pt>
 File: ./img//bl1.png Graphic file (type png)
 <use ./img//bl1.png>
 Package pdftex.def Info: ./img//bl1.png  used on input line 82.
@@ -462,13 +462,13 @@ Package pdftex.def Info: ./img//bl1.png  used on input line 82.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [6]
-<./img//bc1.png, id=349, 980.66376pt x 369.38pt>
+<./img//bc1.png, id=346, 980.66376pt x 369.38pt>
 File: ./img//bc1.png Graphic file (type png)
 <use ./img//bc1.png>
 Package pdftex.def Info: ./img//bc1.png  used on input line 94.
 (pdftex.def)             Requested size: 390.0pt x 146.8983pt.
  [7 <./img//bl1.png>]
-<./img//flusso_bc.png, id=356, 770.88pt x 356.83313pt>
+<./img//flusso_bc.png, id=353, 770.88pt x 356.83313pt>
 File: ./img//flusso_bc.png Graphic file (type png)
 <use ./img//flusso_bc.png>
 Package pdftex.def Info: ./img//flusso_bc.png  used on input line 102.
@@ -478,7 +478,7 @@ Package pdftex.def Info: ./img//flusso_bc.png  used on input line 102.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [8 <./img//bc1.png (PNG copy)>]
-<./img//bcbl.jpg, id=362, 578.16pt x 384.6872pt>
+<./img//bcbl.jpg, id=359, 578.16pt x 384.6872pt>
 File: ./img//bcbl.jpg Graphic file (type jpg)
 <use ./img//bcbl.jpg>
 Package pdftex.def Info: ./img//bcbl.jpg  used on input line 113.
@@ -488,26 +488,26 @@ Package pdftex.def Info: ./img//bcbl.jpg  used on input line 113.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [9 <./img//flusso_bc.png>] [10 <./img//bcbl.jpg>]
-<./img//Hash_Tree.png, id=376, 1204.5pt x 766.865pt>
+<./img//Hash_Tree.png, id=373, 1204.5pt x 766.865pt>
 File: ./img//Hash_Tree.png Graphic file (type png)
 <use ./img//Hash_Tree.png>
 Package pdftex.def Info: ./img//Hash_Tree.png  used on input line 137.
 (pdftex.def)             Requested size: 390.0pt x 248.30376pt.
  [11 <./img//Hash_Tree.png>]
 [12]
-<./img//pow-pos.jpg, id=390, 1204.5pt x 501.875pt>
+<./img//pow-pos.jpg, id=387, 1204.5pt x 501.875pt>
 File: ./img//pow-pos.jpg Graphic file (type jpg)
 <use ./img//pow-pos.jpg>
 Package pdftex.def Info: ./img//pow-pos.jpg  used on input line 156.
 (pdftex.def)             Requested size: 390.0pt x 162.50246pt.
  [13 <./img//pow-pos.jpg>]
-<./img//judge.jpg, id=396, 642.4pt x 642.4pt>
+<./img//judge.jpg, id=393, 642.4pt x 642.4pt>
 File: ./img//judge.jpg Graphic file (type jpg)
 <use ./img//judge.jpg>
 Package pdftex.def Info: ./img//judge.jpg  used on input line 168.
 (pdftex.def)             Requested size: 219.39333pt x 219.39665pt.
  [14 <./img//judge.jpg>]
-<./img//Selfish-mining-attack.jpg, id=401, 853.1875pt x 306.14375pt>
+<./img//Selfish-mining-attack.jpg, id=398, 853.1875pt x 306.14375pt>
 File: ./img//Selfish-mining-attack.jpg Graphic file (type jpg)
 <use ./img//Selfish-mining-attack.jpg>
 Package pdftex.def Info: ./img//Selfish-mining-attack.jpg  used on input line 1
@@ -518,13 +518,13 @@ Package pdftex.def Info: ./img//Selfish-mining-attack.jpg  used on input line 1
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [15]
-<./img//dsa.png, id=406, 266.9975pt x 189.70876pt>
+<./img//dsa.png, id=403, 266.9975pt x 189.70876pt>
 File: ./img//dsa.png Graphic file (type png)
 <use ./img//dsa.png>
 Package pdftex.def Info: ./img//dsa.png  used on input line 186.
 (pdftex.def)             Requested size: 154.3942pt x 109.69832pt.
  [16 <./img//Selfish-mining-attack.jpg> <./img//dsa.png>]
-<./img//eth.png, id=415, 1204.5pt x 1204.5pt>
+<./img//eth.png, id=412, 1204.5pt x 1204.5pt>
 File: ./img//eth.png Graphic file (type png)
 <use ./img//eth.png>
 Package pdftex.def Info: ./img//eth.png  used on input line 201.
@@ -557,7 +557,13 @@ Capitolo 6.
 \tf@lof=\write6
 \openout6 = `Tesi.lof'.
 
- [29
+
+
+Package frontespizio Warning: Remember to compile Tesi-frn with
+(frontespizio)                pdflatex Tesi-frn
+(frontespizio)                and then rerun pdflatex.
+
+[29
 
 ] (Tesi.aux)
 Package rerunfilecheck Info: File `Tesi.out' has not changed.
@@ -583,14 +589,13 @@ Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Giorgio/App
 Data/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/G
 iorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb
 ><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr10.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
-msfonts/cm/cmr12.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type
-1/public/amsfonts/cm/cmr8.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/f
-onts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/Giorgio/AppData/Local/Program
-s/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb>
-Output written on Tesi.pdf (31 pages, 809720 bytes).
+/cmr12.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
+msfonts/cm/cmr8.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy8.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/f
+onts/type1/urw/helvetic/uhvb8a.pfb>
+Output written on Tesi.pdf (31 pages, 988444 bytes).
 PDF statistics:
- 810 PDF objects out of 1000 (max. 8388607)
+ 806 PDF objects out of 1000 (max. 8388607)
  101 named destinations out of 1000 (max. 500000)
  493 words of extra memory for PDF output out of 10000 (max. 10000000)
 
