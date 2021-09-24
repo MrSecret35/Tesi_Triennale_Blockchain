@@ -9,7 +9,42 @@
 \usepackage{fancyhdr}
 \usepackage[nouppercase]{frontespizio}
 \usepackage{wrapfig} 
-
+\usepackage{listings}
+%-----------For json--------------
+\usepackage{xcolor}
+\colorlet{punct}{red!60!black}
+\definecolor{background}{HTML}{EEEEEE}
+\definecolor{delim}{RGB}{20,105,176}
+\colorlet{numb}{magenta!60!black}
+\lstdefinelanguage{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    stepnumber=1,
+    numbersep=8pt,
+    showstringspaces=false,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{background},
+    literate=
+     *{0}{{{\color{numb}0}}}{1}
+      {1}{{{\color{numb}1}}}{1}
+      {2}{{{\color{numb}2}}}{1}
+      {3}{{{\color{numb}3}}}{1}
+      {4}{{{\color{numb}4}}}{1}
+      {5}{{{\color{numb}5}}}{1}
+      {6}{{{\color{numb}6}}}{1}
+      {7}{{{\color{numb}7}}}{1}
+      {8}{{{\color{numb}8}}}{1}
+      {9}{{{\color{numb}9}}}{1}
+      {:}{{{\color{punct}{:}}}}{1}
+      {,}{{{\color{punct}{,}}}}{1}
+      {\{}{{{\color{delim}{\{}}}}{1}
+      {\}}{{{\color{delim}{\}}}}}{1}
+      {[}{{{\color{delim}{[}}}}{1}
+      {]}{{{\color{delim}{]}}}}{1},
+}
+%---------------------------------------
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
 \fancyhf{} 
@@ -20,7 +55,6 @@
   \fancyhead{}\fancyfoot[C]{\thepage}%
   \renewcommand{\headrulewidth}{0pt}%
 }
-
 
 \graphicspath{ {./img/} }
 \linespread{1.23}
@@ -241,24 +275,110 @@ Quando si effettua una transazione o si carica uno smart contract la VM richiede
 
 \subsection{DApps}
 
-Le DApp - Decentralized APPlication sono applicazioni simili alle app tradizionali, con la differenza fondamentale che al posto di appoggiarsi su server centralizzati sfruttano le piattaforme blockchain e il loro network distribuito, in questo modo possono essere utilizzati da interfaccia con gli smart contract.
+Le DApp - Decentralized APPlication sono applicazioni simili alle app tradizionali, con la differenza fondamentale che al posto di appoggiarsi su server centralizzati sfruttano le piattaforme blockchain e il loro network distribuito, in questo modo possono essere utilizzati da interfaccia con gli smart contract. Le DApp sono immutabili, quindi nessuno può modificare quello che avviene tramite l’applicazione.
 
 %capitolo 3
 \chapter{Tecnologie utilizzate}
+
 \section{Besu}
+\begin{wrapfigure}{r}{0.4\textwidth}
+	\includegraphics[height=0.2\textheight]{Hyperledger_Besu}
+	\centering
+	\caption{Hyperledger Besu logo}
+	\label{fig:Hyperledger_Besu_logo}
+\end{wrapfigure}
+
+Hyperledger è un open source creato per far progredire le cross-industry blockchain technologies.È una collaborazione globale, ospitata da The Linux Foundation, che include leader in finanza, banche, IoT, supply chain, manufacturing e tecnologia.
+
+Hyperledger Besu è un Ethereum client - open source sviluppato sotto Apache 2.0 e scritto utilizzando Java. Può essere utilizzato per la rete pubblica Ethereum oppure per una rete permissioned privata, viene anche utilizzata per le reti di test come Rinkeby, Ropsten, and Görli. Hyperledger Besu include molti alcoritmi del consenso tra cui PoW, PoA(IBFT, IBFT 2.0, Etherhash, and Clique).
+
+Hyperledger Besu offre molte proprietà come una EVM completa (Ethereum Virtual Machine) che permette l'invio e l'esecuzione di smart contract con le transazioni su Ethereum blockchain. 
+
+Besu usa un RocksDB key-value database per la persistenza locale dei dati della rete. I dati si dividono in due categorie:
+\begin{itemize}
+\item Blockchain: I dati della blockchain sono composti dal Block Header che che form la "catena" di dati utilizzata per verificare crittograficamente lo stato blockchain; block bodies che contengono la lista delle transazioni ordinate comprese in ciascun blocco; e ricevute di transazione che contengono metadati relativi all'esecuzione della transazione, inclusi i transaction logs.
+\item World State: Il world state è un mapping da addresses to accounts
+\end{itemize}
+
+Hyperledger Besu implementa Ethereum’s devp2p network protocols per l'inter-client communication eun'altro sotto-protocollo per l'IBFT 2.
+
+Hyperledger Besu mette a disposizione del programmatore le API di  EEA, JSON-RPC utilizzando protocolli HTTP e WebSocket.
+
+Hyperledger Besu ti permette di monitorare i nodi e le performance della rete, i nodi sono monitorati usando Prometheus o le metriche di debug JSON-RPC API method, invece la performance della rete viene monitorata con un qualunque Block Explorer
+
 \subsection{IBFT}
-\subsubsection{IBFT Methods}
+Un meccanismo di consenso messo a disposizione da Besu (e sarà anche quello utilizzato nello sviluppo della blockchain) è l'IBFT versione 2.0 basato su PoA(Proof-of-Authority), questo è un protocollo è utilizzabile solo dalle reti private. Nelle reti IBFT 2.0 solo i nodi pre-approvati, conosciuti come validatori, possono validare transazioni e blocchi. I validatori prendono un turno per creare il prossimo blocco; prima che questo venga inserito sulla catena la maggioranza dei validatori(maggiorre del 66,6\%) deve prima firmare il blocco. Per aggiungere o rimuovere un validatore si ha anche qui bisogno della maggioranza dei voti; IBFT 2.0 ha bisogno di minimo 4 nodi peressere Byzantine fault tolerant, cioè l'abilità per una rete blockchain di funzionare correttamente e di raggiungere il consenso nonostante i nodi falliscano o propaghino informazioni errate ai peer.
+
+Per usare IBFT 2.0, Besu richiede la scrittura di un genesis file (file contenente le configurazioni necessarie alla rete)
+\begin{lstlisting}[language=json,firstnumber=1]
+"config": {
+	"chainId": 1981,
+	"muirglacierblock": 0,
+	"ibft2": {
+		"blockperiodseconds": 2,
+        "epochlength": 30000,
+        "requesttimeoutseconds": 4,
+        "blockreward": "5000000000000000",
+        "miningbeneficiary": "0xfe3b557e8fb62b89f4916b721be55ceb828dbd73"
+    }
+}
+\end{lstlisting}
+Riferendosi al codice di esempio sopracitato (genesis file) si vedono i dati di config di una rete ibft2 identificando:
+\begin{itemize}
+\item blockperiodseconds: anche chiamato block time è il tempo alla cui scadenza il protocollo propone un nuovo blocco;
+\item epochlength: numero di blocchi che indica ogni quanto resettare i voti;
+\item requesttimeoutseconds: il timeout in secondi di un round per il cambio di validatore;
+\item blockreward: Importo della ricompensa opzionale in Wei per premiare il beneficiario;
+\item miningbeneficiary: Il beneficiario opzionale del blockreward.
+\end{itemize}
+
+\subsubsection{IBFT Methods / Besu API}
+Besu per la gestione dell'IBFT offre delle API svivuppate tramite metodi utilizzabili tramite chiamate post. Tra i più utilizzati / quelli necessari c'è \textit{ibft\_discardValidatorVote} che prende in input un indirizzo di un nodo e restituisce un booleano secondo se l'operazione è andata a buon fine, con questo metodo è possibile rimuovere da un nodo la proprietà di validatore se più del 50\% della rete effettua questo voto. Analogamente si usa \textit{ibft\_proposeValidatorVote} per proporre un nuovo nodo come validatore. infine ci sono molteplici metodi per ottenere delle metriche come \textit{ibft\_getValidatorsByBlockHash} e \textit{ibft\_getValidatorsByBlockNumber} che restituisce la lista di validatori che hanno firmato un blocco a partire dal numero del blocco o il suo hash.
+
 \subsection{Free Gas Network}
+Con Free Gas Network ci riferiamo ad una rete in cui vengono annullate le tasse "fee" delle transazioni. Utilizzando un client ethereum come BESU le tase vengono calcolate tramite il gas e il prezzo che ha 1 unità di esso; il costo di una transazione è quindi  gas used * gas price. Utilizzando il comando \textit{--min-gas-price=0} all'avvio su Besu imposteremo il gas price  a zero, in questo modo il gas richiesto da una transazione sarà reso nullo in quanto il valore di questo sarà zero (gas x O = 0), quindi tutti i nodi potranno effettuare transazioni senza pagare alcuna tassa.
+
 \subsection{API Methods}
+
 \section{Truffle}
+Truffle è il framework più utilizzato per lo svilupo su Etherieum, permette il management degli smart contract per tutto il loro ciclo di vita. L'installazione di truffle avviene tramite il comando 
+\begin{lstlisting}[language=command.com]
+npm install truffle -g
+\end{lstlisting}
+che fa uso del gestore di pacchetti npm.
+Una volta installato è possibile inizializzare un progetto tramite 
+\begin{lstlisting}
+truffle init
+\end{lstlisting}
+una volta creata la nuova directory avrete la seguente struttura:
+\begin{lstlisting}[language=command.com]
+contracts/: Directory per i contratti sviluppati con Solidity
+migrations/: Directory per i file di deploy
+test/: Directory per i fiel di test degli  smart contract
+truffle-config.js: Truffle configuration file
+\end{lstlisting}
+
 \subsection{Compile}
+Con la Truffle suit è possibile compilare i propri smart contract. Con il comando 
+\begin{lstlisting}[language=command.com]
+truffle compile
+\end{lstlisting}
+Verranno compilati i contratti, quindi si avrà una visione dei possibili errori oppure se compilati correttamente verrà generato per ogni contratto le sue ABI - Application Binary Interface, queste sano scritte tramite modello JSON, avranno lo stesso nome del contratto e saranno nella directory \textit{build/contract}.
+
 \subsection{Test}
+Con truffle è possibile scrivere ed eseguire dei test per i contratti. questi andranno scritti in javascript, firmati con estensione \textit{.spec.js} e salvati nella directory \textit{/test}
+Con il comando
+\begin{lstlisting}[language=command.com]
+truffle test
+\end{lstlisting}
+vengono eseguiti i vari programmi sulla rete di test e verrà visualizzato su riga di comando quali test sono andati a buon fine e quali hanno generato dei problemi che verranno mostrati.
 \subsection{Deploy}
 \section{Node js}
 \subsection{Web3}
 
 %capitolo 4
 \chapter{Caso d'uso}
+
 \section{Problema Iniziale}
 Il progetto blockchain è stato ideato e sviluppato come proposta di soluzione ai problemi nella gestione del tracciamento, invio, certificazione e mantenimento di dati riguardanti "spostamenti". Questi spostamenti sono informazioni(LOG) inviate da un qualunque ente che metta a disposizione della società o di un qualunque servizio che preveda dei mezzi pubblici o privati quali ad esempio autobus, treni, taxi etc... Queste informazioni vengono ora raccolte, analizzate e utilizzate su di modelli di storage a fogli di calcolo (Ad Esempio EXCEL - Programma Micrsoft). I fogli di calcolo offrono alcuni vantaggi come la semplicità con cui vengo creati, scritti e salvati benché offrano un'interfaccia poco user friendly('facilmente utilizzabile') guardando tutti i possibili attori, mentre il progetto si focalizza sui difetti come la pubblicazione/condivisione delle informazioni o l'interrogazione di queste in quanto utilizzando semplici fogli non vengono proposte alcune regole di struttura e organizzazione,e ci si pone particolare importanza alla sicurezza e all'affidabilità di queste informazioni e che non vengano modificate durante la condivisione, quindi la possibile certificazione di essi.
 
@@ -289,6 +409,7 @@ Un Terminal User o utente finale è un comune dipendente di un ente che partecip
 Gli Admin sono dei dipendenti di enti partecipanti che vengono segnati dagli stessi come amministratori che quindi posseggono  particolari oneri come il possesso e la trasmissione di una chiave privata;
 
 Il proprietario/gestore della blockchain avrà il compito di gestire l'intera blockchain privata con l'amministrazione che ne segue, come la supervisione dei nodi presenti, il loro funzionamento e la loro caratterizzazione come validatori. 
+
 \section{Scenario di utilizzo}
 Il Progetto prevede uno scenario di utilizzo diverso seguendo la distinzione degli attori.
 Per l'utilizzo si prevede che ad ogni ente partecipante al progetto gli venga assegnato un account, cioè una copia di chiavi privata e pubblica che serviranno per interagire con la blockchain, inoltre ogni ente dovrà inserire i propri dipendenti nel Database e specificare il ruolo di essi, se admin o Terminal User.
