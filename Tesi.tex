@@ -45,9 +45,25 @@
       {]}{{{\color{delim}{]}}}}{1},
 }
 %---------------------------------------
+%------------JavaScript-----------------
+\lstdefinelanguage{JavaScript}{
+keywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+keywordstyle=\color{blue}\bfseries,
+ndkeywords={class, export, boolean, throw, implements, import, this},
+ndkeywordstyle=\color{darkgray}\bfseries,
+identifierstyle=\color{black},
+sensitive=false,
+comment=[l]{//},
+morecomment=[s]{/*}{*/},
+commentstyle=\color{purple}\ttfamily,
+stringstyle=\color{red}\ttfamily,
+morestring=[b]',
+morestring=[b]"
+}
+%-------------------------------------------
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
-\fancyhf{} 
+\fancyhf{}
 \fancyhead[R]{\small\bfseries\thepage}
 \fancyhead[L]{\small\bfseries\thechapter\ \leftmark}
 \setlength{\headheight}{13.6pt} 
@@ -372,8 +388,32 @@ Con il comando
 truffle test
 \end{lstlisting}
 vengono eseguiti i vari programmi sulla rete di test e verrà visualizzato su riga di comando quali test sono andati a buon fine e quali hanno generato dei problemi che verranno mostrati.
+
 \subsection{Deploy}
+All'avvio di truffle init viene creato un file nominato truffel-config.js - file formato json che contiene le configurazioni di truffle, inizialmente sarà vuoto ma specificando una qualunque rete Trulle ci permette di effettuare il deploy / migration dei nostri smart contract sulla rete selezionata scrivendo il file di migration specificando il contratto da inviare(uno per ogni contratto) ed eseguendo il comando
+\begin{lstlisting}[language=command.com]
+truffle migrate --network=//nome-rete
+\end{lstlisting}
+
 \section{Node js}
+
+Node js è una tecnologia open source di sviluppo software, orientata agli eventi per l'esecuzione di codice JavaScript costruito su Google Chrome’s V8 JavaScript engine.
+\begin{figure}[h]
+	\includegraphics[height=0.15\textheight]{node-js}
+	\centering
+\end{figure}
+È un linguaggio event-driven e usa la programmazione asincrona, non supporta il multithreading e il modello di programmazione si basa sulle funzioni di callback cioè funzioni che vanno in esecuzione solo dopo che è stato lanciato l'evento che che indica che l'elaborazione è terminata e il valore di output è disponibile.
+Questo ambiente ci permette di utilizzare il linguaggio javascript sia per front-end sia back-end, rendendo possibile la creazione di un server tramite l'uso di pacchetti come Express che sarà in ascolto di default sulla porta 1010:
+\begin{lstlisting}[language=JavaScript]
+const express 		= require('express');
+const app = express();
+//Home Page
+app.get('/', (req, res) => {
+  	res.sendFile(path.join(__dirname, '/html/index.html'));
+});
+\end{lstlisting}
+con questo codice definiamo anche la risposta che darà il server alla richiesta get effettuata ('/' - indica la ricerca base del solo server) e sarà il file\textit{index.html}
+
 \subsection{Web3}
 
 %capitolo 4
