@@ -1,4 +1,4 @@
-\documentclass[12pt,titlepage]{report}
+\documentclass[11pt,titlepage]{report}
 
 
 \usepackage[italian]{babel} %italiano
@@ -10,6 +10,7 @@
 \usepackage[nouppercase]{frontespizio}
 \usepackage{wrapfig} 
 \usepackage{listings}
+
 %-----------For json--------------
 \usepackage{xcolor}
 \colorlet{punct}{red!60!black}
@@ -322,7 +323,7 @@ Hyperledger Besu mette a disposizione del programmatore le API di  EEA, JSON-RPC
 
 Hyperledger Besu ti permette di monitorare i nodi e le performance della rete, i nodi sono monitorati usando Prometheus o le metriche di debug JSON-RPC API method, invece la performance della rete viene monitorata con un qualunque Block Explorer
 
-\subsection{IBFT}
+\subsection{IBFT} \label{IBFT}
 Un meccanismo di consenso messo a disposizione da Besu (e sarà anche quello utilizzato nello sviluppo della blockchain) è l'IBFT versione 2.0 basato su PoA(Proof-of-Authority), questo è un protocollo è utilizzabile solo dalle reti private. Nelle reti IBFT 2.0 solo i nodi pre-approvati, conosciuti come validatori, possono validare transazioni e blocchi. I validatori prendono un turno per creare il prossimo blocco; prima che questo venga inserito sulla catena la maggioranza dei validatori(maggiorre del 66,6\%) deve prima firmare il blocco. Per aggiungere o rimuovere un validatore si ha anche qui bisogno della maggioranza dei voti; IBFT 2.0 ha bisogno di minimo 4 nodi peressere Byzantine fault tolerant, cioè l'abilità per una rete blockchain di funzionare correttamente e di raggiungere il consenso nonostante i nodi falliscano o propaghino informazioni errate ai peer.
 
 Per usare IBFT 2.0, Besu richiede la scrittura di un genesis file (file contenente le configurazioni necessarie alla rete)
@@ -351,11 +352,10 @@ Riferendosi al codice di esempio sopracitato (genesis file) si vedono i dati di 
 \subsubsection{IBFT Methods / Besu API}
 Besu per la gestione dell'IBFT offre delle API svivuppate tramite metodi utilizzabili tramite chiamate post. Tra i più utilizzati / quelli necessari c'è \textit{ibft\_discardValidatorVote} che prende in input un indirizzo di un nodo e restituisce un booleano secondo se l'operazione è andata a buon fine, con questo metodo è possibile rimuovere da un nodo la proprietà di validatore se più del 50\% della rete effettua questo voto. Analogamente si usa \textit{ibft\_proposeValidatorVote} per proporre un nuovo nodo come validatore. infine ci sono molteplici metodi per ottenere delle metriche come \textit{ibft\_getValidatorsByBlockHash} e \textit{ibft\_getValidatorsByBlockNumber} che restituisce la lista di validatori che hanno firmato un blocco a partire dal numero del blocco o il suo hash.
 
-\subsection{Free Gas Network}
+\subsection{Free Gas Network}\label{free-gas-network}
 Con Free Gas Network ci riferiamo ad una rete in cui vengono annullate le tasse "fee" delle transazioni. Utilizzando un client ethereum come BESU le tase vengono calcolate tramite il gas e il prezzo che ha 1 unità di esso; il costo di una transazione è quindi  gas used * gas price. Utilizzando il comando \textit{--min-gas-price=0} all'avvio su Besu imposteremo il gas price  a zero, in questo modo il gas richiesto da una transazione sarà reso nullo in quanto il valore di questo sarà zero (gas x O = 0), quindi tutti i nodi potranno effettuare transazioni senza pagare alcuna tassa.
 
-\subsection{API Methods}
-
+%\subsection{API Methods}
 \section{Truffle}
 Truffle è il framework più utilizzato per lo svilupo su Etherieum, permette il management degli smart contract per tutto il loro ciclo di vita. L'installazione di truffle avviene tramite il comando 
 \begin{lstlisting}[language=command.com]
@@ -415,7 +415,14 @@ app.get('/', (req, res) => {
 con questo codice definiamo anche la risposta che darà il server alla richiesta get effettuata ('/' - indica la ricerca base del solo server) e sarà il file\textit{index.html}
 
 \subsection{Web3}
-
+Web3 è una collezione di librerie che permette la connessione con un nodo Ethereum locale o remoto. Web3 viene utilizzata come una classica libreria JavaScript caricata tramite la KeyWord \textit{require} di node js
+\begin{lstlisting}[language=JavaScript]
+var Web3 = require('web3');
+\end{lstlisting}
+in seguito deve essere inizializzata con un argomento di tipo stringa che rappresenta l'indirizzo del noto ethereum a cui collegarsi
+\begin{lstlisting}[language=JavaScript]
+var web3 = new Web3(Web3.givenProvider || 'local-or-remote-address:8546');
+\end{lstlisting}
 %capitolo 4
 \chapter{Caso d'uso}
 
@@ -460,9 +467,140 @@ Un admin, una volta effettuato l'accesso, potrà a differenza di un Terminal Use
 
 %capitolo 5
 \chapter{Sviluppo}
-\section{Schema Progetto}
+\section{Schema Progetto}\label{Schema-Progetto}
+Il Progetto è stato ideato partendo dalla ben conosciuta architettura client-server dove però è stata implementata anche la tecnologia blockchain. Come identificabile nella figura \ref{fig:sch} esistono 2 grandi attori; i "client" mostrati come dei mezzi di trasporto (Autobus-Taxi-Treni) hanno il compito / funzione di inviare i dati raccolti riguardanti gli spostamenti, in generale possiamo identificare questi dati come: 
+\begin{itemize}
+\item Città di partenza
+\item Città di arrivo
+\item Distanza percorsa
+\item Data della percorrenza (identificata nel progetto come la data di Partenza e data di Arrivo)
+\item Username dell'utente che ha svolto la tratta
+\end{itemize}
+nello schema \ref{fig:sch} sono descritti in modo convenzionale come Msg("A .to. B") (Message).
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Schema_Progetto}
+	\centering
+	\caption{Schema generale del progetto}
+	\label{fig:sch}
+\end{figure}
+
+Questi vengono inviati ad il secondo attore dello schema \ref{fig:sch}, il server Proxy. Questo ha lo specifico compito di ricevere ed elaborare in modo opportuno i diversi dati. Il server proxy ha una duplice funzione di interfaccia, con database e con la blockchain, funge quindi da ponte tra le due strutture.
 \section{Blockchain Ibrida}
+Il progetto è incentrato su due strutture di immagazzinamento dati, questo rende possibile l'utilizzo dei vantaggi di entrambi.
+
+La blockchain è sviluppata con BESU con 4 nodi (il minimo per essere BFT) avviati in locale.
+Il primo passo è creare una directory da utilizzare che conterrà una directory per ogni nodo che a sua volta conterrà una directori per lo storing dei dati.
+\begin{lstlisting}[language=command.com]
+IBFT-Network/
+		Node-1
+				data
+		Node-2
+				data
+		Node-3
+				data
+		Node-4
+				data
+\end{lstlisting}
+
+Il secondo passo è creare un file di config per la rete (descrizione nel capitolo ~\ref{IBFT}).
+Come terzo passo si ha l'esecuzione di un comando che permette la creazione delle chiavi pubbliche e private per ogni nodo, questo passo è possibile saltarlo ma in seguito si possiederà solo la chiave privata del nodo.
+\begin{lstlisting}[language=command.com]
+besu operator generate-blockchain-config --config-file=ibftConfigFile.json --to=networkFiles --private-key-file-name=key
+\end{lstlisting}
+
+L'ultimo passo è l'avvio di ogni singolo nodo, La blockchain si basa sull'avvio di uno o più nodi come bootnode cioè nodi   a cui gli altri nodi che si avvieranno faranno riferimento per ottenere la lista completa dei nodi partecipanti e quindi interconnettersi con la blockchain.
+Il primo nodo viene perciò avviato con queste caratteristiche:
+\begin{lstlisting}[language=command.com]
+besu --data-path=data --genesis-file=..\genesis.json --rpc-ws-enabled --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,WEB3 --host-allowlist="*" --rpc-http-cors-origins="all" --metrics-enabled --min-gas-price=0
+\end{lstlisting}
+
+Con le prime 2 opzioni si specifica rispettivamente il path/directory dove effettuare lo storage delle informazioni e il path del file di genesi della rete. 
+\begin{itemize}
+\item rpc-ws-enabled: Abilita il servizio WebSockets JSON-RPC
+\item rpc-http-enabled: Abilita e quindi permette l'uso delle JSON-RPC API specificate tramite \textit{rpc-http-api}
+\item host-allowlist: Abilita gli host selezionati (* = tutti) per l'accesso alle TTP JSON-RPC API
+\item rpc-http-cors-origins: abilita tutti i domini ad accedere al nodo tramite HTTP JSON-RPC API
+\item metrics-enabled: Abilita le metriche / il monitoraggio dei nodi con applicativi come Prometheus o Grafana
+\item min-gas-price: Imposta il prezzo del gas, permette una free gas network ~\ref{free-gas-network}.
+\end{itemize}
+
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Besu-avvio}
+	\centering
+	\caption{Schermata avvio nodo con Besu}
+	\label{fig:sch-avvio-besu}
+\end{figure}
+
+I successivi nodi saranno avviati in maniera analoga
+\begin{lstlisting}[language=command.com]
+besu --data-path=data --genesis-file=..\genesis.json --bootnodes=enode://5c579435d435cbb56fbb20959940f8809d12b65d6ac3de49b1b7 1bfc2698dd28a7cf3767b45410839e8059fa32864e783a39717b eedc5bae7d83e0a3202f6461@127.0.0.1:30303 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,WEB3 --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --min-gas-price=0
+\end{lstlisting}
+
+La principale differenza e che bisogna specificare l'address del bootnode a cui collegarsi, questo è chiamato enode address e ogni nodo ne posside uno, viene visualizzato all'avvio del nodo ed è composto da 
+enode://chiave-pubblica-nodo@indirizzo-or-127.0.0.1(localhost):porta; con rpc-http-port viene specificata una porta di interfaccia al nodo, se non specificata viene utilizzata la porta di default 8545. Una volta avviato il numero minino di nodi si verificherà l'avvio della connessione tramite l'import e il producing di blocchi.
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Besu-imported-produced}
+	\centering
+	\caption{Schermata funzionamento nodo besu}
+	\label{fig:besu-imported-produced}
+\end{figure}
+Una volta visualizzato ciò la blockchain sarà attiva e si potrà comunicare con essa sulle rispettive porte dei nodi con librerie come WEB3.
+
+La seconda struttura dati è un database relazionale SQL. Avviato in locale grazie all'applicativo XAMPP comprende 4 tabelle (Le tabelle sono state sviluppate per il testing perciò da considerare come dozzinali).
+\begin{lstlisting}[language=SQL]
+CREATE TABLE ID_HASH(
+	Business varchar(42) REFERENCES Business(Business_Hex),
+	ID_HASH int REFERENCES LOGS(ID_HASH),
+	Data DATETIME,
+	TransactionHash varchar(255) NOT NULL,
+	PRIMARY KEY (Business, ID_HASH)
+);
+
+CREATE TABLE LOG(
+	City_Start varchar(255) NOT NULL,
+	City_Finish varchar(255) NOT NULL,
+	UserName varchar(255) NOT NULL REFERENCES TerminalUser(UserName) ,
+	Distance DOUBLE(8,4),
+	DataStart DATETIME,
+	DataFinish DATETIME,
+	ID_HASH int NOT NULL,
+	PRIMARY KEY (UserName, DataStart)
+);
+
+CREATE TABLE BUSINESS(
+	BusinessName varchar(255) PRIMARY KEY,
+	Business_Hex varchar(42) UNIQUE NOT NULL
+);
+
+CREATE TABLE TerminalUser(
+	UserName varchar(64) PRIMARY KEY,
+	password varchar(255) NOT NULL,
+	Business_Hex varchar(42) NOT NULL REFERENCES Business(Business_Hex),
+	Administrator BOOLEAN
+);
+\end{lstlisting}
+
+La tabella Business indica come descritto dal nome, una lista di aziende con un determinato nome e siccome sono aziende partecipanti al consorzio e quindi al progetto avranno un account sulla blockchain e verrà memorizzato in relazione al nome la loro chiave pubblica. Nella tabella TerminalUser vengono memorizzati gli utenti o dipendenti che di conseguenza possiedono dei dati per il login (Username, Password) i dati di riferimento dell'azienda e un booleano che indicherà il loro ruolo; false = ruolo normale, true = amministratore. Un riferimento agli Utenti è posseduto dalla tabella Log, atta a contenere i dati degli spostamenti  come specificato nello schema ~\ref{Schema-Progetto}, questi in oltre possiedono un ID\_HASH, cioè un id che raggruppa determinati log, questo id fa da tramite/identificativo con la blockchain in quanto l'hash calcolato dei Log aventi lo stesso ID\_HASH saranno memorizzati nella blockchain con il mapping su quel valore. Questo infatti è riproposto nella tabella ID\_HASH affiancato dai dati corrispondenti come il riferimento all'azienda che possiede quei log, la data è l'hash della transazione con nui è stato salvato l'hash.
+
 \section{Smart Contract}
+Gli smart contract sono stati sviluppati con il linguaggio alto-livello Solidity. Troviamo due contratti, Travel e il suo Boxing BusinessTravel.
+\begin{lstlisting}[language=Solidity]
+pragma solidity >=0.4.22 <0.9.0;
+
+contract Travel {
+
+    mapping(int => string) travel;
+
+    function add(int ID, string memory travel_hash) public {
+        if(bytes(travel[ID]).length == 0) travel[ID] = travel_hash;
+    }
+
+    function get(int ID) public view returns (string memory){
+        return travel[ID];
+    }
+}
+\end{lstlisting}
+Questo contratto è pensato per essere univoco per ogni ente del consorzio, possiede come attributi un mapping utile allo store di hash ipotizzate come stringhe che per la struttura del mapping sono ripercorribili tramite un int corrispondente all'id\_hash salvato nel DB.
 \subsection{Boxing}
 \section{WebApp}
 \subsection{Single Page Application}
@@ -473,6 +611,10 @@ Un admin, una volta effettuato l'accesso, potrà a differenza di un Terminal Use
 \subsubsection{Report di Controllo}
 \subsubsection{Monitor Blockchain}
 
+\begin{thebibliography}{1}
+\bibitem{} \url{https://besu.hyperledger.org/en/stable/Tutorials/Private-Network/Create-IBFT-Network/} come creare una rete blockchain prvata con BESU
+\bibitem{} \url{https://web3js.readthedocs.io/en/v1.5.2/}
+\end{thebibliography}
 %capitolo 6
 \chapter{Sviluppi futuri}
 \section{Analisi costi}
