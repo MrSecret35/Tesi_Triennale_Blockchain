@@ -1,4 +1,4 @@
-\documentclass[11pt,titlepage]{report}
+\documentclass[titlepage]{report}
 
 
 \usepackage[italian]{babel} %italiano
@@ -133,11 +133,11 @@ Il problema dei generali bizantini è un problema informatico su come raggiunger
 	\label{fig:blockchain1}
 \end{figure}
 
-Una Blockchain come suggerisce l'etimologia della parola è una catena di blocchi o DLT - Distributed Ledger Technology. È una struttura dati formata da un insieme di blocchi(struttura prioritaria) collegati univocamente 1 ad 1 così da creare una metaforica catena. Una blockchain è considerata una struttura condivisa e immutabile in quanto il suo contenuto una volta scritto non è più né modificabile né eliminabile, a meno di non invalidare l'intera struttura. Questa tecnologia fà parte dei Distributed Legder cioè dei "libri mastro distribuiti" o registri condivisi infatti tutti i partecipanti della blockchain, detti anche nodi, posseggono lo stesso registro cioè le stesse informazioni andando a costruire il contrapposto di una struttura centralizzata come un Database, quindi una struttura Decentralizzata in cui ogni nodo ha la possibilità di leggere autonomamente le informazioni contenute.
-Nella figura \ref{fig:blockchain1} viene visualizzata una semplice blockchain in cui sono presenti tre tipologie di blocchi quali, il blocco verde visto come il blocco di genesi, i blocchi neri che vanno a costituire la catena principale e i blocchi viola considerati blocchi orfani. L'aggiunta di un nuovo blocco è globalmente regolata da un protocollo condiviso e se autorizzata ogni nodo aggiorna la propria copia privata del registro così da evitare manipolazioni future. In una blockchain i nodi partecipanti vengono anche chiamati minatori- miner o validatori, riferendosi al loro compito nella rete rispetto ai blocchi.
+Una Blockchain come suggerisce l'etimologia della parola è una catena di blocchi o DLT - Distributed Ledger Technology. È una struttura dati formata da un insieme di blocchi(struttura prioritaria) collegati univocamente 1 ad 1 così da creare una metaforica catena. Una blockchain è considerata una struttura condivisa e immutabile in quanto il suo contenuto una volta scritto non è più né modificabile né eliminabile, a meno di non invalidare l'intera struttura. Questa tecnologia fà parte dei Distributed Legder cioè dei "libri mastro distribuiti" o registri condivisi, infatti tutti i partecipanti della blockchain, detti anche nodi, posseggono lo stesso registro. Essi posseggono le stesse informazioni costruendo il contrapposto di una struttura centralizzata come un Database, quindi una struttura Decentralizzata in cui ogni nodo ha la possibilità di leggere autonomamente le informazioni contenute.
+Nella figura \ref{fig:blockchain1} viene visualizzata una semplice blockchain in cui sono presenti tre tipologie di blocchi quali: il blocco verde visto come il blocco di genes; i blocchi neri che vanno a costituire la catena principale e i blocchi viola considerati blocchi orfani. L'aggiunta di un nuovo blocco è globalmente regolata da un protocollo condiviso, se autorizzata ogni nodo aggiorna la propria copia privata del registro così da evitare manipolazioni future. In una blockchain i nodi partecipanti vengono anche chiamati minatori - miner o validatori, riferendosi al loro compito nella rete rispetto ai blocchi.
 
 \section{Hashing}
-Un codice hash è una qualunque sequenza di caratteri alfanumerici generati da una particolare funzione di hash. Questa funzione prende in input un qualunque tipo di informazione e restituisce una stringa di lunghezza prefissata, questo rende la funzione one-way o non invertibile in quanto conoscendo il digest(codice hash restituito) non è possibile risalire all'informazione che lo ha generato. In una blockchain l'Hash viene utilizzato per la costruzione della catena, viene calcolato l'hash di un blocco e il blocco che lo succederà avrà come parametro questo hash. In questo modo ogni blocco è legato univocamente al blocco precedente e siccome il codice hash di un blocco viene calcolato utilizzando anche il codice hash precedente modificando un singolo blocco verrà invalidata tutta la struttura blockchain immediatamente successiva.
+Un codice hash è una qualunque sequenza di caratteri alfanumerici generati da una particolare funzione di hash. Questa funzione prende in input un qualunque tipo di informazione e restituisce una stringa di lunghezza prefissata, questo rende la funzione one-way o non invertibile in quanto conoscendo il digest(codice hash restituito) non è possibile risalire all'informazione che lo ha generato. In una blockchain l'Hash viene utilizzato per la costruzione della catena, viene calcolato l'hash di un blocco e il blocco successivo avrà come parametro questo hash. In questo modo ogni blocco è legato univocamente al blocco precedente "parent", siccome il codice hash di un blocco viene calcolato utilizzando anche il codice hash precedente modificando un singolo blocco verrà invalidata tutta la struttura blockchain immediatamente successiva.
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{bc1}
 	\centering
@@ -152,10 +152,10 @@ Un codice hash è una qualunque sequenza di caratteri alfanumerici generati da u
 	\caption{Flusso di esecuzione di una Transazione}
 	\label{fig:fl_bc}
 \end{figure}
-In una blockchain i dati vengono scritti sotto forma di Transazioni in seguito contenute in vari blocchi. L'uso più comune delle transazioni è l'invio di denaro o in qualche modo una moneta equivalente. Le transazioni devono quindi avere un mittente, un destinatario, un 'value' cioè il valore trasmesso, vengono quindi considerate come un cambio di stato riferendosi alle informazioni nella blockchain e saranno identificate da un Transaction Hash. Una volta inviata, la transazione entra in un transaction pool, da dove i miner andranno a selezionare randomicamente transazioni da includere nel prossimo blocco. Una transazione per essere considerata valida deve essere accettata da un nodo che la inserirà nel blocco che sta minando, non è certo che due nodi che minano lo stesso blocco la inseriscano nella stessa posizione.
+In una blockchain i dati vengono scritti sotto forma di transazioni, in seguito contenute in vari blocchi. L'uso più comune delle transazioni è l'invio di denaro o una qualche tipologia di moneta equivalente. Le transazioni devono quindi avere un mittente, un destinatario, un 'value' cioè il valore trasmesso; vengono quindi considerate come un cambio di stato riferendosi alle informazioni nella blockchain e saranno identificate da un Transaction Hash. Una volta inviata, la transazione entra in una transaction pool, da dove i miner andranno a selezionare randomicamente transazioni da includere nel prossimo blocco. Una transazione, per essere considerata valida, deve essere accettata da un nodo che la inserirà nel blocco che sta minando e non è certo che due nodi che minano lo stesso blocco la inseriscano nella stessa posizione.
 
 \section{Blocchi}
-La blockchain è una sequanza di blocchi che contengono una collezione di Transazioni.  il numero di transazioni all'interno di ognuno di questi blocchi varia in base alla dimensione della transazione stessa.I blocchi sono prodotti dai nodi validators e vengono generati in un lasso di tempo definito dalle regole della blockchain(Es: 15 secondi per Ethereum, 10 min per BitCoin), nel momento in cui il blocco viene completato i dati contenuti diventano verificati.
+La blockchain è una sequanza di blocchi che contengono una collezione di transazioni. Il numero di transazioni all'interno di ognuno di questi blocchi varia in base alla dimensione della transazione stessa. I blocchi sono prodotti dai nodi validators e vengono generati in un lasso di tempo definito dalle regole della blockchain (Es: 15 secondi per Ethereum, 10 min per BitCoin), nel momento in cui il blocco viene completato e aggiunto alla catena i dati contenuti diventano verificati.
 
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{bcbl}
@@ -164,23 +164,18 @@ La blockchain è una sequanza di blocchi che contengono una collezione di Transa
 	\label{fig:blockblockchain1}
 \end{figure}
 
-Un Blolcco è diviso in due parti, l`header e il body. Le transazioni sono racchiuse nel body del blocco e nell'header sono presenti i campi di gestione del blocco stesso come descritto nella figura \ref{fig:blockblockchain1}.
-
+Un Blocco è diviso in due parti: l`header e il body. Le transazioni sono racchiuse nel body del blocco e nell'header sono presenti i campi di gestione del blocco stesso come descritto nella figura \ref{fig:blockblockchain1}.
 
 \begin{itemize}
   \item Versione del blocco: indica le regole di validazione del blocco da rispettare
-  \item Merkle Tree Root Hash valore della radice del Merkle Tree in cui sono salvate le transazioni del blocco
+  \item Merkle Tree Root Hash: valore della radice del Merkle Tree in cui sono salvate le transazioni del blocco
   \item TimeStamp: Marca temporale salvata come Timestamp UNIX che indica l`inserimento del blocco nella blockchain
   \item nBits: è la soglia target di un hash di blocco valido
-  \item Nonce: è un campo il cui valore è settato dai miner così che l’hash del blocco
-calcolato sia minore o uguale al target attuale della rete(difficoltà). Dato che non
-è possibile prevedere la combinazione di bit che risulterebbero nell’hash voluto,
-numerosi valori di nonce sono calcolati fino a quando l’hash risultante rispetti i
-requisiti attuali della rete.
+  \item Nonce: è un campo il cui valore è settato dai miner cosicché l’hash del blocco calcolato sia minore o uguale al target attuale della rete(difficoltà). Dato che non è possibile prevedere la combinazione di bit che risulterebbero nell’hash voluto, numerosi valori di nonce sono calcolati fino a quando l’hash risultante rispetta i requisiti attuali della rete.
 \item Parent Block Hash: segna l'hash del blocco a cui verrà agganciato
 \end{itemize}
 
-Il Body è composto da un contatore di transazioni (transaction counter) e dalle transazioni (TX), queste vengono memorizzate e organizzate tramite un Merkle Tree cioè una struttura ad albero in cui le foglie contengono i digest hash delle informazioni mentre i nodi contengono i digest hash dei nodi sottostanti(figli)
+Il Body è composto da un contatore di transazioni (transaction counter) e dalle transazioni (TX). Tali transazioni vengono memorizzate e organizzate tramite un Merkle Tree: una struttura ad albero in cui le foglie contengono i digest hash delle informazioni mentre i nodi contengono i digest hash dei nodi sottostanti (figli).
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{Hash_Tree}
 	\centering
@@ -190,14 +185,14 @@ Il Body è composto da un contatore di transazioni (transaction counter) e dalle
 
 \section{Mining e Meccanismi del consenso}
 I miner sono i nodi partecipanti alla rete che  ascoltano le transazioni inviate, verificano che non siano malevole e compongono un blocco organizzando le transazioni in un Merkle Tree.
-I minatori che 'calcolano' un blocco valido vengono premiati con un incentivo (Es: criptovaluta)
-È anche possibile che più miner producano lo stesso blocco e la scelta del blocco da seguire per la catena spetta al meccanismo del consenso cioè  il set di regole che permette la finalizzazione delle transazioni e il funzionamento del sistema così che tutti i nodi della rete convergano ad una sola versione condivisa della catena, questo andrà a creare una biforcazione o Fork da cui si avranno una sequenza valida(quella che verrà continuata) e una sequenza(anche un singolo nodo) orfana(Figura \ref{fig:blockchain1}).
+I minatori che "calcolano" un blocco valido vengono premiati con un incentivo (Es: criptovaluta).
+È anche possibile che più miner producano lo stesso blocco e la scelta del blocco da seguire per la catena spetta al meccanismo del consenso cioè il set di regole che permette la finalizzazione delle transazioni e il funzionamento del sistema cosicché tutti i nodi della rete convergano ad una sola versione condivisa della catena, questo andrà a creare una biforcazione o Fork da cui si avranno una sequenza valida e una sequenza orfana (o anche un singolo nodo) (Figura \ref{fig:blockchain1}).
 
 \subsection{Consenso Trustless}
-La blockhain è considerata Trustless, letteralmente "senza fiducia" poiché a differenza di un sistema centralizzando non esiste nessun ente centrale in cui riporre la fiducia(come ad esempio una Banca,governi o istituti finanziari). Utilizzando un sistema decentralizzato la fiducia non viene eliminata definitivamente ma viene suddivisa tra tutti i partecipanti, in questo modo più sarà alto il numero dei partecipanti meno fiducia si dovrà affidare ad ogni singolo nodo. La fiducia viene quindi riposta nei singoli nodi e che questi rispettino le regole considerate valide.
+La blockhain è considerata Trustless, letteralmente "senza fiducia" poiché a differenza di un sistema centralizzato non esiste nessun ente centrale in si ripone la fiducia (come ad esempio una Banca, governi o istituti finanziari). Utilizzando un sistema decentralizzato, la fiducia non viene eliminata definitivamente ma viene suddivisa tra tutti i partecipanti, in questo modo più sarà alto il numero dei partecipanti meno fiducia si dovrà affidare ad ogni singolo nodo. %La fiducia viene riposta nei singoli nodi e che questi rispettino le regole considerate valide.
 
 \subsection{Proof of Work}
-L'algoritmo del consenso più famoso ed utilizzato(come da Bitcoin, Ethereum e Monero) nonché il primo algoritmo del consenso mai creato è il PROOF OF WORK abbreviato PoW. Questo si basa sulla "Prova del Lavoro" svolto dai miner che dovranno risolvere unauna serie di operazioni considerate u puzzle matematico per poter creare un blocco valido. Il primo miner che costruisce il blocco lo aggiunge alla catena, notifica in broadcast il resto della rete e di conseguenza tutte le transazioni in esso presenti vengono validate, infine il miner viene ricompensato con un incentivo come una moneta che sarà relativa quello che gli utenti pagano per effettuare le transazioni, cioè le "tasse" - fees. I miner quindi utilizzano la loro potenza e le risorse computazionali per provare che hanno svolto del lavoro(questo produce anche un massivo consumo di elettricità), talvolta è possibile che due o più nodi producano lo stesso blocco creando un fork e quindi due differenti catene. Il sistema è incentivato a scrivere nuovi blocchi sulla catena più lunga così da eliminare la biforcazione orfana e ricondurre tutta la rete a un`unica catena, questo implica che se si voglia creare un blocco "falso" e farlo accettare dalla blockchain bisognerà possedere una potenza di calcolo maggiore di tutta la rete. Il mining diventa sempre più competitivo con la partecipazione di sempre più gente e con l'aumentare della difficoltà, perciò si è vista la creazione delle Mining Pool cioè un insieme di persone che raggruppa la propria potenza di calcolo per il mining di criptomoneta, in questo modo la probabilità di costruire un blocco valido aumenta e di conseguenza aumenta anche il guadagno suddiviso tra i partecipanti
+L'algoritmo del consenso più famoso e utilizzato (come da Bitcoin, Ethereum e Monero), nonché il primo algoritmo del consenso mai creato, è il PROOF OF WORK abbreviato PoW. Questo si basa sulla "Prova del Lavoro" svolto dai miner che dovranno risolvere una serie di operazioni considerate come un puzzle matematico per poter creare un blocco valido. Il primo miner che costruisce il blocco lo aggiunge alla catena, notifica in broadcast il resto della rete e di conseguenza tutte le transazioni in esso presenti vengono validate, infine il miner viene ricompensato con un incentivo, ad esempio una moneta che sarà relativa a quello che gli utenti pagano per effettuare le transazioni, cioè le "tasse" - fees. I miner quindi utilizzano la loro potenza e risorse computazionali per provare che hanno svolto del lavoro (questo produce anche un massivo consumo di elettricità), talvolta è possibile che due o più nodi producano lo stesso blocco creando un fork e quindi due differenti catene. Il sistema è incentivato a scrivere nuovi blocchi sulla catena più lunga così da eliminare la biforcazione orfana e ricondurre tutta la rete a un`unica catena, questo implica che, se si voglia creare un blocco "falso" e farlo accettare dalla blockchain bisognerà possedere una potenza di calcolo maggiore di tutta la rete. Il mining diventa sempre più competitivo con una partecipazione sempre maggiore di persone e con un relativo incremento della difficoltà, perciò si è vista la creazione delle Mining Pool: un insieme di persone che raggruppa la propria potenza di calcolo per il mining di criptomoneta, in questo modo la probabilità di costruire un blocco valido aumenta e di conseguenza aumenta anche il guadagno suddiviso tra i partecipanti.
 
 \subsection{Proof of Stake}
 \begin{figure}[h]
@@ -207,18 +202,18 @@ L'algoritmo del consenso più famoso ed utilizzato(come da Bitcoin, Ethereum e M
 	\label{fig:pow-pos}
 \end{figure}
 
-Nel 2011 basandoci sui problemi del PoW come il dispendio di energia elettrica o la creazione di grosse Mining Pool che elimina la decentralizzazione si è sviluppata l`idea del PoS Proof of Stake. Il PoS sostituisce i miner con i validatori o coniatore, questi per far si che il loro blocco venga considerato valido devono depositare della moneta come "cauzione" che viene appunto chiamata Stake. 
-In questo modo se con il PoW era possibile inserire transazione fraudolente qui si andrebbe a perdere la somma congelata. Il criterio di scelta dei validatori si basa sulla quantità di moneta bloccata la durata del blocco, con il secondo parametro si va in contro al problema generato dal primo parametro cioè che solo i più ricchi possono essere scelti e quindi diventare più ricchi.
-L’elezione del blocco leader (da aggiungere) avviene tramite l’algoritmo VFR – Verifiable random function che utilizza l’algoritmo “follow-the-coin” - “più denaro blocchi più hai fiducia”. Il PoS porta molteplici vantaggi rispetto al PoW come un minimo dispendio energetico e una maggiore sicurezza e decentralizzazione dovuta all`assenza di mining pool.
+Nel 2011 basandosi sui problemi del PoW come il dispendio di energia elettrica o la creazione di grosse Mining Pool, che eliminano la decentralizzazione, si è sviluppata l`idea del PoS - Proof of Stake. Il PoS sostituisce i miner con i validatori o coniatori, questi, per far si che il loro blocco venga considerato valido devono depositare della moneta come "cauzione" chiamata Stake.
+In questo modo se con il PoW era possibile inserire transazioni fraudolente, con il PoS si andrebbe a perdere la somma congelata. Il criterio di scelta dei validatori si basa sulla quantità di moneta bloccata e la durata del blocco, con il secondo parametro si va in contro al problema generato dal primo parametro cioè che solo i più ricchi possono essere scelti e quindi diventare più ricchi.
+L’elezione del blocco leader (da aggiungere) avviene tramite l’algoritmo VRF – Verifiable Random Function che utilizza l’algoritmo “follow-the-coin” - “più denaro blocchi più hai fiducia”. Il PoS porta molteplici vantaggi rispetto al PoW come un minimo dispendio energetico e una maggiore sicurezza e decentralizzazione dovuta all`assenza di mining pool.
 
 \subsection{Proof of Authority}
 \begin{wrapfigure}{l}{0.5\textwidth}
 	\includegraphics[height=0.3\textheight]{judge}
 \end{wrapfigure}
-Un ultimo algoritmo del consenso è il PoA - Proof of Autority. Qui viene meno il concetto di decentralizzazione in quanto si basa sull'utilizzo di nodi validatori noti. Il PoA viene spesso utilizzato in ambito privato o militare e si utilizza, come intuibile dal nome, il concetto di Autorità che quindi avrà il potere di decidere i nodi validatori, cioè gli unici nodi che potranno produrre blocchi, mentre gli altri nodi avranno soltanto la possibilità di lettura. Il PoA fa si che i nodi validatori mettano in "Stake" la loro reputazione a differenza di una moneta. Il modello Proof of Authority consente alle imprese di mantenere la propria privacy e allo stesso tempo avvalersi dei vantaggi della tecnologia blockchain. Inoltre il modello PoA riduce il problema del consumo in quanto diventa inutilizzabile il concetto di concorrenza nel mining e di conseguenza le mining pool. Riferendosi al Trilemma della scalabilità PoA rinuncia alla decentralizzazione a favore della sicurezza.
+Un ultimo algoritmo del consenso è il PoA - Proof of Autority. Qui viene meno il concetto di decentralizzazione in quanto si basa sull'utilizzo di nodi validatori noti. Il PoA viene spesso utilizzato in ambito privato o militare e si utilizza, come intuibile dal nome, il concetto di Autorità che quindi avrà il potere di decidere i nodi validatori, cioè gli unici nodi che potranno produrre blocchi, mentre gli altri nodi avranno soltanto la possibilità di lettura. Il PoA fa si che i nodi validatori mettano in "Stake" la loro reputazione a differenza di una moneta. Il modello Proof of Authority consente alle imprese di mantenere la propria privacy e allo stesso tempo avvalersi dei vantaggi della tecnologia blockchain. Il modello PoA riduce il problema del consumo in quanto diventa inutilizzabile il concetto di concorrenza nel mining e di conseguenza le mining pool. Riferendosi al Trilemma della scalabilità, PoA rinuncia alla decentralizzazione in favore della sicurezza.
 
 \section{Attacchi}
-Nonostante la blockchain sta avendo molteplici riscontri positivi negli ultimi anni la sua caratteristica di decentralizzazione la rende si più affidabile rispetto ad un sistema centralizzato ma risultano comunque possibili e attuabili degli Attacchi ad essa.
+Nonostante la blockchain stia avendo molteplici riscontri positivi negli ultimi anni, la sua caratteristica di decentralizzazione la rende si più affidabile rispetto ad un sistema centralizzato ma risultano comunque possibili e attuabili degli attacchi ad essa.
 
 \subsection{Selfish Mining Attack}
 \begin{figure}[h]
@@ -227,7 +222,7 @@ Nonostante la blockchain sta avendo molteplici riscontri positivi negli ultimi a
 	\caption{Selfish-mining-attack}
 	\label{fig:SM-attack}
 \end{figure}
-Il Selfish Mining Attack si basa su un sistema PoW e sfrutta la sua debolezza nel momento in cui si genera un Fork. Nel momento in cui si genera una biforcazione solo la catena più lunga viene considerata valida e le transazioni nella catena orfana vengono rese nulle. Per l`attuarsi del Selfish Mining Attack si ha bisogno che l`attaccante cioè il Faul-Miner generi un blocco che potrebbe creare un Fork (in cui si ha la possibilità di inserire transazioni fraudolente) ma lo tenga segreto, senza aggiungerlo alla Blockchain. Il Fault-Miner dovrà continuare a generare blocchi seguendo la sua catena e quando questa sarà più lunga di quella che attualmente gli altri miner stanno seguendo, pubblicherà il suo Fork e la sua catena che essendo più lunga secondo l`algoritmo del PoW verrà considerata valida e sarà quella che gli altri miner seguiranno da quel momento in poi. Per l`attuazione del Selfish Mining Attack si ha bisogno quindi che un singolo ente possegga più del 51% della potenza dell`intera rete.
+Il Selfish Mining Attack si basa su un sistema PoW e sfrutta la sua debolezza nel momento in cui si genera una Fork. Nel momento in cui si genera una biforcazione solo la catena più lunga viene considerata valida e le transazioni nella catena orfana vengono rese nulle. Per l`attuarsi del Selfish Mining Attack si ha bisogno che l`attaccante cioè il Fault-Miner generi un blocco che potrebbe creare una Fork (in cui si ha la possibilità di inserire transazioni fraudolente) ma lo tenga segreto, senza aggiungerlo alla Blockchain. Il Fault-Miner dovrà continuare a generare blocchi seguendo la sua catena e quando questa sarà più lunga di quella che attualmente gli altri miner stanno seguendo, pubblicherà la sua Fork e la sua catena che essendo più lunga, secondo l`algoritmo del PoW verrà considerata valida e sarà quella che gli altri miner seguiranno da quel momento in poi. Per l`attuazione del Selfish Mining Attack si ha bisogno quindi che un singolo ente possegga più del 51\% della potenza dell`intera rete.
 
 \subsection{Double Spending Attack}
 \begin{figure}[h]
@@ -236,12 +231,12 @@ Il Selfish Mining Attack si basa su un sistema PoW e sfrutta la sua debolezza ne
 	\caption{Double Spending Attack}
 	\label{fig:ds-attack}
 \end{figure}
-Il Double Spending Attack viene concepito per la possibilita di spedere due volte la stessa moneta. Questo potrebbe essere attuabile con la creazione di due diverse transazioni. Le due transazioni però dovranno appartenere a due blocchi diversi, e se due miner che competono nel minare un blocco utilizzano ognuno una transazione diversa? Allora verranno prodotti due blocchi con entrambe le transazioni MA verrà prodotto un Fork quindi sono una delle due transazioni verrà poi validata mentre la seconda sarà annullata, ricordando che una transazione o meglio un blocco ha una validità pari al numero di blocchi minati in seguito (In BitCoin un blocco è validato se sono stati prodotti 6 blocchi successivi).
+Il Double Spending Attack viene concepito per la possibilita di spedere due volte la stessa moneta. Questo potrebbe essere attuabile con la creazione di due diverse transazioni. Le due transazioni però dovranno appartenere a due blocchi diversi. E se due miner che competono nel minare un blocco utilizzano ognuno una transazione diversa? Allora verranno prodotti due blocchi con entrambe le transazioni ma verrà prodotta una Fork quindi solo una delle due transazioni verrà poi validata mentre la seconda sarà annullata, ricordando che una transazione o meglio un blocco ha una validità pari al numero di blocchi minati in seguito (In BitCoin un blocco è validato se sono stati prodotti 6 blocchi successivi).
 
 \section{Blockchain Pubbliche/Private}
-Una blockchain pubblica solitamente è anche detta permissionless, letteralmente "senza permessi" cioè un nuovo nodo non ha bisogno di speciali permessi per partecipare quindi minare o effettuare transazioni nella rete che quindi viene definita pubblica. Le reti permissionless sono quindi decentralizzate in quanto nessuno ha il controllo della rete.
+Una blockchain pubblica solitamente è anche detta permissionless, letteralmente "senza permessi" cioè un nuovo nodo non ha bisogno di speciali permessi per partecipare, quindi minare o effettuare transazioni nella rete che viene definita pubblica. Le reti permissionless sono quindi decentralizzate in quanto nessuno ha il controllo della rete.
 
-Le blockchain private sono conosciute come permissioned, sono caratterizzate dalla presenza di un’autorità centrale che decide chi può accedere e assegna loro un ruolo nella rete che determinerà cosa il nuovo nodo avrà il permesso di fare, se ha la possibilità di partecipare alla rete o se potrà essere un nodo validatore o sola lettura . La sicurezza di una blockchain privata fa maggiormente perno sull'affidabilità dei singoli partecipanti.
+Le blockchain private sono conosciute come permissioned, sono caratterizzate dalla presenza di un’autorità centrale che decide chi può accedere e assegna loro un ruolo nella rete che determinerà cosa il nuovo nodo avrà il permesso di fare, se ha la possibilità di partecipare alla rete o se potrà essere un nodo validatore o di sola lettura. La sicurezza di una blockchain privata fa maggiormente perno sull'affidabilità dei singoli partecipanti.
 
 \section{Ethereum}
 
@@ -252,7 +247,7 @@ Le blockchain private sono conosciute come permissioned, sono caratterizzate dal
 	\label{fig:eth-logo}
 \end{figure}
 
-Ethereum è una piattaforma decentralizzata ideata nel 2013 (in seguito pubblicata nel 2015) come sostituto a BitCoin. Ethereum è una piattaforma basata su blockchain che permette quindi la gestione degli smart contract e come Bitcoin mette a disposizione una moneta che viene analogamente chiamata Ether e abbreviata con ETH. La moneta viene utilizzata per le varie transazioni ma viene anche usata per pagare le "tasse" - fee, nello specifico viene utilizzato un sottomultiplo dell'ETH chiamato wei che corrisponde a circa  $ 10^{-18} $ ETH  ( 1 ETH = $ 10^{18} $ wei). Per lo sviluppo e interfacciamento viene messa a disposizione da Ethereum la EVM - Ethereum Virtual Machine che funge da macchina turing completa in grado di eseguire byte code. La sua funzione è quella di consentire l'esecuzione di programmi o smart contract al fine di implementare una serie di funzionalità aggiuntive su detta blockchain; la Evm utilizza per gli smart contract un linguaggio di alto livello specializzato chiamato Solidity.
+Ethereum è una piattaforma decentralizzata ideata nel 2013 (in seguito pubblicata nel 2015) come sostituto a BitCoin. Ethereum è una piattaforma basata su blockchain che permette la gestione di smart contract e, come Bitcoin, mette a disposizione una moneta che viene analogamente chiamata Ether e abbreviata con ETH. La moneta viene utilizzata per le varie transazioni ma viene anche usata per pagare le "tasse" - fees, nello specifico viene utilizzato un sottomultiplo dell'ETH chiamato wei che corrisponde a circa  $ 10^{-18} $ ETH  ( 1 ETH = $ 10^{18} $ wei). Per lo sviluppo e l'interfacciamento viene messa a disposizione da Ethereum la EVM - Ethereum Virtual Machine che funge da macchina turing completa in grado di eseguire byte code. La sua funzione è quella di consentire l'esecuzione di programmi o smart contract al fine di implementare una serie di funzionalità aggiuntive su detta blockchain; la EVM utilizza per gli smart contract un linguaggio di alto livello specializzato chiamato Solidity.
 
 \subsection{Smart Contract}
 \begin{wrapfigure}{l}{0.4\textwidth}
@@ -260,17 +255,16 @@ Ethereum è una piattaforma decentralizzata ideata nel 2013 (in seguito pubblica
 	\centering
 \end{wrapfigure}
 
-Uno smart Contract, o contratto intelligente è un programma messo a disposizione da ethereum ed è una collezione di codice(funzioni) e di dati(stato). Lo smart Contract è identico ad un contratto reale ma grazie alla tecnologia blockchain non necessita di un terzo ente verificatore. Sono programmi scritti in un linguaggio di programmazione ad alto livello come Solidity (simil-JavaScript) o Vyper (simil-Python), compilati in bytecode e distribuiti sulla blockchain tramite speciali transazioni inviate ad un generico indirizzo 0x0 pagando un determinato gas. Nonostante siano caricati da un utente gli smart contract non hanno un proprietario ma appartengono alla rete, anche la loro sicurezza deriva da essa, vengono infatti definiti come programmi "on-chain" cioè programmi caricati su rete che mantengono uno stato sicuro e inviolabile al di fuori delle regole del contratto stesso infatti una volta caricato questo non può essere modificato. Ogni operazione gestita da uno smart contract che si vuole effettuare comporta una transazione che avrà come destinatario l'indirizzo del contratto e che come una qualunque transazione sarà considerata valida sono una volta che la rete l'avrà validata.
+Uno Smart Contract, o contratto intelligente, è un programma messo a disposizione da ethereum e consiste in una collezione di codice (funzioni) e di dati (stato). Lo smart Contract è identico ad un contratto reale ma grazie alla tecnologia blockchain non necessita di un terzo ente verificatore. Essi sono programmi scritti in un linguaggio di programmazione ad alto livello come Solidity (simil-JavaScript) o Vyper (simil-Python), compilati in bytecode e distribuiti sulla blockchain tramite speciali transazioni inviate ad un generico indirizzo 0x0 pagando un determinato gas. Nonostante siano caricati da un utente, gli smart contract non hanno un proprietario ma appartengono alla rete, anche la loro sicurezza deriva da essa e vengono infatti definiti come programmi "on-chain" cioè programmi caricati su rete che mantengono uno stato sicuro e inviolabile al di fuori delle regole del contratto stesso infatti, una volta caricato, non può essere modificato. Ogni operazione, gestita da uno smart contract, che si vuole effettuare comporta una transazione che avrà come destinatario l'indirizzo del contratto e come una qualunque transazione sarà considerata valida solo una volta che la rete l'avrà validata.
 
 \subsection{Solidity}
-Solidity è il linguaggio più diffuso nel contesto Ethereum ed è un linguaggio orientato agli oggetti, compilato, staticamente tipato e di alto livello usato per implementare smart contract eseguibili sull’Ethereum Virtual Machine. È stato sviluppato per essere simile alla sintassi ECMAScript per renderlo familiare agli sviluppatori web. Solidity è un linguaggio fortemente tipato, i tipi delle variabili sono gestiti in modo statico, 
-cioè il tipo va dichiarato nel momento in cui questa viene creata. Solidity gestisce i tipi di dato in tre suddivisioni:
+Solidity è il linguaggio più diffuso nel contesto Ethereum ed è un linguaggio orientato agli oggetti, compilato, staticamente tipato e di alto livello usato per implementare smart contract eseguibili sull’Ethereum Virtual Machine. È stato sviluppato per essere simile alla sintassi ECMAScript per renderlo familiare agli sviluppatori web. Solidity è un linguaggio fortemente tipato, i tipi delle variabili sono gestiti in modo statico, cioè il tipo va dichiarato nel momento in cui questa viene creata. Solidity gestisce i tipi di dato in tre suddivisioni:
 \begin{itemize}
   \item Tipi Valore: possono essere utilizzati per lo storage di comuni valori come un INT oppure UINT per un unsigned int, ma vengono considerati tali anche i bool o le string;
   \item Tipi indirizzo: come specificato dal nome indicano gli address di altre variabili/oggetti;
-  \item Tipi mapping: rappresentano strutture dati di tipo chiave/valore. Durante la creazione tutti i valori vengono inizializzati con i byte a zero, il loro uso è analogo ad un "array" visto da altri linguaggi o meglio ad una Hash map.
+  \item Tipi mapping: rappresentano strutture dati di tipo chiave/valore. Durante la creazione tutti i valori vengono inizializzati con i byte a zero, il loro uso è analogo ad un "array" visto da altri linguaggi o meglio ad una HashMap.
 \end{itemize}
-Le funzioni rappresentano il codice eseguibile di uno smart contract, possono prendere vai parametri in input e possono restituire più argomenti come output che andranno specificati nella firma. Queste posseggono una visibilità che può essere public, private, external, internal.
+Le funzioni rappresentano il codice eseguibile di uno smart contract, possono prendere vari parametri in input e possono restituire più argomenti come output che andranno specificati nella firma. Queste posseggono una visibilità che può essere public, private, external, internal.
 Un contratto di esempio :
 \begin{lstlisting}[language=Solidity]
 pragma solidity >=0.4.0 <0.6.0;
@@ -285,19 +279,19 @@ contract SimpleStorage {
  }
 }
 \end{lstlisting}
-Nella prima riga si nota la dicitura pragma solidity che indica la versione del linguaggio utilizzata per scrivere il contratto che quindi indica al compilatore la versione da utilizzare per una giusta compilazione. In seguito inizia la definizione del contratto. Questo possiede una variabile storedData di tipo Unsegned Int di 256bit, e due funzioni entrambi con visibilità pubblica, la prima set ha un argomento di tipo uint enessun return mentre nella seconda viene (nella firma) segnato il return e il tipo restituito (uint).
-\subsection{Gas}
+Nella prima riga si nota la dicitura pragma solidity che indica la versione del linguaggio utilizzata per scrivere il contratto che quindi indica al compilatore la versione da utilizzare per una giusta compilazione. In seguito inizia la definizione del contratto. Questo possiede una variabile storedData di tipo Unsegned Int di 256bit, e due funzioni con visibilità pubblica, la prima set ha un argomento di tipo uint e nessun return mentre nella seconda viene (nella firma) segnato il return e il tipo restituito (uint).
 
-Quando si effettua una transazione o si carica uno smart contract la VM richiede un pagamento calcolato in gas. Il gas è una frazione dell'ether e viene richiesto per un'operazione come l'invio di una transazione infatti viene comunemente chiamato "transaction fee". Il gas viene anche richiesto quando si effettua una qualunque operazione tramite uno smart contract ed è calcolato in base alla complessità di questa e da quanta memoria va a utilizzare. 
+\subsection{Gas}
+Quando si effettua una transazione o si carica uno smart contract la EVM richiede un pagamento calcolato in gas. Il gas è una frazione dell'ether e viene richiesto per un'operazione come l'invio di una transazione, viene comunemente chiamato "transaction fee". Il gas viene anche richiesto quando si effettua una qualunque operazione tramite uno smart contract ed è calcolato in base alla complessità di questa e da quanta memoria si va a utilizzare. 
 
 \subsection{DApps}
 
-Le DApp - Decentralized APPlication sono applicazioni simili alle app tradizionali, con la differenza fondamentale che al posto di appoggiarsi su server centralizzati sfruttano le piattaforme blockchain e il loro network distribuito, in questo modo possono essere utilizzati da interfaccia con gli smart contract. Le DApp sono immutabili, quindi nessuno può modificare quello che avviene tramite l’applicazione.
+Le DApps - Decentralized APPlications sono applicazioni simili alle app tradizionali, con la differenza fondamentale che al posto di appoggiarsi su server centralizzati sfruttano le piattaforme blockchain e il loro network distribuito, in questo modo possono essere utilizzate da interfaccia con gli smart contract. Le DApp sono immutabili, quindi nessuno può modificare quello che avviene tramite l’applicazione.
 
 %capitolo 3
 \chapter{Tecnologie utilizzate}
 
-\section{Besu}
+\section{Hyperledger Besu}
 \begin{wrapfigure}{r}{0.4\textwidth}
 	\includegraphics[height=0.2\textheight]{Hyperledger_Besu}
 	\centering
@@ -305,26 +299,26 @@ Le DApp - Decentralized APPlication sono applicazioni simili alle app tradiziona
 	\label{fig:Hyperledger_Besu_logo}
 \end{wrapfigure}
 
-Hyperledger è un open source creato per far progredire le cross-industry blockchain technologies.È una collaborazione globale, ospitata da The Linux Foundation, che include leader in finanza, banche, IoT, supply chain, manufacturing e tecnologia.
+Hyperledger è un open source creato per far progredire le cross-industry blockchain technologies. Si tratta di una collaborazione globale, ospitata da The Linux Foundation, che include leader in finanza, banche, IoT, supply chain, manufacturing e tecnologia.
 
-Hyperledger Besu è un Ethereum client - open source sviluppato sotto Apache 2.0 e scritto utilizzando Java. Può essere utilizzato per la rete pubblica Ethereum oppure per una rete permissioned privata, viene anche utilizzata per le reti di test come Rinkeby, Ropsten, and Görli. Hyperledger Besu include molti alcoritmi del consenso tra cui PoW, PoA(IBFT, IBFT 2.0, Etherhash, and Clique).
+Hyperledger Besu è un Ethereum client - open source sviluppato sotto Apache 2.0 e scritto utilizzando Java. Può essere utilizzato per la rete pubblica Ethereum oppure per una rete permissioned privata, viene anche utilizzata per le reti di test come Rinkeby, Ropsten, and Görli. Hyperledger Besu include molti algoritmi del consenso tra cui PoW e PoA (IBFT, IBFT 2.0, Etherhash, and Clique).
 
-Hyperledger Besu offre molte proprietà come una EVM completa (Ethereum Virtual Machine) che permette l'invio e l'esecuzione di smart contract con le transazioni su Ethereum blockchain. 
+Hyperledger Besu offre molte proprietà tra cui una EVM completa che permette l'invio e l'esecuzione di smart contract con  transazioni su Ethereum blockchain. 
 
 Besu usa un RocksDB key-value database per la persistenza locale dei dati della rete. I dati si dividono in due categorie:
 \begin{itemize}
-\item Blockchain: I dati della blockchain sono composti dal Block Header che che form la "catena" di dati utilizzata per verificare crittograficamente lo stato blockchain; block bodies che contengono la lista delle transazioni ordinate comprese in ciascun blocco; e ricevute di transazione che contengono metadati relativi all'esecuzione della transazione, inclusi i transaction logs.
+\item Blockchain: I dati della blockchain sono composti dal Block Header che forma la "catena" di dati utilizzata per verificare crittograficamente lo stato blockchain, block bodies che contengono la lista delle transazioni ordinate comprese in ciascun blocco e ricevute di transazione che contengono metadati relativi all'esecuzione della transazione, inclusi i transaction logs.
 \item World State: Il world state è un mapping da addresses to accounts
 \end{itemize}
 
-Hyperledger Besu implementa Ethereum’s devp2p network protocols per l'inter-client communication eun'altro sotto-protocollo per l'IBFT 2.
+Hyperledger Besu implementa Ethereum’s devp2p network protocols per l'inter-client communication e un altro sotto-protocollo per l'IBFT 2.
 
-Hyperledger Besu mette a disposizione del programmatore le API di  EEA, JSON-RPC utilizzando protocolli HTTP e WebSocket.
+Hyperledger Besu mette a disposizione del programmatore le API di EEA e JSON-RPC utilizzando protocolli HTTP e WebSocket.
 
-Hyperledger Besu ti permette di monitorare i nodi e le performance della rete, i nodi sono monitorati usando Prometheus o le metriche di debug JSON-RPC API method, invece la performance della rete viene monitorata con un qualunque Block Explorer
+Hyperledger Besu permette di monitorare i nodi e la performance della rete, i nodi sono monitorati usando Prometheus o le metriche di debug JSON-RPC API method, invece la performance della rete viene monitorata con un qualunque Block Explorer.
 
 \subsection{IBFT} \label{IBFT}
-Un meccanismo di consenso messo a disposizione da Besu (e sarà anche quello utilizzato nello sviluppo della blockchain) è l'IBFT versione 2.0 basato su PoA(Proof-of-Authority), questo è un protocollo è utilizzabile solo dalle reti private. Nelle reti IBFT 2.0 solo i nodi pre-approvati, conosciuti come validatori, possono validare transazioni e blocchi. I validatori prendono un turno per creare il prossimo blocco; prima che questo venga inserito sulla catena la maggioranza dei validatori(maggiorre del 66,6\%) deve prima firmare il blocco. Per aggiungere o rimuovere un validatore si ha anche qui bisogno della maggioranza dei voti; IBFT 2.0 ha bisogno di minimo 4 nodi peressere Byzantine fault tolerant, cioè l'abilità per una rete blockchain di funzionare correttamente e di raggiungere il consenso nonostante i nodi falliscano o propaghino informazioni errate ai peer.
+Un meccanismo di consenso messo a disposizione da Besu (e sarà anche quello utilizzato nello sviluppo della blockchain) è l'IBFT versione 2.0 basato su PoA (Proof of Authority), questo è un protocollo utilizzabile solo dalle reti private. Nelle reti IBFT 2.0 solo i nodi pre-approvati, conosciuti come validatori, possono validare transazioni e blocchi. I validatori prendono un turno per creare il prossimo blocco; prima che questo venga inserito sulla catena la maggioranza dei validatori (maggiore del 66,6\%) deve prima firmare il blocco. Per aggiungere o rimuovere un validatore si ha, anche qui, bisogno della maggioranza dei voti; IBFT 2.0 ha bisogno di minimo 4 nodi per essere Byzantine Fault Tolerant, ciò consiste nell'abilità per una rete blockchain di funzionare correttamente e di raggiungere il consenso nonostante i nodi falliscano o propaghino informazioni errate ai peer.
 
 Per usare IBFT 2.0, Besu richiede la scrittura di un genesis file (file contenente le configurazioni necessarie alla rete)
 \begin{lstlisting}[language=json,firstnumber=1]
@@ -342,22 +336,22 @@ Per usare IBFT 2.0, Besu richiede la scrittura di un genesis file (file contenen
 \end{lstlisting}
 Riferendosi al codice di esempio sopracitato (genesis file) si vedono i dati di config di una rete ibft2 identificando:
 \begin{itemize}
-\item blockperiodseconds: anche chiamato block time è il tempo alla cui scadenza il protocollo propone un nuovo blocco;
+\item blockperiodseconds: anche chiamato block time, è il tempo alla cui scadenza il protocollo propone un nuovo blocco;
 \item epochlength: numero di blocchi che indica ogni quanto resettare i voti;
 \item requesttimeoutseconds: il timeout in secondi di un round per il cambio di validatore;
-\item blockreward: Importo della ricompensa opzionale in Wei per premiare il beneficiario;
-\item miningbeneficiary: Il beneficiario opzionale del blockreward.
+\item blockreward: importo della ricompensa opzionale in Wei per premiare il beneficiario;
+\item miningbeneficiary: il beneficiario opzionale del blockreward.
 \end{itemize}
 
 \subsubsection{IBFT Methods / Besu API}
-Besu per la gestione dell'IBFT offre delle API svivuppate tramite metodi utilizzabili tramite chiamate post. Tra i più utilizzati / quelli necessari c'è \textit{ibft\_discardValidatorVote} che prende in input un indirizzo di un nodo e restituisce un booleano secondo se l'operazione è andata a buon fine, con questo metodo è possibile rimuovere da un nodo la proprietà di validatore se più del 50\% della rete effettua questo voto. Analogamente si usa \textit{ibft\_proposeValidatorVote} per proporre un nuovo nodo come validatore. infine ci sono molteplici metodi per ottenere delle metriche come \textit{ibft\_getValidatorsByBlockHash} e \textit{ibft\_getValidatorsByBlockNumber} che restituisce la lista di validatori che hanno firmato un blocco a partire dal numero del blocco o il suo hash.
+Besu per la gestione dell'IBFT offre delle API sviluppate per mezzo di metodi utilizzabili tramite chiamate post. Tra i più utilizzati / quelli necessari c'è \textit{ibft\_discardValidatorVote} che prende in input l'indirizzo di un nodo e restituisce un booleano analogo al fine dell'operazione, con questo metodo è possibile rimuovere da un nodo la proprietà di validatore se più del 50\% della rete effettua questo voto. Analogamente si usa \textit{ibft\_proposeValidatorVote} per proporre un nuovo nodo come validatore. Infine ci sono molteplici metodi per ottenere delle metriche come \textit{ibft\_getValidatorsByBlockHash} e \textit{ibft\_getValidatorsByBlockNumber} che restituiscono la lista di validatori che hanno firmato un blocco a partire dal suo hash o il numero del blocco.
 
 \subsection{Free Gas Network}\label{free-gas-network}
-Con Free Gas Network ci riferiamo ad una rete in cui vengono annullate le tasse "fee" delle transazioni. Utilizzando un client ethereum come BESU le tase vengono calcolate tramite il gas e il prezzo che ha 1 unità di esso; il costo di una transazione è quindi  gas used * gas price. Utilizzando il comando \textit{--min-gas-price=0} all'avvio su Besu imposteremo il gas price  a zero, in questo modo il gas richiesto da una transazione sarà reso nullo in quanto il valore di questo sarà zero (gas x O = 0), quindi tutti i nodi potranno effettuare transazioni senza pagare alcuna tassa.
+Con Free Gas Network ci riferiamo ad una rete in cui vengono annullate le tasse "fee" delle transazioni. Utilizzando un client ethereum come BESU le tasse vengono calcolate tramite il gas e il prezzo che ha un'unità di esso: il costo di una transazione è quindi  gas used * gas price. Utilizzando il comando \textit{--min-gas-price=0} all'avvio di Besu il gas price impostato a zero, in questo modo il gas richiesto da una transazione verrà reso nullo in quanto il valore di questo sarà zero (gas x 0 = 0), quindi tutti i nodi potranno effettuare transazioni senza pagare alcuna tassa.
 
 %\subsection{API Methods}
 \section{Truffle}
-Truffle è il framework più utilizzato per lo svilupo su Etherieum, permette il management degli smart contract per tutto il loro ciclo di vita. L'installazione di truffle avviene tramite il comando 
+Truffle è il framework più utilizzato per lo svilupo su Etherieum e permette il management degli smart contract per tutto il loro ciclo di vita. L'installazione di Truffle avviene tramite il comando
 \begin{lstlisting}[language=command.com]
 npm install truffle -g
 \end{lstlisting}
@@ -370,7 +364,7 @@ una volta creata la nuova directory avrete la seguente struttura:
 \begin{lstlisting}[language=command.com]
 contracts/: Directory per i contratti sviluppati con Solidity
 migrations/: Directory per i file di deploy
-test/: Directory per i fiel di test degli  smart contract
+test/: Directory per i file di test degli  smart contract
 truffle-config.js: Truffle configuration file
 \end{lstlisting}
 
@@ -379,102 +373,103 @@ Con la Truffle suit è possibile compilare i propri smart contract. Con il coman
 \begin{lstlisting}[language=command.com]
 truffle compile
 \end{lstlisting}
-Verranno compilati i contratti, quindi si avrà una visione dei possibili errori oppure se compilati correttamente verrà generato per ogni contratto le sue ABI - Application Binary Interface, queste sano scritte tramite modello JSON, avranno lo stesso nome del contratto e saranno nella directory \textit{build/contract}.
+verranno compilati i contratti, quindi si avrà una visione dei possibili errori oppure, se compilati correttamente, verrà generata per ogni contratto la sua ABI - Application Binary Interface, queste sono scritte tramite modello JSON, avranno lo stesso nome del contratto e saranno nella directory \textit{build/contract}.
 
 \subsection{Test}
-Con truffle è possibile scrivere ed eseguire dei test per i contratti. questi andranno scritti in javascript, firmati con estensione \textit{.spec.js} e salvati nella directory \textit{/test}
+Con Truffle è possibile scrivere ed eseguire dei test per i contratti. Tali test andranno scritti in JavaScript, firmati con estensione \textit{.spec.js} e salvati nella directory \textit{/test}.
 Con il comando
 \begin{lstlisting}[language=command.com]
 truffle test
 \end{lstlisting}
-vengono eseguiti i vari programmi sulla rete di test e verrà visualizzato su riga di comando quali test sono andati a buon fine e quali hanno generato dei problemi che verranno mostrati.
+vengono eseguiti i vari programmi sulla rete di test e verrà visualizzato su riga di comando quali di questi sono andati a buon fine e quali hanno generato dei problemi che verranno mostrati.
 
 \subsection{Deploy}
-All'avvio di truffle init viene creato un file nominato truffel-config.js - file formato json che contiene le configurazioni di truffle, inizialmente sarà vuoto ma specificando una qualunque rete Trulle ci permette di effettuare il deploy / migration dei nostri smart contract sulla rete selezionata scrivendo il file di migration specificando il contratto da inviare(uno per ogni contratto) ed eseguendo il comando
+All'avvio di truffle init viene creato un file nominato truffle-config.js - file formato json che contiene le configurazioni di Truffle. Inizialmente sarà vuoto ma, specificando una qualunque rete, Truffle ci permette di effettuare il deploy / migration dei nostri smart contract sulla rete selezionata scrivendo il file di migration (uno per ogni contratto) ed eseguendo il comando
 \begin{lstlisting}[language=command.com]
 truffle migrate --network=//nome-rete
 \end{lstlisting}
 
-\section{Node js}
+\section{Node.js}
 
-Node js è una tecnologia open source di sviluppo software, orientata agli eventi per l'esecuzione di codice JavaScript costruito su Google Chrome’s V8 JavaScript engine.
+Node.js è una tecnologia open source di sviluppo software, orientata agli eventi per l'esecuzione di codice JavaScript costruito su Google Chrome’s V8 JavaScript engine.
 \begin{figure}[h]
 	\includegraphics[height=0.15\textheight]{node-js}
 	\centering
 \end{figure}
-È un linguaggio event-driven e usa la programmazione asincrona, non supporta il multithreading e il modello di programmazione si basa sulle funzioni di callback cioè funzioni che vanno in esecuzione solo dopo che è stato lanciato l'evento che che indica che l'elaborazione è terminata e il valore di output è disponibile.
-Questo ambiente ci permette di utilizzare il linguaggio javascript sia per front-end sia back-end, rendendo possibile la creazione di un server tramite l'uso di pacchetti come Express che sarà in ascolto di default sulla porta 1010:
+È un linguaggio event-driven, usa la programmazione asincrona, non supporta il multithreading e il modello di programmazione si basa sulle funzioni di callback cioè funzioni che andranno in esecuzione solo dopo che è stato lanciato l'evento, il quale indica che l'elaborazione è terminata e il valore di output è disponibile.
+Questo ambiente ci permette di utilizzare il linguaggio JavaScript sia front-end sia back-end, rendendo possibile la creazione di un server tramite l'uso di pacchetti come Express che sarà in ascolto di default sulla porta 1010:
 \begin{lstlisting}[language=JavaScript]
 const express 		= require('express');
 const app = express();
-//Home Page
+
 app.get('/', (req, res) => {
-  	res.sendFile(path.join(__dirname, '/html/index.html'));
+  	//codice
 });
 \end{lstlisting}
-con questo codice definiamo anche la risposta che darà il server alla richiesta get effettuata ('/' - indica la ricerca base del solo server) e sarà il file\textit{index.html}
 
 \subsection{Web3}
-Web3 è una collezione di librerie che permette la connessione con un nodo Ethereum locale o remoto. Web3 viene utilizzata come una classica libreria JavaScript caricata tramite la KeyWord \textit{require} di node js
+
+Web3 è una collezione di librerie che permette la connessione con un nodo Ethereum locale o remoto. Web3 viene utilizzata come una classica libreria JavaScript caricata tramite la KeyWord \textit{require} di Node.js : 
 \begin{lstlisting}[language=JavaScript]
 var Web3 = require('web3');
 \end{lstlisting}
-in seguito deve essere inizializzata con un argomento di tipo stringa che rappresenta l'indirizzo del noto ethereum a cui collegarsi
+in seguito deve essere inizializzata con un argomento di tipo stringa che rappresenta l'indirizzo del nodo Ethereum a cui collegarsi:
 \begin{lstlisting}[language=JavaScript]
 var web3 = new Web3(Web3.givenProvider || 'local-or-remote-address:8546');
 \end{lstlisting}
+
 %capitolo 4
 \chapter{Caso d'uso}
 
 \section{Problema Iniziale}
-Il progetto blockchain è stato ideato e sviluppato come proposta di soluzione ai problemi nella gestione del tracciamento, invio, certificazione e mantenimento di dati riguardanti "spostamenti". Questi spostamenti sono informazioni(LOG) inviate da un qualunque ente che metta a disposizione della società o di un qualunque servizio che preveda dei mezzi pubblici o privati quali ad esempio autobus, treni, taxi etc... Queste informazioni vengono ora raccolte, analizzate e utilizzate su di modelli di storage a fogli di calcolo (Ad Esempio EXCEL - Programma Micrsoft). I fogli di calcolo offrono alcuni vantaggi come la semplicità con cui vengo creati, scritti e salvati benché offrano un'interfaccia poco user friendly('facilmente utilizzabile') guardando tutti i possibili attori, mentre il progetto si focalizza sui difetti come la pubblicazione/condivisione delle informazioni o l'interrogazione di queste in quanto utilizzando semplici fogli non vengono proposte alcune regole di struttura e organizzazione,e ci si pone particolare importanza alla sicurezza e all'affidabilità di queste informazioni e che non vengano modificate durante la condivisione, quindi la possibile certificazione di essi.
+Il progetto blockchain è stato ideato e sviluppato come proposta di soluzione ai problemi nella gestione del tracciamento, invio, certificazione e mantenimento di dati riguardanti "spostamenti". Questi spostamenti sono informazioni (LOG) inviate da un qualunque ente che metta a disposizione della società un servizio che preveda dei mezzi pubblici o privati quali ad esempio autobus, treni, taxi, etc. Ad oggi queste informazioni vengono raccolte, analizzate e utilizzate su di modelli di storage a fogli di calcolo (Ad Esempio EXCEL - Programma Microsoft). I fogli di calcolo offrono alcuni vantaggi come la semplicità con cui vengono creati, scritti e salvati benché offrano un'interfaccia poco user friendly ('facilmente utilizzabile') guardando tutti i possibili attori. Il progetto si focalizza sui difetti come la pubblicazione/condivisione delle informazioni o l'interrogazione di queste in quanto, utilizzando semplici fogli, non esistono regole di struttura e organizzazione, e si pone particolare importanza alla sicurezza e all'affidabilità di queste informazioni e che non vengano modificate durante la condivisione, quindi la possibile certificazione di esse.
 
 \section{Soluzione}
-La soluzione proposta si offre di risolvere tutti i problemi sopra elencati come la certificazione, salvataggio e interrogazioni di informazioni. Viene ideata una blockchain privata che avrà funzione di ente (decentralizzato) certificatore, questa non utilizza nessuna moneta creando una Free Gas Network e che con l'ausilio di appositi smart contract(scritti e caricati autonomamente) ci permette di salvare un codice che andrà ad identificare un determinato gruppo di spostamenti come un codice Hash che usufruendo della struttura e utilizzo della blockchain non potrà essere modificato, ciò implica che si potrà sempre verificare la correttezza del gruppo di spostamenti richiesti ricreando e controllando il loro codice.
+La soluzione proposta si offre di risolvere tutti i problemi sopra elencati come certificazione, salvataggio e interrogazioni di informazioni. Viene ideata una blockchain privata che avrà funzione di ente (decentralizzato) certificatore. Questa non utilizza nessuna moneta creando una Free Gas Network e con l'ausilio di appositi smart contract (scritti e caricati autonomamente) ci permette di salvare un codice che andrà ad identificare un determinato gruppo di spostamenti come un codice Hash che usufruendo della struttura e utilizzo della blockchain non potrà essere modificato. Ciò implica che si potrà sempre verificare la correttezza del gruppo di spostamenti richiesti ricreando e controllando il loro codice.
 
-La memorizzazione dei dati viene invece affidata ad un database relazionale, utilizzando nel progetto il DBMS(DataBase Managenent System) MySql, che ci permette di salvare grandi quantità di dati con una efficiente organizzazione gestita con la creazione di tabelle così da essere facilmente interrogabile in futuro.
+La memorizzazione dei dati viene invece affidata ad un database relazionale, utilizzando nel progetto il DBMS (Database Managenent System) MySql, che ci permette di salvare grandi quantità di dati con una efficiente organizzazione gestita con la creazione di tabelle così da essere facilmente interrogabile in futuro.
  
-L'interfaccia comune è gestita con un server sviluppato tramite tecnologia node js che con una single Page Application avrà la funzione di interfaccia user friendy con funzioni di memorizzazione per i log degli spostamenti su Database, calcolo e salvataggio dei loro codici hash sulla blockchain al tempo stimato e quando necessario, cioè quando e ovunque verranno richiesti dei dati e avverrà l'interrogazione del DataBase sarà reso obbligatorio il controllo di questi con il codice sulla blockchain. Inserendo questo WebServer intermedio o server proxy si andrà ad eliminare il passaggio di dati non propriamente protetto e rende partecipi tutti i singoli attori dell'attività.
+L'interfaccia comune è gestita con un server sviluppato tramite tecnologia Node.js che con una Single Page Application avrà la funzione di interfaccia user friendly. Avrà funzioni di: memorizzazione per i log degli spostamenti su Database, calcolo e salvataggio dei loro codici hash sulla blockchain al tempo stimato e quando necessario. Nel momento in cui verranno richiesti dei dati e avverrà l'interrogazione del Database sarà reso obbligatorio il controllo di questi con il codice sulla blockchain. Inserendo questo WebServer intermedio o server proxy si andrà ad eliminare il passaggio di dati non propriamente protetto, rendendo partecipi tutti i singoli attori dell'attività.
 
 \subsection{Problematiche}
 Utilizzando delle nuove tecnologie sorgono comunque nuove problematiche che non sono state affrontate nello sviluppo in quanto non inerenti ai fini del progetto.
 
 %DOS utilizzando un solo server
-Una prima problematica si sviluppa utilizzano un server proxy. Avendo un singolo server di accesso al database a alla blockchain sequesto non viene correttamente protetto e costantemente controllato è soggetto ai classici attacchi come un DDOS - Distributed Denial of Service in cui si utilizzano molteplici messaggi fittizi (come un inizio di HandShake per una connessione TCP) per far si che il server non possa sostenere tutti i servizi e essendo l'unico punto di accesso bloccherebbe  l'intero accesso alla rete blockchain.
+Una prima problematica si sviluppa utilizzano un server proxy. Avendo un singolo server di accesso al database e alla blockchain, se questo non viene correttamente protetto e costantemente controllato è soggetto ai classici attacchi come un DDOS - Distributed Denial of Service in cui si utilizzano molteplici messaggi fittizi (come un inizio di HandShake per una connessione TCP) per far si che il server non possa sostenere tutti i servizi ed essendo l'unico punto di accesso bloccherebbe il funzionamento della rete blockchain.
 
 %blockchain utile solo con molti nodi
-Una caratteristica che rende sicura la blockchain pubblica è la molteplicità di nodi, questa con una blockchain privata come la nostra va a decadere con il discendere  del numero di nodi; utilizzando un meccanisco di conseso basato su PoA(Proof of Autority) si ha infatti bisogno di un minimo di 4 nodi per essere resistente al problema bizantino.
+Una caratteristica che rende sicura la blockchain pubblica è la molteplicità di nodi, questa con una blockchain privata, come la nostra, va a decadere con il discendere  del numero di nodi; utilizzando un meccanismo di consenso basato su PoA (Proof of Autority) si ha infatti bisogno di un minimo di 4 nodi per essere resistente al problema bizantino.
 
 %attacco del compleanno
-Per evitare l'appesantimento della Blockchain si è pensato di salvare su di essa solo un codice identificativo(codice Hash) per un gruppo di Log. Questo implica che con l'aumentare dei log identificati da un singolo codice hash diminuisca la sicurezza che questo apporta infatti sarà più facilmente utilizzabile un attacco come l'attacco del compleanno che ha come obiettivo quello di generare una collisione cioè di trovare dei dati fittizi ai Log originari che però generano lo stesso codice Hash, questi dati fittizi potranno essere quindi sostituiti nel DB ma verranno comunque considerati certificati dal sistema in quanto produrranno lo stesso codice.
+Per evitare l'appesantimento della Blockchain si è pensato di salvare su di essa solo un codice identificativo (codice Hash) per un gruppo di Log. Questo implica che con l'aumentare dei log identificati da un singolo codice hash diminuisca la sicurezza che questo apporta, infatti, sarà più facilmente utilizzabile un attacco come l'attacco del compleanno che ha come obiettivo quello di generare una collisione. Questo ha l'obiettivo di trovare dei dati fittizi ai Log originari che però generano lo stesso codice Hash, questi dati fittizi potranno essere quindi sostituiti nel DB ma verranno comunque considerati certificati dal sistema in quanto produrranno lo stesso codice.
 
 \section{Attori}
 Il caso d'uso per il progetto blockchain prevede la partecipazione di diversi attori quali: 
 
-Un Terminal User o utente finale è un comune dipendente di un ente che partecipa alla blockchain il quale ha il compito di comunicare i propri spostamenti/Log o qualunque informazione di cui si preveda il salvataggio;
+Un Terminal User o utente finale, è un comune dipendente di un ente che partecipa alla blockchain il quale ha il compito di comunicare i propri spostamenti/Log o qualunque informazione di cui si preveda il salvataggio;
 
-Gli Admin sono dei dipendenti di enti partecipanti che vengono segnati dagli stessi come amministratori che quindi posseggono  particolari oneri come il possesso e la trasmissione di una chiave privata;
+Un Admin uno dei dipendenti di enti partecipanti che viene segnato dagli stessi come amministratore e che quindi possiede  particolari oneri come il possesso e la trasmissione di una chiave privata;
 
 Il proprietario/gestore della blockchain avrà il compito di gestire l'intera blockchain privata con l'amministrazione che ne segue, come la supervisione dei nodi presenti, il loro funzionamento e la loro caratterizzazione come validatori. 
 
 \section{Scenario di utilizzo}
 Il Progetto prevede uno scenario di utilizzo diverso seguendo la distinzione degli attori.
-Per l'utilizzo si prevede che ad ogni ente partecipante al progetto gli venga assegnato un account, cioè una copia di chiavi privata e pubblica che serviranno per interagire con la blockchain, inoltre ogni ente dovrà inserire i propri dipendenti nel Database e specificare il ruolo di essi, se admin o Terminal User.
+Per l'utilizzo si prevede che ad ogni ente partecipante al progetto venga assegnato un account, cioè una coppia di chiavi, privata e pubblica, che serviranno per interagire con la blockchain, inoltre ogni ente dovrà inserire i propri dipendenti nel Database e specificare il ruolo di essi, se Admin o Terminal User.
 
-Un Terminal User, una volta effettuato l'accesso, viene portato ad un'interfaccia in cui può inserire la città che sarà selezionata come Start dello spostamento e in seguito viene spostato in una seconda interfaccia da cui può terminare lo spostamento o annullarlo, se annullato potrà cominciare un nuovo spostamento dalla precedente interfaccia, il completamento di questo avverrà solo se compila i campi necessari quali la città di Termine e la distanza percorsa indicata in Kilometri.
+Un Terminal User, una volta effettuato l'accesso, viene portato ad un'interfaccia in cui può inserire la città che sarà selezionata come Start dello spostamento e in seguito viene spostato in una seconda interfaccia da cui può terminare lo spostamento o annullarlo, se annullato potrà cominciare un nuovo spostamento dalla precedente interfaccia. Il completamento di questo avverrà solo se compila i campi necessari quali la città di Termine e la distanza percorsa indicata in Kilometri.
 
-Un admin, una volta effettuato l'accesso, potrà a differenza di un Terminal User effettuare delle query/ interrogazioni riguardo gli spostamenti compiuti, inserendo una data otterrà tutti gli spostamenti che sono stati certificati da una transazione inserita in quella determinata data, da qui potrà anche accedere ai dettagli della transazione o del blocco che la contiene riferendoci alla blockchain, inoltre, quando il sistema lo richiede, ha il compito di inserire la Private Key dell'utente(ente) che verrà utilizzata per la scrittura su blockchain.
+Un Admin, una volta effettuato l'accesso, potrà, a differenza di un Terminal User, effettuare delle query/interrogazioni riguardo gli spostamenti compiuti. Inserendo una data otterrà tutti gli spostamenti che sono stati certificati da una transazione inserita in quella determinata data, da qui potrà anche accedere ai dettagli della transazione o del blocco che la contiene riferendosi alla blockchain, inoltre, quando il sistema lo richiede, ha il compito di inserire la Private Key dell'utente (ente) che verrà utilizzata per la scrittura su blockchain.
 
 %capitolo 5
 \chapter{Sviluppo}
 \section{Schema Progetto}\label{Schema-Progetto}
-Il Progetto è stato ideato partendo dalla ben conosciuta architettura client-server dove però è stata implementata anche la tecnologia blockchain. Come identificabile nella figura \ref{fig:sch} esistono 2 grandi attori; i "client" mostrati come dei mezzi di trasporto (Autobus-Taxi-Treni) hanno il compito / funzione di inviare i dati raccolti riguardanti gli spostamenti, in generale possiamo identificare questi dati come: 
+Il Progetto è stato ideato partendo dalla ben conosciuta architettura client-server dove però è stata implementata anche la tecnologia blockchain. Come identificabile nella figura \ref{fig:sch} esistono 2 grandi attori; i "client" mostrati come dei mezzi di trasporto (Autobus-Taxi-Treni) hanno il compito/funzione di inviare i dati raccolti riguardanti gli spostamenti, in generale possiamo identificare questi dati come: 
 \begin{itemize}
-\item Città di partenza
-\item Città di arrivo
-\item Distanza percorsa
-\item Data della percorrenza (identificata nel progetto come la data di Partenza e data di Arrivo)
-\item Username dell'utente che ha svolto la tratta
+\item Città di partenza;
+\item Città di arrivo;
+\item Distanza percorsa;
+\item Data della percorrenza (identificata nel progetto come la data di Partenza e data di Arrivo);
+\item Username dell'utente che ha svolto la tratta;
 \end{itemize}
 nello schema \ref{fig:sch} sono descritti in modo convenzionale come Msg("A .to. B") (Message).
 \begin{figure}[h]
@@ -484,7 +479,8 @@ nello schema \ref{fig:sch} sono descritti in modo convenzionale come Msg("A .to.
 	\label{fig:sch}
 \end{figure}
 
-Questi vengono inviati ad il secondo attore dello schema \ref{fig:sch}, il server Proxy. Questo ha lo specifico compito di ricevere ed elaborare in modo opportuno i diversi dati. Il server proxy ha una duplice funzione di interfaccia, con database e con la blockchain, funge quindi da ponte tra le due strutture.
+Questi vengono inviati a il secondo attore dello schema \ref{fig:sch}, il server Proxy. Questo ha lo specifico compito di ricevere ed elaborare in modo opportuno i diversi dati. Il server proxy ha una duplice funzione di interfaccia, con il database e con la blockchain, funge quindi da ponte tra le due strutture.
+
 \section{Blockchain Ibrida}
 Il progetto è incentrato su due strutture di immagazzinamento dati, questo rende possibile l'utilizzo dei vantaggi di entrambi.
 
@@ -600,10 +596,92 @@ contract Travel {
     }
 }
 \end{lstlisting}
-Questo contratto è pensato per essere univoco per ogni ente del consorzio, possiede come attributi un mapping utile allo store di hash ipotizzate come stringhe che per la struttura del mapping sono ripercorribili tramite un int corrispondente all'id\_hash salvato nel DB.
+Questo contratto è pensato per essere univoco per ogni ente del consorzio, possiede come attributi un mapping utile allo store di hash ipotizzate come stringhe che per la struttura del mapping sono ripercorribili tramite un int corrispondente all'id\_hash salvato nel DB. Il metodo get viene utilizzato per il solo ricevere di un hash precedentemente salvato su un id dato come input, ricordando che il mapping inizializza tutte le stringhe a ''. Il metodo add ha come attributi sia un int id che l'hash ed effettua l'inserimento nel mapping della coppia specificata, prima dell'inserimento avviene un controllo se a quell'id corrispondeva già un hash allora non sarà modificato nulla. 
 \subsection{Boxing}
+Il secondo contratto sviluppa un Boxing del primo, quindi non modifica le funzionalità di questo ma ne implementa di nuove.
+\begin{lstlisting}[language=Solidity]
+pragma solidity >=0.4.22 <0.9.0;
+
+import "./Travel.sol";
+
+contract BusinessTravel {
+
+    mapping(address => Travel) travel;
+    mapping(address => bool) is_inizialized;
+
+    function add(int ID, string memory travel_hash) public {
+        if(!is_inizialized[msg.sender]){
+            travel[msg.sender] = new Travel();
+            is_inizialized[msg.sender] = true;
+        } 
+        travel[msg.sender].add(ID, travel_hash);
+    }
+
+    function get(int ID) public view returns (string memory) {
+        if(!is_inizialized[msg.sender]) return '0';
+        else return travel[msg.sender].get(ID);
+    }
+}
+\end{lstlisting}
+
+BusinessTravel viene utilizzato per associare un diverso contratto Travel ad ogni utente, ed è svluppato con il mapping da un tipo address (indica la chiave pubblica di un utente) ad un oggetto di tipo Travel; questo è affiancato da un secondo mapping analogo che collegerà gli address di un account ad un booleano che come il nome "is\_inizialized" lascia intendere indicherà se nel primo mapping è già stato inizializzato un oggetto Travel per quel determinato address. I due metodi sono analoghi a quelli di travel infatti il metodo get restituisce la stringa di hash passandogli come parametro il solo id, questo utilizzerà la variabile msg.sender per identificare il mittente della transazione/ chiamata al metodo e per selezionare nel mapping il Travel desiderato; questo viene eseguito sempre dopo un controllo sul mapping se esiste un contratto Travel associato al sender tramite \textit{is\_inizialized}. Il metodo add oltre ad effettuare le operazioni del metodo add di travel deve porre attenzione ai controlli siccome se un address non ha un Travel associato bisogna rimediare e crearlo settando rispettivamente is\_inizialized a true.
+
 \section{WebApp}
-\subsection{Single Page Application}
+\subsection{Single Page Application}%descrizione html e js
+Una SPA - Single Page Application è una particolare metodologia di sviluppo di una web aplication. Essa si basa sulla costruzione di una unica pagina costruita come dinamica, ad ogni iterazione con un utente verrà aggiornata dinamicamente ma non verrà mai cambiata. La SPA è stata avviata con l'ausilio di node js e del pacchetto express che permette ala richiesta di '/' (indica la semplice richiesta del sito) di restituire un file come una pagina html che il browser interpreta.
+\begin{lstlisting}[language=JavaScript]
+//Home Page
+app.get('/', (req, res) => {
+  	res.sendFile(path.join(__dirname, '/html/index.html'));
+});
+\end{lstlisting}
+La pagina html è strutturata in diversi blocchi \textit{<div>} che si scambieranno per la resa dinamica di essa.
+\begin{lstlisting}[language=HTML]
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BlockchainData</title>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="../javascript/HomeForm.js"></script>
+	<link href="../css/Home.css" type="text/css" rel="stylesheet" >
+</head>
+<body>
+	<!-- <img id="banner" src="../img/banner-blockchain.jpg">-->
+	<a href="../">
+		<img name="hyperledger-logo" src="../img/hyperledger-logo.png">
+		<img name="blue-wave" src="../img/blue-wave.png">
+	</a>
+	<!-- Banner -->
+	<p id="HelloStr"></p>
+
+	<p id="ErrorSTR"></p><!-- Stringa per la comunicazione di errori -->
+	
+	<div id="Login_form"><!-- Form per il login di un utente -->
+	</div>
+	
+
+	<div id="Log_form"><!-- Form per l'invio di un nuovo log -->
+	</div>
+
+	<div id="ShowDiv"><!-- Form utilizzato per la presa visione di informazioni -->
+	</div>
+
+	<div id="Query_form"><!-- Form per l'interrogazione del DB e della Blockchain -->
+	</div>
+
+	<div id="PrivateKey_form"><!-- Form per l'interrogazione del DB e della Blockchain -->
+	</div>
+	<button id="LogoutBTN">Logout</button>
+</body>
+</html>
+\end{lstlisting}
+Lo switch tra i vari blocchi avviene tramite il javascript \textit{HomeForm.js} che ha anche il compito di effettuare le possibili richieste al server node js.
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{HomePage}
+	\centering
+	\caption{Schermata inisiale WebApp}
+	\label{fig:besu-imported-produced}
+\end{figure}
 \subsection{Input}
 \subsubsection{Inserimento in un DB}
 \subsubsection{Inserimento nella Blockchain}
