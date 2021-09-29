@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.10)  23 SEP 2021 08:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.29)  29 SEP 2021 16:08
 entering extended mode
 **./Tesi-frn.tex
 (Tesi-frn.tex
@@ -6,8 +6,8 @@ LaTeX2e <2021-06-01> patch level 1
 L3 programming layer <2021-08-27>
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
 Document Class: article 2021/02/12 v1.4n Standard LaTeX document class
-(C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
-File: size12.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
+(C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
+File: size10.clo 2021/02/12 v1.4n Standard LaTeX file (size option)
 )
 \c@part=\count182
 \c@section=\count183
@@ -162,22 +162,22 @@ LaTeX Font Info:    ... okay on input line 21.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(28.45274pt, 540.60239pt, 28.45274pt)
-* v-part:(T,H,B)=(28.45274pt, 688.5567pt, 128.0374pt)
+* v-part:(T,H,B)=(28.45274pt, 773.91498pt, 42.67912pt)
 * \paperwidth=597.50787pt
 * \paperheight=845.04684pt
 * \textwidth=540.60239pt
-* \textheight=688.5567pt
+* \textheight=773.91498pt
 * \oddsidemargin=-43.81725pt
 * \evensidemargin=-43.81725pt
 * \topmargin=-80.81725pt
 * \headheight=12.0pt
 * \headsep=25.0pt
-* \topskip=12.0pt
+* \topskip=10.0pt
 * \footskip=30.0pt
-* \marginparwidth=44.0pt
-* \marginparsep=10.0pt
+* \marginparwidth=65.0pt
+* \marginparsep=11.0pt
 * \columnsep=10.0pt
-* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \skip\footins=9.0pt plus 4.0pt minus 2.0pt
 * \hoffset=0.0pt
 * \voffset=0.0pt
 * \mag=1000
@@ -229,21 +229,22 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 {C:/Users/Giorgio/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./img/Unito-l
 ogo.png>] ) 
 Here is how much of TeX's memory you used:
- 2738 strings out of 478927
- 41812 string characters out of 2851587
- 351654 words of memory out of 3000000
- 20586 multiletter control sequences out of 15000+600000
+ 2739 strings out of 478927
+ 41817 string characters out of 2851587
+ 351627 words of memory out of 3000000
+ 20587 multiletter control sequences out of 15000+600000
  407696 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,14n,66p,217b,255s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 57i,14n,66p,217b,258s stack positions out of 5000i,500n,10000p,200000b,80000s
 <C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/a
 msfonts/cm/cmbx12.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/typ
 e1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX
 /fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Giorgio/AppData/Local/Pro
-grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
-Output written on Tesi-frn.pdf (1 page, 241468 bytes).
+grams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/Giorgio/AppData
+/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb>
+Output written on Tesi-frn.pdf (1 page, 253887 bytes).
 PDF statistics:
- 29 PDF objects out of 1000 (max. 8388607)
+ 34 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,8 +1,7 @@
 \documentclass[11pt,a4paper,titlepage]{report}
 
-
 \usepackage[italian]{babel} %italiano
-\usepackage[T1]{fontenc} 
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{graphicx} %immagini
 \usepackage{hyperref}
@@ -10,6 +9,7 @@
 \usepackage[nouppercase]{frontespizio}
 \usepackage{wrapfig} 
 \usepackage{listings}
+
 
 %-----------For json--------------
 \usepackage{xcolor}
@@ -74,7 +74,7 @@ morestring=[b]"
 }
 
 \graphicspath{ {./img/} }
-\linespread{1.23}
+\linespread{1.25}
 
 \input{solidity-highlighting.tex} %solidity color
 %\begin{lstlisting}[language=Solidity]
@@ -87,17 +87,13 @@ morestring=[b]"
 \Facolta{Scieze della Natura}
 \Corso[Laurea]{Informatica}
 \Logo[7.5cm]{./img/Unito-logo}
-\Titoletto{Tesi di laurea}
+\Titoletto{Tesi di laurea Triennale}
 \Titolo{Studio e realizzazione di un prototipo di un sistema basato su blockchain per il mobility as a service}
 \Candidato[880847]{Giorgio Mecca}
 \Relatore{Prof.~Claudio Schifanella}
 \Annoaccademico{2020-2021}
 \end{frontespizio}
 
-%\author{Giorgio Mecca}
-%\title{Studio e realizzazione di un prototipo di un sistema basato su blockchain per il mobility as a service}
-%\includegraphics[height=.2\textheight]{Unito-logo}
-%\maketitle
 %Study and realization of a prototype of a blockchain-based system for mobility as a service
 
 %indice
@@ -106,6 +102,7 @@ morestring=[b]"
 %capitolo 1
 \chapter{Introduzione}
 \section{Descrizione del Progetto}
+Il seguente elaborato descrive lo studio effettuato sulla tecnologia blockchain durante il tirocinio presso la 2+consulting. Lo studio è stato svolto ponendo particolare attenzione sulle blockchain private, la differenza e i vantaggi con le tecnologie pubbliche. In seguito ho dedicato la mia concentrazione allo studio di come e se fosse possibile avviare una blockchain privata scegliendo come tecnologia il client Besu, client facente parte del gruppo Hyperlegder che utilizza la tecnologia Etherium. Una volta definiti e studiati i parametri di essa, come ad esempio il meccanismo del consenso da utilizzare scegliendo IBFT 2.0 basato su PoA, ho studiato il modello di gestione e utilizzo di blockchain con gli Smart Contract, che permettono inoltre di inserire e memorizzare dati su blockchain includendo dati sulle transazioni pubbliche da certificare. In questo modo si è svolto uno studio sui dati utilizzati e come gestire il modello di Blockchain Ibrida, cioè l'utilizzo concatenato di una blockchain privata utilizzata per le sue proprietà sulla sicurezza e quindi come ente certificatore decentralizzato e un DataBase relazionale così da poter interrogare e accedere con facilità ai dati. Il passo finale è stato sviluppare una Web app con tipologia Single Page Application utilizzando come server la tecnologia Node Js con l'utilizzo del framework Web3 per l'interfacciamento alla blockchain. La Web app è sviluppata con l'ideologia della possibile integrazione nel Mobility as Service. Questa caratteristica è stata sviluppata con l'ideologia di fornire ai vari enti partecipanti un diverso account(coppia di chiavi pubblica e privata) che si utilizzerà per l'interfacciamento e gli fornirà determinati accessi. La WebApp ha quindi permesso la distinzione dei vari utenti che, in base al loro ruolo, avranno accessi e possibilità diverse sull'app. Queste possibilità riguardano chi e quali dati dovrà inserire e chi invece può interrogare le informazioni a cui ha accesso.
 \section{Descrizione dell’azienda}
 
 %capitolo 2
@@ -676,7 +673,7 @@ Lo switch tra i vari blocchi avviene tramite il javascript \textit{HomeForm.js} 
 	\includegraphics[width=\textwidth]{HomePage}
 	\centering
 	\caption{Schermata iniziale WebApp}
-	\label{fig:besu-imported-produced}
+	\label{fig:HomePage}
 \end{figure}
 
 \subsection{Input}
@@ -730,9 +727,9 @@ La funzione \textit{LastID} interroga il Database così da ottenere per address 
 
 \subsubsection{Inserimento nella Blockchain}
 Il salvataggio dati sulla blockchain avviene periodicamente su un lasso di tempo specificato (24 ore per il progetto).
-per il salvataggio si ha la necessità che un amministratore inserisca la private key.
+per il salvataggio si ha la necessità che un amministratore inserisca la private key (Figura \ref{fig:Input_Key}).
 
-Fino al momento che un amministratore non inserisca la Key, tutti gli account di utenti sotto quel determinato ente saranno impossibilitati dal server a salvare nuovi log. Allo scadere del lasso di tempo viene controllato dal DB chi (ente) ha inserito nuovi log che non sono stati salvati, viene di conseguenza impostato un blocco per gli utenti fino al momento del salvataggio (inserimento Private Key).
+Fino al momento che un amministratore non inserisca la Key, tutti gli account di utenti sotto quel determinato ente saranno impossibilitati dal server a salvare nuovi log. Allo scadere del lasso di tempo viene controllato dal DB chi (ente) ha inserito nuovi log che non sono stati certificato dalla blockchain, viene di conseguenza impostato un blocco per gli utenti fino al momento del salvataggio (inserimento Private Key).
 
 \begin{lstlisting}[language=JavaScript]
 	setInterval(function(){
@@ -756,21 +753,59 @@ Fino al momento che un amministratore non inserisca la Key, tutti gli account di
 	\label{fig:Input_Key}
 \end{figure}
 
+La comunicazione con la Blockchain si attua con il framework Web3.js. Dopo aver inizializzato la connessione si dovrà interpretare i contract ABI del contratto voluto così da creare un'istanza di contratto con le ABI e l'indirizzo.
+ 
+\begin{lstlisting}[language=JavaScript]
+	deployedContractAbi=travelContract.abi;
+	deployedContractAddress=SmartContractAddress.BusinessTravel.address;
+	const contractInstance = new web3.eth.Contract(deployedContractAbi, deployedContractAddress);
+\end{lstlisting}
+
+Per poter utilizzare un metodo di un contratto si dovrà effettuare una transazione specificando come destinatario l'indirizzo del contratto. Il "value" sarà nullo (0) poiché non è una transazione monetaria, ma, nel campo "data" si andrà a inserire le ABI della chiamata al metodo. Così costruendo una rawTransaction - Transazione grezza.
+\begin{lstlisting}[language=JavaScript]
+	const ABIMethod = await contractInstance.methods.add(ID_hash, hash_string.toString()).encodeABI();
+
+	const rawTxOptions = {
+	    from: account.address,
+	    to: deployedContractAddress, //address of contract
+	    value: '0',
+	    data: ABIMethod, //send value (ABI of method + params)
+	    gasPrice: '0x00', //ETH per unit of gas
+	    gas: '0x47b760', //max number of gas units the tx is allowed to use
+  	};
+\end{lstlisting}
+La rawTransaction deve essere firmata con la chiave privata del mittente e solo in seguito viene inviata alla blockchain
+e potremmo ottenere in TransactionHash - identificativo della transazione. Questo viene salvato nel DB per il monitoraggio.
+\begin{lstlisting}[language=JavaScript]
+  	var TransactionHash = web3.eth.accounts.signTransaction(rawTxOptions, AccountPrivateKey).then(async function(result){ 
+	    web3.eth.sendSignedTransaction(result.rawTransaction.slice(2)).on('transactionHash',(hash) => 
+            callback(null, hash)
+        )
+        .on('error', (error) => callback(error, '0'));
+\end{lstlisting}
+
 \subsection{Output}
+Il server a seguito determinate richieste,gestisce e invia risposte. Per poter effettuare queste richieste si deve essere un admin. Le richieste possono essere di due tipi: la visualizzazione di vecchi log o il monitoring della blockchain.
+
 \subsubsection{Report di Controllo}
 \subsubsection{Monitor Blockchain}
 
-\subsection{Input}
 \begin{thebibliography}{1}
 \bibitem{} \url{https://besu.hyperledger.org/en/stable/Tutorials/Private-Network/Create-IBFT-Network/} come creare una rete blockchain prvata con BESU
 \bibitem{} \url{https://web3js.readthedocs.io/en/v1.5.2/}
 \end{thebibliography}
+
 %capitolo 6
 \chapter{Sviluppi futuri}
+
 \section{Analisi costi}
+%vengono illustrati i costi delle varie transazioni e una stima dei costi annuali con possibili grafici
 \section{Immissione nella blockchain pubblica}
+%in base all'analisi dei costi si può inserire i contratti  anche senza db nella blockchain pubblica
 \section{Blockchain pubblica come certificazione}
+%utilizzare òla blockchain pubblica per inserire l'hash di ogni nuovo blocco così da certificare l'intera catena
 \section{Svilupo full Blockchain}
+%eliminare il DB e inserire tutto nella blockchain privata con relativo problema di spazio
 
 
 %lista delle Immagini
