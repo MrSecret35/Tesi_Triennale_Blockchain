@@ -9,15 +9,18 @@
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Struttura di un Blocco}}{8}{figure.2.5}%
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Merkle Tree}}{9}{figure.2.6}%
 \contentsline {figure}{\numberline {2.7}{\ignorespaces PoW-PoS}}{11}{figure.2.7}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Selfish-mining-attack}}{12}{figure.2.8}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Double Spending Attack}}{13}{figure.2.9}%
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Etherium Logo}}{14}{figure.2.10}%
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Selfish-mining-attack}}{13}{figure.2.8}%
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Double Spending Attack}}{14}{figure.2.9}%
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Etherium Logo}}{15}{figure.2.10}%
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Hyperledger Besu logo}}{18}{figure.3.1}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Schema generale del progetto}}{29}{figure.5.1}%
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Schermata avvio nodo con Besu}}{31}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Schermata funzionamento nodo besu}}{31}{figure.5.3}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Schermata inisiale WebApp}}{36}{figure.5.4}%
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Schermata funzionamento nodo besu}}{32}{figure.5.3}%
+\contentsline {figure}{\numberline {5.4}{\ignorespaces Schermata iniziale WebApp}}{37}{figure.5.4}%
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Schermata iniziale Inserimento Log}}{37}{figure.5.5}%
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Schermata finale Inserimento Log}}{38}{figure.5.6}%
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Schermata Inserimento Private Key}}{40}{figure.5.7}%
 \addvspace {10\p@ }

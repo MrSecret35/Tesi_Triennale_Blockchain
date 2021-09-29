@@ -1,4 +1,4 @@
-\documentclass[titlepage]{report}
+\documentclass[11pt,a4paper,titlepage]{report}
 
 
 \usepackage[italian]{babel} %italiano
@@ -99,11 +99,6 @@ morestring=[b]"
 %\includegraphics[height=.2\textheight]{Unito-logo}
 %\maketitle
 %Study and realization of a prototype of a blockchain-based system for mobility as a service
-
-%abstract
-\begin{abstract} 
-Il seguente elaborato descrive lo studio effettuato sulla tecnologia blockchain durante il tirocinio presso la 2+consulting. Lo studio è stato svolto ponendo particolare attenzione sulle blockchain private, la differenza e i vantaggi con le tecnologie pubbliche. In seguito ho dedicato la mia concentrazione allo studio di come e se fosse possibile avviare una blockchain privata scegliendo come tecnologia il client Besu, client facente parte del gruppo Hyperlegder che utilizza la tecnologia Etherium. Una volta definiti e studiati i parametri di essa, come ad esempio il meccanismo del consenso da utilizzare scegliendo IBFT 2.0 basato su PoA, ho studiato il modello di gestione e utilizzo di blockchain con gli Smart Contract, che permettono inoltre di inserire e memorizzare dati su blockchain includendo dati sulle transazioni pubbliche da certificare. In questo modo si è svolto uno studio sui dati utilizzati e come gestire il modello di Blockchain Ibrida, cioè l'utilizzo concatenato di una blockchain privata utilizzata per le sue proprietà sulla sicurezza e quindi come ente certificatore decentralizzato e un DataBase relazionale così da poter interrogare e accedere con facilità ai dati. Il passo finale è stato sviluppare una Web app con tipologia Single Page Application utilizzando come server la tecnologia Node Js con l'utilizzo del framework Web3 per l'interfacciamento alla blockchain. La Web app è sviluppata con l'ideologia della possibile integrazione nel Mobility as Service. Questa caratteristica è stata sviluppata con l'ideologia di fornire ai vari enti partecipanti un diverso account(coppia di chiavi pubblica e privata) che si utilizzerà per l'interfacciamento e gli fornirà determinati accessi. La WebApp ha quindi permesso la distinzione dei vari utenti che, in base al loro ruolo, avranno accessi e possibilità diverse sull'app. Queste possibilità riguardano chi e quali dati dovrà inserire e chi invece può interrogare le informazioni a cui ha accesso.
-\end{abstract}
 
 %indice
 \tableofcontents
@@ -479,13 +474,13 @@ nello schema \ref{fig:sch} sono descritti in modo convenzionale come Msg("A .to.
 	\label{fig:sch}
 \end{figure}
 
-Questi vengono inviati a il secondo attore dello schema \ref{fig:sch}, il server Proxy. Questo ha lo specifico compito di ricevere ed elaborare in modo opportuno i diversi dati. Il server proxy ha una duplice funzione di interfaccia, con il database e con la blockchain, funge quindi da ponte tra le due strutture.
+Questi vengono inviati al secondo attore dello schema \ref{fig:sch}, il server Proxy. Questo ha lo specifico compito di ricevere ed elaborare in modo opportuno i diversi dati. Il server proxy ha una duplice funzione di interfaccia, con il database e con la blockchain, funge quindi da ponte tra le due strutture.
 
 \section{Blockchain Ibrida}
 Il progetto è incentrato su due strutture di immagazzinamento dati, questo rende possibile l'utilizzo dei vantaggi di entrambi.
 
-La blockchain è sviluppata con BESU con 4 nodi (il minimo per essere BFT) avviati in locale.
-Il primo passo è creare una directory da utilizzare che conterrà una directory per ogni nodo che a sua volta conterrà una directori per lo storing dei dati.
+La blockchain è sviluppata con BESU eseguendo 4 nodi (il minimo per essere BFT) avviati in locale.
+Il primo passo è creare una directory da utilizzare che conterrà una directory per ogni nodo che a sua volta conterrà una directory per lo storing dei dati.
 \begin{lstlisting}[language=command.com]
 IBFT-Network/
 		Node-1
@@ -504,7 +499,7 @@ Come terzo passo si ha l'esecuzione di un comando che permette la creazione dell
 besu operator generate-blockchain-config --config-file=ibftConfigFile.json --to=networkFiles --private-key-file-name=key
 \end{lstlisting}
 
-L'ultimo passo è l'avvio di ogni singolo nodo, La blockchain si basa sull'avvio di uno o più nodi come bootnode cioè nodi   a cui gli altri nodi che si avvieranno faranno riferimento per ottenere la lista completa dei nodi partecipanti e quindi interconnettersi con la blockchain.
+L'ultimo passo è l'avvio di ogni singolo nodo. La blockchain si basa sull'avvio di uno o più nodi come bootnode, cioè nodi a cui gli altri nodi che si avvieranno faranno riferimento per ottenere la lista completa dei nodi partecipanti e interconnettersi con la blockchain.
 Il primo nodo viene perciò avviato con queste caratteristiche:
 \begin{lstlisting}[language=command.com]
 besu --data-path=data --genesis-file=..\genesis.json --rpc-ws-enabled --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,WEB3 --host-allowlist="*" --rpc-http-cors-origins="all" --metrics-enabled --min-gas-price=0
@@ -514,7 +509,7 @@ Con le prime 2 opzioni si specifica rispettivamente il path/directory dove effet
 \begin{itemize}
 \item rpc-ws-enabled: Abilita il servizio WebSockets JSON-RPC
 \item rpc-http-enabled: Abilita e quindi permette l'uso delle JSON-RPC API specificate tramite \textit{rpc-http-api}
-\item host-allowlist: Abilita gli host selezionati (* = tutti) per l'accesso alle TTP JSON-RPC API
+\item host-allowlist: Abilita gli host selezionati (* = tutti) per l'accesso alle HTTP JSON-RPC API
 \item rpc-http-cors-origins: abilita tutti i domini ad accedere al nodo tramite HTTP JSON-RPC API
 \item metrics-enabled: Abilita le metriche / il monitoraggio dei nodi con applicativi come Prometheus o Grafana
 \item min-gas-price: Imposta il prezzo del gas, permette una free gas network ~\ref{free-gas-network}.
@@ -532,27 +527,27 @@ I successivi nodi saranno avviati in maniera analoga
 besu --data-path=data --genesis-file=..\genesis.json --bootnodes=enode://5c579435d435cbb56fbb20959940f8809d12b65d6ac3de49b1b7 1bfc2698dd28a7cf3767b45410839e8059fa32864e783a39717b eedc5bae7d83e0a3202f6461@127.0.0.1:30303 --p2p-port=30304 --rpc-http-enabled --rpc-http-api=ETH,NET,IBFT,WEB3 --host-allowlist="*" --rpc-http-cors-origins="all" --rpc-http-port=8547 --min-gas-price=0
 \end{lstlisting}
 
-La principale differenza e che bisogna specificare l'address del bootnode a cui collegarsi, questo è chiamato enode address e ogni nodo ne posside uno, viene visualizzato all'avvio del nodo ed è composto da 
-enode://chiave-pubblica-nodo@indirizzo-or-127.0.0.1(localhost):porta; con rpc-http-port viene specificata una porta di interfaccia al nodo, se non specificata viene utilizzata la porta di default 8545. Una volta avviato il numero minino di nodi si verificherà l'avvio della connessione tramite l'import e il producing di blocchi.
+La principale differenza è che bisogna specificare l'address del bootnode a cui collegarsi, questo è chiamato enode address e ogni nodo ne posside uno, viene visualizzato all'avvio del nodo ed è composto da 
+enode://chiave-pubblica-nodo@indirizzo-or-127.0.0.1(localhost):porta-p2p; con rpc-http-port viene specificata una porta di interfaccia al nodo, se non specificata viene utilizzata la porta di default 8545. Una volta avviato il numero minino di nodi si verificherà l'avvio della connessione tramite l'import e il producing di blocchi.
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{Besu-imported-produced}
 	\centering
 	\caption{Schermata funzionamento nodo besu}
 	\label{fig:besu-imported-produced}
 \end{figure}
-Una volta visualizzato ciò la blockchain sarà attiva e si potrà comunicare con essa sulle rispettive porte dei nodi con librerie come WEB3.
+Una volta visualizzato ciò, la blockchain sarà attiva e si potrà comunicare con essa sulle rispettive porte dei nodi con librerie come WEB3.
 
-La seconda struttura dati è un database relazionale SQL. Avviato in locale grazie all'applicativo XAMPP comprende 4 tabelle (Le tabelle sono state sviluppate per il testing perciò da considerare come dozzinali).
+La seconda struttura dati è un database relazionale SQL. Avviato in locale grazie all'applicativo XAMPP che comprende 4 tabelle (Le tabelle sono state sviluppate per uno scenario di testing perciò con dati minimi).
 \begin{lstlisting}[language=SQL]
-CREATE TABLE ID_HASH(
+CREATE TABLE ID_Hash(
 	Business varchar(42) REFERENCES Business(Business_Hex),
-	ID_HASH int REFERENCES LOGS(ID_HASH),
+	ID_HASH int REFERENCES Log(ID_HASH),
 	Data DATETIME,
 	TransactionHash varchar(255) NOT NULL,
 	PRIMARY KEY (Business, ID_HASH)
 );
 
-CREATE TABLE LOG(
+CREATE TABLE Log(
 	City_Start varchar(255) NOT NULL,
 	City_Finish varchar(255) NOT NULL,
 	UserName varchar(255) NOT NULL REFERENCES TerminalUser(UserName) ,
@@ -563,7 +558,7 @@ CREATE TABLE LOG(
 	PRIMARY KEY (UserName, DataStart)
 );
 
-CREATE TABLE BUSINESS(
+CREATE TABLE Business(
 	BusinessName varchar(255) PRIMARY KEY,
 	Business_Hex varchar(42) UNIQUE NOT NULL
 );
@@ -576,10 +571,10 @@ CREATE TABLE TerminalUser(
 );
 \end{lstlisting}
 
-La tabella Business indica come descritto dal nome, una lista di aziende con un determinato nome e siccome sono aziende partecipanti al consorzio e quindi al progetto avranno un account sulla blockchain e verrà memorizzato in relazione al nome la loro chiave pubblica. Nella tabella TerminalUser vengono memorizzati gli utenti o dipendenti che di conseguenza possiedono dei dati per il login (Username, Password) i dati di riferimento dell'azienda e un booleano che indicherà il loro ruolo; false = ruolo normale, true = amministratore. Un riferimento agli Utenti è posseduto dalla tabella Log, atta a contenere i dati degli spostamenti  come specificato nello schema ~\ref{Schema-Progetto}, questi in oltre possiedono un ID\_HASH, cioè un id che raggruppa determinati log, questo id fa da tramite/identificativo con la blockchain in quanto l'hash calcolato dei Log aventi lo stesso ID\_HASH saranno memorizzati nella blockchain con il mapping su quel valore. Questo infatti è riproposto nella tabella ID\_HASH affiancato dai dati corrispondenti come il riferimento all'azienda che possiede quei log, la data è l'hash della transazione con nui è stato salvato l'hash.
+La tabella Business indica, come descritto dal nome, una lista di aziende con un determinato nome e siccome sono aziende partecipanti al consorzio e al progetto, avranno un account sulla blockchain e verrà memorizzato in relazione al nome la loro chiave pubblica. Nella tabella TerminalUser vengono memorizzati gli utenti o dipendenti che di conseguenza possiedono dei dati per il login (Username, Password), i dati di riferimento dell'azienda e un booleano che indicherà il loro ruolo; false = ruolo normale, true = amministratore. Il riferimento agli Utenti è posseduto dalla tabella Log, atta a contenere i dati degli spostamenti  come specificato nello schema ~\ref{Schema-Progetto}, questi inoltre possiedono un ID\_HASH, cioè un id che raggruppa determinati log, questo id fa da tramite/identificativo con la blockchain in quanto l'hash calcolato dei Log aventi lo stesso ID\_HASH sarà memorizzati nella blockchain con il mapping su quel valore. Questo infatti è riproposto nella tabella ID\_Hash affiancato dai dati corrispondenti come: il riferimento all'azienda che possiede quei log; la data e l'hash della transazione con cui è stato salvato l'hash.
 
 \section{Smart Contract}
-Gli smart contract sono stati sviluppati con il linguaggio alto-livello Solidity. Troviamo due contratti, Travel e il suo Boxing BusinessTravel.
+Gli smart contracts sono stati sviluppati con il linguaggio alto-livello Solidity. Troviamo due contratti, Travel e il suo Boxing BusinessTravel.
 \begin{lstlisting}[language=Solidity]
 pragma solidity >=0.4.22 <0.9.0;
 
@@ -596,7 +591,8 @@ contract Travel {
     }
 }
 \end{lstlisting}
-Questo contratto è pensato per essere univoco per ogni ente del consorzio, possiede come attributi un mapping utile allo store di hash ipotizzate come stringhe che per la struttura del mapping sono ripercorribili tramite un int corrispondente all'id\_hash salvato nel DB. Il metodo get viene utilizzato per il solo ricevere di un hash precedentemente salvato su un id dato come input, ricordando che il mapping inizializza tutte le stringhe a ''. Il metodo add ha come attributi sia un int id che l'hash ed effettua l'inserimento nel mapping della coppia specificata, prima dell'inserimento avviene un controllo se a quell'id corrispondeva già un hash allora non sarà modificato nulla. 
+Questo contratto è pensato per essere univoco per ogni ente del consorzio, possiede come attributi un mapping utile allo store di hash ipotizzate come stringhe che, per la struttura del mapping, sono ripercorribili tramite un int corrispondente all'ID\_HASH salvato nel DB. Il metodo get viene utilizzato per il solo ricevere di un hash precedentemente salvato su un id dato come input, ricordando che il mapping inizializza tutte le stringhe a ''(vuoto). Il metodo add ha come attributi sia un int id che l'hash ed effettua l'inserimento nel mapping della coppia <id,hash> specificata, prima dell'inserimento avviene un controllo: se a quell'id corrispondeva già un hash allora non sarà modificato nulla. 
+
 \subsection{Boxing}
 Il secondo contratto sviluppa un Boxing del primo, quindi non modifica le funzionalità di questo ma ne implementa di nuove.
 \begin{lstlisting}[language=Solidity]
@@ -624,11 +620,11 @@ contract BusinessTravel {
 }
 \end{lstlisting}
 
-BusinessTravel viene utilizzato per associare un diverso contratto Travel ad ogni utente, ed è svluppato con il mapping da un tipo address (indica la chiave pubblica di un utente) ad un oggetto di tipo Travel; questo è affiancato da un secondo mapping analogo che collegerà gli address di un account ad un booleano che come il nome "is\_inizialized" lascia intendere indicherà se nel primo mapping è già stato inizializzato un oggetto Travel per quel determinato address. I due metodi sono analoghi a quelli di travel infatti il metodo get restituisce la stringa di hash passandogli come parametro il solo id, questo utilizzerà la variabile msg.sender per identificare il mittente della transazione/ chiamata al metodo e per selezionare nel mapping il Travel desiderato; questo viene eseguito sempre dopo un controllo sul mapping se esiste un contratto Travel associato al sender tramite \textit{is\_inizialized}. Il metodo add oltre ad effettuare le operazioni del metodo add di travel deve porre attenzione ai controlli siccome se un address non ha un Travel associato bisogna rimediare e crearlo settando rispettivamente is\_inizialized a true.
+BusinessTravel viene utilizzato per associare un diverso contratto Travel ad ogni utente, ed è svluppato con il mapping da un tipo address (indica la chiave pubblica di un utente) ad un oggetto di tipo Travel; questo è affiancato da un secondo mapping analogo che collegerà gli address di un account ad un booleano che, come il nome "is\_inizialized" lascia intendere, indicherà se nel primo mapping è già stato inizializzato un oggetto Travel per quel determinato address. I due metodi sono analoghi a quelli di travel infatti il metodo get restituisce la stringa di hash passandogli come parametro il solo id, questo utilizzerà la variabile msg.sender per identificare il mittente della transazione/chiamata al metodo e per selezionare nel mapping il Travel desiderato; questo viene eseguito sempre dopo un controllo sul mapping se il sender è inizializzato. Il metodo add, oltre ad effettuare le operazioni del metodo add di travel, deve porre attenzione ai controlli, siccome, se un address non ha un Travel associato bisogna rimediare e crearlo settando rispettivamente is\_inizialized a true.
 
 \section{WebApp}
 \subsection{Single Page Application}%descrizione html e js
-Una SPA - Single Page Application è una particolare metodologia di sviluppo di una web aplication. Essa si basa sulla costruzione di una unica pagina costruita come dinamica, ad ogni iterazione con un utente verrà aggiornata dinamicamente ma non verrà mai cambiata. La SPA è stata avviata con l'ausilio di node js e del pacchetto express che permette ala richiesta di '/' (indica la semplice richiesta del sito) di restituire un file come una pagina html che il browser interpreta.
+Una SPA - Single Page Application è una particolare metodologia di sviluppo di una web application. Essa si basa sulla costruzione di una unica pagina costruita come dinamica che ad ogni iterazione con un utente verrà aggiornata dinamicamente ma non verrà mai cambiata. La SPA è stata avviata con l'ausilio di Node.js e del pacchetto express che permette alla richiesta di '/' (indica la semplice richiesta del sito) di restituire un file come una pagina html che il browser interpreta.
 \begin{lstlisting}[language=JavaScript]
 //Home Page
 app.get('/', (req, res) => {
@@ -659,7 +655,6 @@ La pagina html è strutturata in diversi blocchi \textit{<div>} che si scambiera
 	<div id="Login_form"><!-- Form per il login di un utente -->
 	</div>
 	
-
 	<div id="Log_form"><!-- Form per l'invio di un nuovo log -->
 	</div>
 
@@ -675,20 +670,97 @@ La pagina html è strutturata in diversi blocchi \textit{<div>} che si scambiera
 </body>
 </html>
 \end{lstlisting}
-Lo switch tra i vari blocchi avviene tramite il javascript \textit{HomeForm.js} che ha anche il compito di effettuare le possibili richieste al server node js.
+Lo switch tra i vari blocchi avviene tramite il javascript \textit{HomeForm.js} che ha anche il compito di effettuare le possibili richieste al server Node.js . Il JavaScript, oltre alla dinamicità, si occupa delle richieste inviate al server tramite tecnologia \textit{ajax}, e di conseguenza deve gestire la pagina html per la visualizzazione delle informazioni ricevute come risposta.
+
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{HomePage}
 	\centering
-	\caption{Schermata inisiale WebApp}
+	\caption{Schermata iniziale WebApp}
 	\label{fig:besu-imported-produced}
 \end{figure}
+
 \subsection{Input}
+Con Input dei dati viene indicato l'inserimento di essi in una specifica struttura di immagazzinamento dati. Per il progetto questo viene suddiviso in due azioni separate: input verso il DB, input verso la Blockchain.
 \subsubsection{Inserimento in un DB}
+Nel Database vanno ad essere salvati i dati di Log (~\ref{Schema-Progetto}), questi vengono inseriti dagli utenti salvati nel DB con Admin=False. Questi vengono inseriti in 2 instanti diversi tramite la SPA.
+Nella prima schermata (\ref{fig:Init_Log}) si va ad inserire solo la città di partenze.
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Init_Log}
+	\centering
+	\caption{Schermata iniziale Inserimento Log}
+	\label{fig:Init_Log}
+\end{figure}
+
+Al termine si inserirà la città di destinazione e la distanza totale. Dati come lo Username e le date di inizio e di fine sono prese/calcolate autonomamente dal server.
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{End_Log}
+	\centering
+	\caption{Schermata finale Inserimento Log}
+	\label{fig:End_Log}
+\end{figure}
+Il DB viene connesso con il pacchetto \textit{mysql} ed ogni qualvolta un utente termina un Log viene salvato nel DB.
+\begin{lstlisting}[language=JavaScript]
+app.get('/SaveLog', (req,res) =>{
+	var params = querystring.parse(url.parse(req.url).query);
+
+	//Control Data
+	if( params['cityFinish'].length==0 ||
+		params['distance'].length==0) {res.json({result: false, ErrStr: "Campo/i Mancante"});return;}
+	//Take id hash by DB +1
+	LastID(req.session.busHex, (LastID, error) => {
+		if(error) res.json({result: false, ErrStr: "Failed database connection " + error});
+		else{
+	  		ID_HASH= ++LastID;
+
+	  		var dateFinish = DateNow();
+	  		var connection = createConnectionDB();
+		  	//save log in DB
+		  	connection.query("INSERT INTO LOG (City_Start,City_Finish,UserName,Distance,DataStart,DataFinish,ID_HASH) VALUES(?,?,?,?,?,?,?)",
+		  					[req.session.CityStartLog, params['cityFinish'], req.session.username, params['distance'], req.session.DateStartLog, dateFinish, ID_HASH ],
+		  	function (error, results, fields) {
+		  		if (error) res.json({result: false, ErrStr: "Failed database connection " + error});
+		  		else res.json({result: true, ErrStr: ""});
+			});
+			connection.end();
+	  	}
+	});// LastID
+});
+\end{lstlisting}
+La funzione \textit{LastID} interroga il Database così da ottenere per address specifico (si utilizza l'address salvato nella sessione \textit{req.session.busHex}) l'ultimo id di cui si è salvato l'hash, in questo modo si saprà quale id usare al prossimo log ( Ultimo id + 1).
+
 \subsubsection{Inserimento nella Blockchain}
+Il salvataggio dati sulla blockchain avviene periodicamente su un lasso di tempo specificato (24 ore per il progetto).
+per il salvataggio si ha la necessità che un amministratore inserisca la private key.
+
+Fino al momento che un amministratore non inserisca la Key, tutti gli account di utenti sotto quel determinato ente saranno impossibilitati dal server a salvare nuovi log. Allo scadere del lasso di tempo viene controllato dal DB chi (ente) ha inserito nuovi log che non sono stati salvati, viene di conseguenza impostato un blocco per gli utenti fino al momento del salvataggio (inserimento Private Key).
+
+\begin{lstlisting}[language=JavaScript]
+	setInterval(function(){
+		// Set block to True for everyone that have add 'Log' in 24H
+		var connection = createConnectionDB();
+		connection.query("SELECT DISTINCT business_hex "
+							+"FROM LOG as L JOIN terminaluser AS T ON (L.UserName= T.UserName) JOIN id_hash AS H ON(T.Business_Hex= H.Business)"
+							+"WHERE NOT EXISTS(SELECT id_hash FROM id_hash WHERE id_hash= L.ID_HASH)",
+		  	function (error, results, fields) {
+		  		if (error) console.log(error);
+		  		else results.forEach((row) => {if (BlockHex.indexOf(row.business_hex)===-1) BlockHex.push(row.business_hex);});
+		});
+		connection.end();
+	}, oneDay);
+\end{lstlisting}
+
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Input_Key}
+	\centering
+	\caption{Schermata Inserimento Private Key}
+	\label{fig:Input_Key}
+\end{figure}
+
 \subsection{Output}
 \subsubsection{Report di Controllo}
 \subsubsection{Monitor Blockchain}
 
+\subsection{Input}
 \begin{thebibliography}{1}
 \bibitem{} \url{https://besu.hyperledger.org/en/stable/Tutorials/Private-Network/Create-IBFT-Network/} come creare una rete blockchain prvata con BESU
 \bibitem{} \url{https://web3js.readthedocs.io/en/v1.5.2/}
