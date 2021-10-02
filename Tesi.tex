@@ -883,7 +883,12 @@ Un analisi dei possibili sviluppi ha posto il problema della sicurezza. Essa dip
 
 \section{Svilupo full Blockchain}
 %eliminare il DB e inserire tutto nella blockchain privata con relativo problema di spazio
-Questo sviluppo può essere attuato dopo un'analisi sugli spazi occupati. Esaminando la memoria occupata da un solo log insieme alla quantità di log salvati in un determinato lasso di tempo   
+Questo sviluppo può essere attuato dopo un'analisi sugli spazi occupati. Esaminando la memoria occupata da un solo log insieme alla quantità di log salvati in un determinato lasso di tempo sarà possibile stabilire una media di spazio occupato sul tempo. Una possibile modifica alla struttura é la modifica/ampliamento del contratto travel.
+\begin{lstlisting}[language=Solidity]
+
+\end{lstlisting}
+
+Utilizzando questo contratto verrà reso inutilizzato il database, spostando il progetto da una blockachain ibrida ad uno sviluppo full blockchain. Questo modificherebbe la struttura così da eliminare la dipendenza dalla centralizzazione aumentando, di seguito, la sicurezza e la decentralizzazione. La modifica alla struttura è possibile solo se nell'analisi non si notasse un notevole e esponenziale aumento della memoria occupata; altrimenti porterebbe ad un costo non sostenibile per le strutture dei nodi.
 
 %lista delle Immagini
 \listoffigures
