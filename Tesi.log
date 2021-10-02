@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.29)  29 SEP 2021 17:09
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.29)  1 OCT 2021 10:23
 entering extended mode
 **./Tesi.tex
 (Tesi.tex
@@ -646,34 +646,57 @@ File: ./img//Input_Key.png Graphic file (type png)
 <use ./img//Input_Key.png>
 Package pdftex.def Info: ./img//Input_Key.png  used on input line 750.
 (pdftex.def)             Requested size: 360.0pt x 232.7201pt.
-[41 <./img//Input_Key.png>] [42] [43]
-Underfull \hbox (badness 10000) in paragraph at lines 794--795
+[41 <./img//Input_Key.png>] [42]
+<./img//Query.png, id=807, 487.8225pt x 302.63063pt>
+File: ./img//Query.png Graphic file (type png)
+<use ./img//Query.png>
+Package pdftex.def Info: ./img//Query.png  used on input line 794.
+(pdftex.def)             Requested size: 360.0pt x 223.3336pt.
+ [43 <./img//Query.png>]
+<./img//Log_Print.png, id=821, 545.03625pt x 164.11313pt>
+File: ./img//Log_Print.png Graphic file (type png)
+<use ./img//Log_Print.png>
+Package pdftex.def Info: ./img//Log_Print.png  used on input line 828.
+(pdftex.def)             Requested size: 360.0pt x 108.39763pt.
+ [44 <./img//Log_Print.png>]
+<./img//Transaction_Print.png, id=844, 502.87875pt x 167.87718pt>
+File: ./img//Transaction_Print.png Graphic file (type png)
+<use ./img//Transaction_Print.png>
+Package pdftex.def Info: ./img//Transaction_Print.png  used on input line 838.
+(pdftex.def)             Requested size: 360.0pt x 120.17984pt.
+<./img//Block_Print.png, id=846, 535.2497pt x 189.70876pt>
+File: ./img//Block_Print.png Graphic file (type png)
+<use ./img//Block_Print.png>
+Package pdftex.def Info: ./img//Block_Print.png  used on input line 846.
+(pdftex.def)             Requested size: 360.0pt x 127.5992pt.
+ [45 <./img//Transaction_Print.png> <./img//Block_Print.png>] [46]
+Underfull \hbox (badness 10000) in paragraph at lines 866--867
 [][]$\T1/cmtt/m/n/10.95 https : / / besu . hyperledger . org / en / stable / Tu
 torials /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 794--795
+Underfull \hbox (badness 10000) in paragraph at lines 866--867
 \T1/cmtt/m/n/10.95 Private-[]Network / Create-[]IBFT-[]Network/$[] \T1/cmr/m/n/
 10.95 co-me crea-re una re-te
  []
 
-[44
+[47
 
 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
 een already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.799 \chapter
+l.871 \chapter
               {Sviluppi futuri}]
 Capitolo 6.
-[45
+[48
 
-] (Tesi.lof)
+] [49] (Tesi.lof)
 \tf@lof=\write6
 \openout6 = `Tesi.lof'.
 
- [46
+ [50
 
 ] (Tesi.aux)
 
@@ -683,10 +706,10 @@ Package rerunfilecheck Info: File `Tesi.out' has not changed.
 (rerunfilecheck)             Checksum: BB52B78BFB25B02574C707D95FA97FB1;6927.
  ) 
 Here is how much of TeX's memory you used:
- 13558 strings out of 478927
- 200082 string characters out of 2851587
- 896437 words of memory out of 3000000
- 30855 multiletter control sequences out of 15000+600000
+ 13654 strings out of 478927
+ 201868 string characters out of 2851587
+ 896686 words of memory out of 3000000
+ 30913 multiletter control sequences out of 15000+600000
  418625 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  60i,12n,66p,2033b,2168s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -713,9 +736,9 @@ ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
 ><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmr8.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmsy8.pfb>
-Output written on Tesi.pdf (47 pages, 1860509 bytes).
+Output written on Tesi.pdf (51 pages, 1916459 bytes).
 PDF statistics:
- 1492 PDF objects out of 1728 (max. 8388607)
- 364 named destinations out of 1000 (max. 500000)
- 535 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1569 PDF objects out of 1728 (max. 8388607)
+ 402 named destinations out of 1000 (max. 500000)
+ 555 words of extra memory for PDF output out of 10000 (max. 10000000)
 

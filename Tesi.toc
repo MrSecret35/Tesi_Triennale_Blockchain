@@ -52,9 +52,9 @@
 \contentsline {subsubsection}{Inserimento nella Blockchain}{40}{section*.4}%
 \contentsline {subsection}{\numberline {5.4.3}Output}{43}{subsection.5.4.3}%
 \contentsline {subsubsection}{Report di Controllo}{43}{section*.5}%
-\contentsline {subsubsection}{Monitor Blockchain}{43}{section*.6}%
-\contentsline {chapter}{\numberline {6}Sviluppi futuri}{45}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Analisi costi}{45}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Immissione nella blockchain pubblica}{45}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Blockchain pubblica come certificazione}{45}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Svilupo full Blockchain}{45}{section.6.4}%
+\contentsline {subsubsection}{Monitor Blockchain}{45}{section*.6}%
+\contentsline {chapter}{\numberline {6}Sviluppi futuri}{48}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Analisi costi}{48}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Immissione nella blockchain pubblica}{48}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Blockchain pubblica come certificazione}{48}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Svilupo full Blockchain}{49}{section.6.4}%

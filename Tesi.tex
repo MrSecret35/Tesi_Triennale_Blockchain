@@ -788,7 +788,79 @@ e potremmo ottenere in TransactionHash - identificativo della transazione. Quest
 Il server a seguito determinate richieste,gestisce e invia risposte. Per poter effettuare queste richieste si deve essere un admin. Le richieste possono essere di due tipi: la visualizzazione di vecchi log o il monitoring della blockchain.
 
 \subsubsection{Report di Controllo}
+Nel momento in cui un amministratore effettua una Query/interrogazione nel server (inserendo una data , Figura \ref{fig:Query}), questo deve effettuare un controllo sui dati.
+
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Query}
+	\centering
+	\caption{Schermata Interrogazione Server}
+	\label{fig:Query}
+\end{figure}
+
+Una volta ottenuti i dati dal Database si avrà bisogno del corrispettivo valore hash nella blockchain ottenuto tramite web3.
+\begin{lstlisting}[language=JavaScript]
+  	const contractInstance = new web3.eth.Contract(deployedContractAbi, deployedContractAddress);
+ 	contractInstance.methods.get(ID_hash).call({from: accountAddress}, (error, res) =>{
+ 	 	if (error) callback(error, res);
+ 	 	else callback(null, res);
+ 	});
+\end{lstlisting}
+
+Inserendo una data come interrogazione, si ha la possibilità che risultino più spostamenti. Per ognuno di questi si dovrà accedere all'intero gruppo distinto grazie all' ID\_HASH, calcolare l'hash del gruppo e in seguito paragonarlo al corrispettivo nella blockchain. Solo nel caso in cui tutti gli hash corrispondano saranno restituiti i log, altrimenti si avrà un errore secondo l'alterazione dei dati:
+\begin{lstlisting}[language=JavaScript]
+	//Take all distinct ID_HASH by results (all log)
+	unique(results,'ID_HASH', (x,y) => (x==y)).forEach((row, index, array) => {
+  			//Take all Log with ID Hash = row.ID_HASH && Make Hash
+  			TakeHash(row.ID_HASH,req.session.busHex, (hash, error) => {
+  					if (error) {res.json({result: false, ErrStr: error});return;}
+  					//Take corresponding Hash in the Blockhain
+					BCF.getHash(hostBlockchain,req.session.busHex,row.ID_HASH, (error, BlockHash) => {
+						if (error) {res.json({result: false, ErrStr: "Errore nel contattare la blockchain"});return;}
+						//Control Hash
+  						if(hash != BlockHash) {res.json({result: false, ErrStr: "I dati Sono stati alterati"});return;}
+  						else if((index+1) == array.length) res.json({result: true, ErrStr: "", LOG: results});
+					});
+  			});
+  	});
+\end{lstlisting}
+
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Log_Print}
+	\centering
+	\caption{Schermata Visualizzazione Spostamenti}
+	\label{fig:Log_Print}
+\end{figure}
+
 \subsubsection{Monitor Blockchain}
+La WebApp ha, anche, una funzione di block explorer, permette perciò di analizzare le transazioni o blocchi. Nella figura  \ref{fig:Log_Print} si nota il transaction Hash che funge da link. Una volta cliccato questo ci porterà ad una schermata dove verranno mostrati i dati della transazione come: mittente, destinatario (che è uno smart contract), il blocco a cui appartiene e l'id della catena cioè della rete.
+
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Transaction_Print}
+	\centering
+	\caption{Schermata Visualizzazione Transazione}
+	\label{fig:Transaction_Print}
+\end{figure}
+
+Dalla schermata \ref{fig:Transaction_Print} è possibile monitorare (come si nota dai link) anche il blocco a cui appartiene la transazione. Le informazioni sono accessibili sia dal numero che dall'hash del blocco.
+\begin{figure}[h]
+	\includegraphics[width=\textwidth]{Block_Print}
+	\centering
+	\caption{Schermata Visualizzazione Blocco}
+	\label{fig:Block_Print}
+\end{figure}
+
+Dalla schermata \ref{fig:Block_Print} è possibile controllare: il miner del blocco, la data in cui è stato minato e la sua grandezza. Inoltre è anche possibile visualizzare i dati del parent block (blocco precedente) così da poter ripercorrere l'intera catena. Il monitoring dei blocchi e delle transazioni è reso possibile dalle API proposte da Web3 come: 
+
+\begin{lstlisting}[language=JavaScript]
+	web3.eth.getTransaction(TransactionHash, (error, result) => {
+		callback(error, result);
+	});
+	
+	
+	web3.eth.getBlock(identifier, (error, result) => {
+		callback(error, result);
+	});
+\end{lstlisting}
 
 \begin{thebibliography}{1}
 \bibitem{} \url{https://besu.hyperledger.org/en/stable/Tutorials/Private-Network/Create-IBFT-Network/} come creare una rete blockchain prvata con BESU
@@ -797,16 +869,21 @@ Il server a seguito determinate richieste,gestisce e invia risposte. Per poter e
 
 %capitolo 6
 \chapter{Sviluppi futuri}
+Basandoci sui test e sulle analisi svolte è stato possibile individuare delle possibili modifiche da poter attuare. Queste perciò possono necessitare di tempi di analisi più elevati (ad esempio campioni annuali).
 
 \section{Analisi costi}
 %vengono illustrati i costi delle varie transazioni e una stima dei costi annuali con possibili grafici
+
 \section{Immissione nella blockchain pubblica}
 %in base all'analisi dei costi si può inserire i contratti  anche senza db nella blockchain pubblica
+
 \section{Blockchain pubblica come certificazione}
 %utilizzare òla blockchain pubblica per inserire l'hash di ogni nuovo blocco così da certificare l'intera catena
+Un analisi dei possibili sviluppi ha posto il problema della sicurezza. Essa dipende in grosso modo dalla quantità dei nodi (enti) presenti nella rete, e analogamente dalla qualità della sicurezza che loro ripongono nei loro nodi. Una possibile soluzione potrebbe essere utilizzare un secondo ente di sicurezza per la certificazione della blockchain privata. Ad oggi un ente considerato l'avanguardia della sicurezza è la blokchain pubblica Ethereum. Questa può essere utilizzata come ente certificatore caricando su essa un ulteriore contratto che ci permetta di salvare un semplice codice hash. Questo potrebbe essere il codice hash di un blocco della catena privata che, quando salvato, certificherà l'intera catena da quel blocco fino all'inizio della chain. L'unico problema che rimarrebbe è la periodicità con cui effettuare la certificazione del blocco, in quanto, essendo blockchain pubblica verranno addebitate commissioni per ogni transazione perciò certificare ogni blocco porterebbe ad un dispendio elevato.
+
 \section{Svilupo full Blockchain}
 %eliminare il DB e inserire tutto nella blockchain privata con relativo problema di spazio
-
+Questo sviluppo può essere attuato dopo un'analisi sugli spazi occupati. Esaminando la memoria occupata da un solo log insieme alla quantità di log salvati in un determinato lasso di tempo   
 
 %lista delle Immagini
 \listoffigures
