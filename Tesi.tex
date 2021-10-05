@@ -873,22 +873,70 @@ Basandoci sui test e sulle analisi svolte è stato possibile individuare delle p
 
 \section{Analisi costi}
 %vengono illustrati i costi delle varie transazioni e una stima dei costi annuali con possibili grafici
-
+In questo progetto si è scelto di utilizzare una free Gas Network (Capitolo ~\ref{free-gas-network}), ma le transazioni hanno comunque un costo calcolato in gas (poiché è il gasPrice a essere settato a 0). La funzione di aggiunta la possiamo dividere in due casi, una nuova azienda entrata nel consorzio o una normale aggiunta. Nel primo caso si ha una nuova creazione di una referenza al contratto Travel, e in seguito la prima aggiunta; questo implica un costo maggiore infatti si stima che questa operazione necessiti di circa 305976 gas. Una normale aggiunta (con normale si indica la seconda aggiunta o superiore) ha un costo nettamente inferiore : 49171 gas.
+ 
 \section{Immissione nella blockchain pubblica}
 %in base all'analisi dei costi si può inserire i contratti  anche senza db nella blockchain pubblica
+L'idea dell'immissione nella blockchain pubblica Ethereum nasce da una scelta di sicurezza, nonostante sia una blockchain pubblica ha un numero di nodi nettamente superiore ad una possibile blockchain privata, aumentando sicurezza. Il lato negativo è l'aumentare dei costi, in quanto, ogni singola transazione deve essere calcolata in base al gas Price e alle fees di Ethereum. Per un'analisi utilizziamo il massimo GasPrice per Ethereum, cioè 69 gwei (Minimo = 51 gwei). Con questa configurazione l'azione prima aggiunta, che ha un gas pari a 305976, avrà un costo di 0.0211123 ETH che in Euro corrispondono a circa 60,67 euro. Questa è però una transazione una tantum in quanto deve essere effettuata solamente alla prima aggiunta. Prendendo in considerazione una chiamata al contratto diversa dalla prima aggiunta avremmo un gas di   49171 pari a 0.0033928 ETH e 9,75 euro. Questo è il costo di una singola operazione di inserimento, considerando che seguendo le impostazioni standard del progetto si verificheranno circa una transazione al giorno quindi 365 all'anno. Il costo delle transazioni, con le impostazioni base, è di circa 3.558,75 euro/anno.
+(I valori di gwei variano ogni istante, sono presi in considerazione i valori medi del 04/10/2021)
 
 \section{Blockchain pubblica come certificazione}
-%utilizzare òla blockchain pubblica per inserire l'hash di ogni nuovo blocco così da certificare l'intera catena
-Un analisi dei possibili sviluppi ha posto il problema della sicurezza. Essa dipende in grosso modo dalla quantità dei nodi (enti) presenti nella rete, e analogamente dalla qualità della sicurezza che loro ripongono nei loro nodi. Una possibile soluzione potrebbe essere utilizzare un secondo ente di sicurezza per la certificazione della blockchain privata. Ad oggi un ente considerato l'avanguardia della sicurezza è la blokchain pubblica Ethereum. Questa può essere utilizzata come ente certificatore caricando su essa un ulteriore contratto che ci permetta di salvare un semplice codice hash. Questo potrebbe essere il codice hash di un blocco della catena privata che, quando salvato, certificherà l'intera catena da quel blocco fino all'inizio della chain. L'unico problema che rimarrebbe è la periodicità con cui effettuare la certificazione del blocco, in quanto, essendo blockchain pubblica verranno addebitate commissioni per ogni transazione perciò certificare ogni blocco porterebbe ad un dispendio elevato.
+%utilizzare la blockchain pubblica per inserire l'hash di ogni nuovo blocco così da certificare l'intera catena
+Un analisi dei possibili sviluppi ha posto il problema della sicurezza. Essa dipende in grosso modo dalla quantità dei nodi (enti) presenti nella rete, e analogamente dalla qualità della sicurezza che loro ripongono nei loro nodi. Una possibile soluzione potrebbe essere utilizzare un secondo ente di sicurezza per la certificazione della blockchain privata. Ad oggi un ente considerato l'avanguardia della sicurezza è la blokchain pubblica Ethereum. Questa può essere utilizzata come ente certificatore caricando su essa un ulteriore contratto che ci permetta di salvare un semplice codice hash. Questo potrebbe essere il codice hash di un blocco della catena privata che, quando salvato, certificherà l'intera catena da quel blocco fino all'inizio della chain. Un problema rimanente è la periodicità con cui effettuare la certificazione del blocco, in quanto, essendo blockchain pubblica verranno addebitate commissioni per ogni transazione perciò certificare ogni blocco porterebbe ad un dispendio elevato.
 
 \section{Svilupo full Blockchain}
 %eliminare il DB e inserire tutto nella blockchain privata con relativo problema di spazio
-Questo sviluppo può essere attuato dopo un'analisi sugli spazi occupati. Esaminando la memoria occupata da un solo log insieme alla quantità di log salvati in un determinato lasso di tempo sarà possibile stabilire una media di spazio occupato sul tempo. Una possibile modifica alla struttura é la modifica/ampliamento del contratto travel.
+Questo sviluppo può essere attuato dopo un'analisi sugli spazi occupati. Esaminando la memoria occupata da un solo log insieme alla quantità di log salvati in un determinato lasso di tempo, sarà possibile stabilire una media di spazio occupato sul tempo. Una possibile modifica alla struttura é la modifica/ampliamento dei contratti, creando un contratto che possa memorizzare un singolo spostamento (compreso di tutti i dati, non solo hash).
 \begin{lstlisting}[language=Solidity]
+pragma solidity >=0.4.22 <0.9.0;
 
+contract TravelForBusiness {
+
+    mapping(int => Travel) travel;
+
+    function add(string _CityStart, string _CityFinish, string _User, uint _Distance,
+				string _DataStart, string _DataFinish, uint _ID_Hash) public {
+				
+        if(bytes(travel[ID]).length == 0) travel[ID] = new Travel(_CityStart, _CityFinish, _User, _Distance, _DataStart,
+        														_DataFinish, _ID_Hash);
+    }
+
+    function get(int ID) public view returns (string memory,string memory,string memory,uint ,
+    											string memory, string memory, uint ){
+        return travel[ID].get();
+    }
+    
+}
+
+contract Travel {
+
+    string CityStart;
+    string CityFinish;
+    string User;
+    uint Distance;
+    string DataStart;
+    string DataFinish;
+    uint ID_Hash;
+	
+	constructor(string _CityStart, string _CityFinish, string _User, uint _Distance,
+				string _DataStart, string _DataFinish, uint _ID_Hash) public{
+		CityStart 	= _CityStart;
+    	CityFinish 	= _CityFinish;
+    	User 		= _User;
+    	Distance	= _Distance;
+    	DataStart 	= _DataStart;
+    	DataFinish 	= _DataFinish;
+    	ID_Hash 	= _ID_Hash;
+	}
+
+    function get(int ID) public view returns (string memory,string memory,string memory,uint ,
+    											string memory, string memory, uint ){
+        return (CityStart, CityFinish, User, Distance, DataStart, DataFinish, ID_Hash);
+    }
+}
 \end{lstlisting}
 
-Utilizzando questo contratto verrà reso inutilizzato il database, spostando il progetto da una blockachain ibrida ad uno sviluppo full blockchain. Questo modificherebbe la struttura così da eliminare la dipendenza dalla centralizzazione aumentando, di seguito, la sicurezza e la decentralizzazione. La modifica alla struttura è possibile solo se nell'analisi non si notasse un notevole e esponenziale aumento della memoria occupata; altrimenti porterebbe ad un costo non sostenibile per le strutture dei nodi.
+Utilizzando questo contratto verrà reso inutilizzato il database, spostando il progetto da una blockachain ibrida ad uno sviluppo full blockchain. Questo modificherebbe la struttura così da eliminare la dipendenza dalla centralizzazione aumentando, di seguito, la sicurezza e la decentralizzazione. La modifica alla struttura è possibile solo se nell'analisi non si notasse un notevole ed esponenziale aumento della memoria occupata; altrimenti porterebbe ad un costo non sostenibile per le strutture dei nodi.
 
 %lista delle Immagini
 \listoffigures
