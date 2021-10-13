@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.29)  5 OCT 2021 10:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (MiKTeX 21.8) (preloaded format=pdflatex 2021.9.29)  13 OCT 2021 17:31
 entering extended mode
 **./Tesi.tex
 (Tesi.tex
@@ -410,137 +410,135 @@ Package pdftex.def Info: Tesi-frn.pdf  used on input line 85.
  [1
 
  <./Tesi-frn.pdf{C:/Users/Giorgio/AppData/Local/MiKTeX/pdftex/config/pdftex.map
-}>] (Tesi.toc
+}>] [2
+
+] (Tesi.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <10.95> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <8> on input line 4.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <6> on input line 4.
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
-been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.28 ...berline {3.1.1}IBFT}{20}{subsection.3.1.1}
-                                                  % [1
-
-])
+ [3])
 \tf@toc=\write5
 \openout5 = `Tesi.toc'.
 
- [2]
+ [4]
 Capitolo 1.
-[3
-
-] [4]
-Capitolo 2.
-<./img//BF.jpg, id=330, 481.8pt x 216.05719pt>
-File: ./img//BF.jpg Graphic file (type jpg)
-<use ./img//BF.jpg>
-Package pdftex.def Info: ./img//BF.jpg  used on input line 112.
-(pdftex.def)             Requested size: 360.0pt x 161.44246pt.
 [5
 
- <./img//BF.jpg>]
-<./img//bl1.png, id=337, 408.02437pt x 204.765pt>
+] [6
+
+]
+Capitolo 2.
+<./img//BF.jpg, id=335, 481.8pt x 216.05719pt>
+File: ./img//BF.jpg Graphic file (type jpg)
+<use ./img//BF.jpg>
+Package pdftex.def Info: ./img//BF.jpg  used on input line 111.
+(pdftex.def)             Requested size: 360.0pt x 161.44246pt.
+[7 <./img//BF.jpg>]
+<./img//bl1.png, id=343, 408.02437pt x 204.765pt>
 File: ./img//bl1.png Graphic file (type png)
 <use ./img//bl1.png>
-Package pdftex.def Info: ./img//bl1.png  used on input line 122.
+Package pdftex.def Info: ./img//bl1.png  used on input line 121.
 (pdftex.def)             Requested size: 360.0pt x 180.67178pt.
- [6 <./img//bl1.png>]
-<./img//bc1.png, id=347, 980.66376pt x 369.38pt>
+ [8 <./img//bl1.png>]
+<./img//bc1.png, id=352, 980.66376pt x 369.38pt>
 File: ./img//bc1.png Graphic file (type png)
 <use ./img//bc1.png>
-Package pdftex.def Info: ./img//bc1.png  used on input line 134.
+Package pdftex.def Info: ./img//bc1.png  used on input line 133.
 (pdftex.def)             Requested size: 360.0pt x 135.59756pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./img//flusso_bc.png, id=348, 770.88pt x 356.83313pt>
+<./img//flusso_bc.png, id=353, 770.88pt x 356.83313pt>
 File: ./img//flusso_bc.png Graphic file (type png)
 <use ./img//flusso_bc.png>
-Package pdftex.def Info: ./img//flusso_bc.png  used on input line 142.
+Package pdftex.def Info: ./img//flusso_bc.png  used on input line 141.
 (pdftex.def)             Requested size: 360.0pt x 166.63895pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[7] [8 <./img//bc1.png (PNG copy)> <./img//flusso_bc.png>]
-<./img//bcbl.jpg, id=360, 578.16pt x 384.6872pt>
+[9]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [10 <./img//bc1.png (PNG copy)> <./img//flusso_bc.png>]
+<./img//bcbl.jpg, id=365, 578.16pt x 384.6872pt>
 File: ./img//bcbl.jpg Graphic file (type jpg)
 <use ./img//bcbl.jpg>
-Package pdftex.def Info: ./img//bcbl.jpg  used on input line 153.
+Package pdftex.def Info: ./img//bcbl.jpg  used on input line 152.
 (pdftex.def)             Requested size: 360.0pt x 239.5308pt.
- [9 <./img//bcbl.jpg>]
-<./img//Hash_Tree.png, id=368, 1204.5pt x 766.865pt>
+ [11 <./img//bcbl.jpg>]
+<./img//Hash_Tree.png, id=373, 1204.5pt x 766.865pt>
 File: ./img//Hash_Tree.png Graphic file (type png)
 <use ./img//Hash_Tree.png>
-Package pdftex.def Info: ./img//Hash_Tree.png  used on input line 172.
+Package pdftex.def Info: ./img//Hash_Tree.png  used on input line 171.
 (pdftex.def)             Requested size: 360.0pt x 229.19537pt.
- [10 <./img//Hash_Tree.png>] [11]
-<./img//pow-pos.jpg, id=381, 1204.5pt x 501.875pt>
+ [12 <./img//Hash_Tree.png>] [13]
+<./img//pow-pos.jpg, id=387, 1204.5pt x 501.875pt>
 File: ./img//pow-pos.jpg Graphic file (type jpg)
 <use ./img//pow-pos.jpg>
-Package pdftex.def Info: ./img//pow-pos.jpg  used on input line 191.
+Package pdftex.def Info: ./img//pow-pos.jpg  used on input line 190.
 (pdftex.def)             Requested size: 360.0pt x 149.99696pt.
- [12 <./img//pow-pos.jpg>]
-<./img//judge.jpg, id=388, 642.4pt x 642.4pt>
+ [14 <./img//pow-pos.jpg>]
+<./img//judge.jpg, id=393, 642.4pt x 642.4pt>
 File: ./img//judge.jpg Graphic file (type jpg)
 <use ./img//judge.jpg>
-Package pdftex.def Info: ./img//judge.jpg  used on input line 203.
+Package pdftex.def Info: ./img//judge.jpg  used on input line 202.
 (pdftex.def)             Requested size: 178.74352pt x 178.74188pt.
-<./img//Selfish-mining-attack.jpg, id=389, 853.1875pt x 306.14375pt>
+<./img//Selfish-mining-attack.jpg, id=394, 853.1875pt x 306.14375pt>
 File: ./img//Selfish-mining-attack.jpg Graphic file (type jpg)
 <use ./img//Selfish-mining-attack.jpg>
 Package pdftex.def Info: ./img//Selfish-mining-attack.jpg  used on input line 2
-12.
+11.
 (pdftex.def)             Requested size: 360.0pt x 129.17743pt.
- [13 <./img//judge.jpg>]
-<./img//dsa.png, id=394, 266.9975pt x 189.70876pt>
+ [15 <./img//judge.jpg>]
+<./img//dsa.png, id=399, 266.9975pt x 189.70876pt>
 File: ./img//dsa.png Graphic file (type png)
 <use ./img//dsa.png>
-Package pdftex.def Info: ./img//dsa.png  used on input line 221.
+Package pdftex.def Info: ./img//dsa.png  used on input line 220.
 (pdftex.def)             Requested size: 167.70819pt x 119.15823pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[14 <./img//Selfish-mining-attack.jpg>]
-<./img//eth.png, id=401, 1204.5pt x 1204.5pt>
+[16 <./img//Selfish-mining-attack.jpg>]
+<./img//eth.png, id=406, 1204.5pt x 1204.5pt>
 File: ./img//eth.png Graphic file (type png)
 <use ./img//eth.png>
-Package pdftex.def Info: ./img//eth.png  used on input line 236.
+Package pdftex.def Info: ./img//eth.png  used on input line 235.
 (pdftex.def)             Requested size: 119.15213pt x 119.15823pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[15 <./img//dsa.png>]
-<./img//SmartC.png, id=408, 200.75pt x 200.75pt>
+[17 <./img//dsa.png>]
+<./img//SmartC.png, id=413, 200.75pt x 200.75pt>
 File: ./img//SmartC.png Graphic file (type png)
 <use ./img//SmartC.png>
-Package pdftex.def Info: ./img//SmartC.png  used on input line 246.
+Package pdftex.def Info: ./img//SmartC.png  used on input line 245.
 (pdftex.def)             Requested size: 119.16132pt x 119.15823pt.
- [16 <./img//eth.png> <./img//SmartC.png>]
+ [18 <./img//eth.png> <./img//SmartC.png>]
 LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 2
-61.
+60.
 
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/base\t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `T1/cmtt/bx/n' in size <9> not available
-(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 262.
+(Font)              Font shape `T1/cmtt/m/n' tried instead on input line 261.
 
-[17] [18]
+[19] [20]
 Capitolo 3.
-<./img//Hyperledger_Besu.png, id=442, 92.0238pt x 97.3236pt>
+<./img//Hyperledger_Besu.png, id=447, 92.0238pt x 97.3236pt>
 File: ./img//Hyperledger_Besu.png Graphic file (type png)
 <use ./img//Hyperledger_Besu.png>
-Package pdftex.def Info: ./img//Hyperledger_Besu.png  used on input line 288.
+Package pdftex.def Info: ./img//Hyperledger_Besu.png  used on input line 287.
 (pdftex.def)             Requested size: 112.67186pt x 119.15823pt.
-[19
+[21
 
- <./img//Hyperledger_Besu.png>] [20] [21]
+ <./img//Hyperledger_Besu.png>] [22] [23]
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
@@ -549,52 +547,52 @@ File: lstlang2.sty 2020/03/24 1.8d listings language file
 )
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang3.sty
 File: lstlang3.sty 2020/03/24 1.8d listings language file
-) [22]
-<./img//node-js.png, id=488, 1284.8pt x 642.4pt>
+) [24]
+<./img//node-js.png, id=493, 1284.8pt x 642.4pt>
 File: ./img//node-js.png Graphic file (type png)
 <use ./img//node-js.png>
-Package pdftex.def Info: ./img//node-js.png  used on input line 388.
+Package pdftex.def Info: ./img//node-js.png  used on input line 387.
 (pdftex.def)             Requested size: 178.71411pt x 89.3664pt.
- [23 <./img//node-js.png>] [24]
+ [25 <./img//node-js.png>] [26]
 Capitolo 4.
-[25
+[27
 
-] [26] [27] [28]
+] [28] [29] [30]
 Capitolo 5.
-<./img//Schema_Progetto.jpeg, id=532, 845.0772pt x 597.432pt>
+<./img//Schema_Progetto.jpeg, id=537, 845.0772pt x 597.432pt>
 File: ./img//Schema_Progetto.jpeg Graphic file (type jpg)
 <use ./img//Schema_Progetto.jpeg>
-Package pdftex.def Info: ./img//Schema_Progetto.jpeg  used on input line 468.
+Package pdftex.def Info: ./img//Schema_Progetto.jpeg  used on input line 467.
 (pdftex.def)             Requested size: 360.0pt x 254.50233pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[29
+[31
 
-] [30 <./img//Schema_Progetto.jpeg>]
-<./img//Besu-avvio.png, id=556, 763.35187pt x 417.81094pt>
+] [32 <./img//Schema_Progetto.jpeg>]
+<./img//Besu-avvio.png, id=561, 763.35187pt x 417.81094pt>
 File: ./img//Besu-avvio.png Graphic file (type png)
 <use ./img//Besu-avvio.png>
-Package pdftex.def Info: ./img//Besu-avvio.png  used on input line 516.
+Package pdftex.def Info: ./img//Besu-avvio.png  used on input line 515.
 (pdftex.def)             Requested size: 360.0pt x 197.04057pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-Overfull \hbox (0.12024pt too wide) in paragraph at lines 524--525
+Overfull \hbox (0.12024pt too wide) in paragraph at lines 523--524
 [][][] 
  []
 
-[31]
-<./img//Besu-imported-produced.png, id=567, 765.6103pt x 338.01282pt>
+[33]
+<./img//Besu-imported-produced.png, id=572, 765.6103pt x 338.01282pt>
 File: ./img//Besu-imported-produced.png Graphic file (type png)
 <use ./img//Besu-imported-produced.png>
 Package pdftex.def Info: ./img//Besu-imported-produced.png  used on input line 
-530.
+529.
 (pdftex.def)             Requested size: 360.0pt x 158.93825pt.
 
-Overfull \hbox (3.42752pt too wide) in paragraph at lines 527--536
+Overfull \hbox (3.42752pt too wide) in paragraph at lines 526--535
 \T1/cmr/m/n/10.95 pubblica-nodo@indirizzo-or-127.0.0.1(localhost):porta-p2p; co
 n rpc-http-port
  []
@@ -605,114 +603,120 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
-) [32 <./img//Besu-avvio.png>] [33 <./img//Besu-imported-produced.png>]
-[34] [35]
+) [34 <./img//Besu-avvio.png>]
+Underfull \vbox (badness 1178) has occurred while \output is active []
+
+ [35 <./img//Besu-imported-produced.png>] [36] [37]
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 (C:\Users\Giorgio\AppData\Local\Programs\MiKTeX\tex/latex/listings\lstmisc.sty
 File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
-) [36]
-<./img//HomePage.png, id=673, 931.22906pt x 397.485pt>
+) [38]
+<./img//HomePage.png, id=678, 931.22906pt x 397.485pt>
 File: ./img//HomePage.png Graphic file (type png)
 <use ./img//HomePage.png>
-Package pdftex.def Info: ./img//HomePage.png  used on input line 673.
+Package pdftex.def Info: ./img//HomePage.png  used on input line 672.
 (pdftex.def)             Requested size: 360.0pt x 153.65993pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[37]
-<./img//Init_Log.png, id=711, 511.15968pt x 327.47343pt>
+[39]
+<./img//Init_Log.png, id=716, 511.15968pt x 327.47343pt>
 File: ./img//Init_Log.png Graphic file (type png)
 <use ./img//Init_Log.png>
-Package pdftex.def Info: ./img//Init_Log.png  used on input line 685.
+Package pdftex.def Info: ./img//Init_Log.png  used on input line 684.
 (pdftex.def)             Requested size: 360.0pt x 230.63396pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<./img//End_Log.png, id=712, 480.29437pt x 398.23781pt>
+<./img//End_Log.png, id=717, 480.29437pt x 398.23781pt>
 File: ./img//End_Log.png Graphic file (type png)
 <use ./img//End_Log.png>
-Package pdftex.def Info: ./img//End_Log.png  used on input line 693.
+Package pdftex.def Info: ./img//End_Log.png  used on input line 692.
 (pdftex.def)             Requested size: 360.0pt x 298.50139pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[38 <./img//HomePage.png>] [39 <./img//Init_Log.png>] [40 <./img//End_Log.png>]
-<./img//Input_Key.png, id=761, 483.30562pt x 312.41719pt>
+[40 <./img//HomePage.png>] [41 <./img//Init_Log.png>] [42 <./img//End_Log.png>]
+<./img//Input_Key.png, id=766, 483.30562pt x 312.41719pt>
 File: ./img//Input_Key.png Graphic file (type png)
 <use ./img//Input_Key.png>
-Package pdftex.def Info: ./img//Input_Key.png  used on input line 750.
+Package pdftex.def Info: ./img//Input_Key.png  used on input line 749.
 (pdftex.def)             Requested size: 360.0pt x 232.7201pt.
-[41 <./img//Input_Key.png>] [42]
-<./img//Query.png, id=807, 487.8225pt x 302.63063pt>
+[43 <./img//Input_Key.png>] [44]
+<./img//Query.png, id=812, 487.8225pt x 302.63063pt>
 File: ./img//Query.png Graphic file (type png)
 <use ./img//Query.png>
-Package pdftex.def Info: ./img//Query.png  used on input line 794.
+Package pdftex.def Info: ./img//Query.png  used on input line 793.
 (pdftex.def)             Requested size: 360.0pt x 223.3336pt.
- [43 <./img//Query.png>]
-<./img//Log_Print.png, id=821, 545.03625pt x 164.11313pt>
+ [45 <./img//Query.png>]
+<./img//Log_Print.png, id=826, 545.03625pt x 164.11313pt>
 File: ./img//Log_Print.png Graphic file (type png)
 <use ./img//Log_Print.png>
-Package pdftex.def Info: ./img//Log_Print.png  used on input line 828.
+Package pdftex.def Info: ./img//Log_Print.png  used on input line 827.
 (pdftex.def)             Requested size: 360.0pt x 108.39763pt.
- [44 <./img//Log_Print.png>]
-<./img//Transaction_Print.png, id=844, 502.87875pt x 167.87718pt>
+
+Underfull \vbox (badness 2205) has occurred while \output is active []
+
+ [46 <./img//Log_Print.png>]
+<./img//Transaction_Print.png, id=849, 502.87875pt x 167.87718pt>
 File: ./img//Transaction_Print.png Graphic file (type png)
 <use ./img//Transaction_Print.png>
-Package pdftex.def Info: ./img//Transaction_Print.png  used on input line 838.
+Package pdftex.def Info: ./img//Transaction_Print.png  used on input line 837.
 (pdftex.def)             Requested size: 360.0pt x 120.17984pt.
-<./img//Block_Print.png, id=846, 535.2497pt x 189.70876pt>
+<./img//Block_Print.png, id=851, 535.2497pt x 189.70876pt>
 File: ./img//Block_Print.png Graphic file (type png)
 <use ./img//Block_Print.png>
-Package pdftex.def Info: ./img//Block_Print.png  used on input line 846.
+Package pdftex.def Info: ./img//Block_Print.png  used on input line 845.
 (pdftex.def)             Requested size: 360.0pt x 127.5992pt.
- [45 <./img//Transaction_Print.png> <./img//Block_Print.png>] [46]
-Underfull \hbox (badness 10000) in paragraph at lines 866--867
+ [47 <./img//Transaction_Print.png> <./img//Block_Print.png>]
+[48]
+Underfull \hbox (badness 10000) in paragraph at lines 865--866
 [][]$\T1/cmtt/m/n/10.95 https : / / besu . hyperledger . org / en / stable / Tu
 torials /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 866--867
+Underfull \hbox (badness 10000) in paragraph at lines 865--866
 \T1/cmtt/m/n/10.95 Private-[]Network / Create-[]IBFT-[]Network/$[] \T1/cmr/m/n/
 10.95 co-me crea-re una re-te
  []
 
-[47
+[49
 
 pdfTeX warning (ext4): destination with the same identifier (name{cite.}) has b
 een already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.871 \chapter
-              {Sviluppi futuri}]
-Capitolo 6.
-[48
+l.870 \chapter
+              {Sviluppi futuri}] [50
 
-] [49] [50] [51] (Tesi.lof)
+]
+Capitolo 6.
+[51] [52] [53] [54] (Tesi.lof)
 \tf@lof=\write6
 \openout6 = `Tesi.lof'.
 
- [52
+ [55
 
 ] (Tesi.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `Tesi.out' has not changed.
-(rerunfilecheck)             Checksum: BB52B78BFB25B02574C707D95FA97FB1;6927.
+(rerunfilecheck)             Checksum: 4AEB65C53528C401B2D13FF067A1806D;6924.
  ) 
 Here is how much of TeX's memory you used:
- 13714 strings out of 478927
- 202784 string characters out of 2851587
- 896686 words of memory out of 3000000
- 30924 multiletter control sequences out of 15000+600000
+ 13729 strings out of 478927
+ 203017 string characters out of 2851587
+ 896782 words of memory out of 3000000
+ 30932 multiletter control sequences out of 15000+600000
  418625 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 60i,12n,66p,2033b,2168s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 60i,12n,66p,1786b,2172s stack positions out of 5000i,500n,10000p,200000b,80000s
  <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ec
 ti1095.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/d
 pi600\ectt1095.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknap
@@ -723,11 +727,11 @@ eX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1200.pk> <C:\Users\Giorgio\AppData\Lo
 cal\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1095.pk> <C:\Users\Giorgio\Ap
 pData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> <C:\Users\Gi
 orgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx2074.pk> <C:\
-Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1000.
+Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1095.
 pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\e
-crm1095.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
-dpi600\ecbx1095.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
-ppen/ec/dpi600\ecbx2488.pk><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/font
+cbx1095.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/
+dpi600\ecbx2488.pk> <C:\Users\Giorgio\AppData\Local\MiKTeX\fonts/pk/ljfour/jkna
+ppen/ec/dpi600\ecbx1000.pk><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/font
 s/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/Giorgio/AppData/Local/Programs/
 MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Users/Giorgio/AppData/Local
 /Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/Giorgio/A
@@ -736,9 +740,9 @@ ppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users
 ><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm
 /cmr8.pfb><C:/Users/Giorgio/AppData/Local/Programs/MiKTeX/fonts/type1/public/am
 sfonts/cm/cmsy8.pfb>
-Output written on Tesi.pdf (53 pages, 1929926 bytes).
+Output written on Tesi.pdf (55 pages, 1948557 bytes).
 PDF statistics:
- 1636 PDF objects out of 1728 (max. 8388607)
- 451 named destinations out of 1000 (max. 500000)
+ 1652 PDF objects out of 1728 (max. 8388607)
+ 454 named destinations out of 1000 (max. 500000)
  555 words of extra memory for PDF output out of 10000 (max. 10000000)
 

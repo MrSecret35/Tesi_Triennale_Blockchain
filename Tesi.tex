@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,titlepage]{report}
+\documentclass[11pt,a4paper,titlepage,twoside,openright]{report}
 
 \usepackage[italian]{babel} %italiano
 \usepackage[T1]{fontenc}
@@ -68,9 +68,9 @@ morestring=[b]"
 \fancyhead[R]{\small\bfseries\thepage}
 \fancyhead[L]{\small\bfseries\thechapter\ \leftmark}
 \setlength{\headheight}{13.6pt} 
-\fancypagestyle{plain}{%
-  \fancyhead{}\fancyfoot[C]{\thepage}%
-  \renewcommand{\headrulewidth}{0pt}%
+\fancypagestyle{plain}{
+  \fancyhead[R]{\small\bfseries\thepage}\fancyfoot[C]{}%
+  \renewcommand{\headrulewidth}{1pt}%
 }
 
 \graphicspath{ {./img/} }
@@ -102,8 +102,7 @@ morestring=[b]"
 %capitolo 1
 \chapter{Introduzione}
 \section{Descrizione del Progetto}
-Il seguente elaborato descrive lo studio effettuato sulla tecnologia blockchain durante il tirocinio presso la 2+consulting. Lo studio è stato svolto ponendo particolare attenzione sulle blockchain private, la differenza e i vantaggi con le tecnologie pubbliche. In seguito ho dedicato la mia concentrazione allo studio di come e se fosse possibile avviare una blockchain privata scegliendo come tecnologia il client Besu, client facente parte del gruppo Hyperlegder che utilizza la tecnologia Etherium. Una volta definiti e studiati i parametri di essa, come ad esempio il meccanismo del consenso da utilizzare scegliendo IBFT 2.0 basato su PoA, ho studiato il modello di gestione e utilizzo di blockchain con gli Smart Contract, che permettono inoltre di inserire e memorizzare dati su blockchain includendo dati sulle transazioni pubbliche da certificare. In questo modo si è svolto uno studio sui dati utilizzati e come gestire il modello di Blockchain Ibrida, cioè l'utilizzo concatenato di una blockchain privata utilizzata per le sue proprietà sulla sicurezza e quindi come ente certificatore decentralizzato e un DataBase relazionale così da poter interrogare e accedere con facilità ai dati. Il passo finale è stato sviluppare una Web app con tipologia Single Page Application utilizzando come server la tecnologia Node Js con l'utilizzo del framework Web3 per l'interfacciamento alla blockchain. La Web app è sviluppata con l'ideologia della possibile integrazione nel Mobility as Service. Questa caratteristica è stata sviluppata con l'ideologia di fornire ai vari enti partecipanti un diverso account(coppia di chiavi pubblica e privata) che si utilizzerà per l'interfacciamento e gli fornirà determinati accessi. La WebApp ha quindi permesso la distinzione dei vari utenti che, in base al loro ruolo, avranno accessi e possibilità diverse sull'app. Queste possibilità riguardano chi e quali dati dovrà inserire e chi invece può interrogare le informazioni a cui ha accesso.
-\section{Descrizione dell’azienda}
+\section{Descrizione dell'azienda}
 
 %capitolo 2
 \chapter{Blockchain}
@@ -477,7 +476,7 @@ Questi vengono inviati al secondo attore dello schema \ref{fig:sch}, il server P
 Il progetto è incentrato su due strutture di immagazzinamento dati, questo rende possibile l'utilizzo dei vantaggi di entrambi.
 
 La blockchain è sviluppata con BESU eseguendo 4 nodi (il minimo per essere BFT) avviati in locale.
-Il primo passo è creare una directory da utilizzare che conterrà una directory per ogni nodo che a sua volta conterrà una directory per lo storing dei dati.
+Il primo passo è scegliere una directory da utilizzare che conterrà una directory per ogni nodo che a sua volta conterrà una directory per lo storing dei dati.
 \begin{lstlisting}[language=command.com]
 IBFT-Network/
 		Node-1
@@ -617,7 +616,7 @@ contract BusinessTravel {
 }
 \end{lstlisting}
 
-BusinessTravel viene utilizzato per associare un diverso contratto Travel ad ogni utente, ed è svluppato con il mapping da un tipo address (indica la chiave pubblica di un utente) ad un oggetto di tipo Travel; questo è affiancato da un secondo mapping analogo che collegerà gli address di un account ad un booleano che, come il nome "is\_inizialized" lascia intendere, indicherà se nel primo mapping è già stato inizializzato un oggetto Travel per quel determinato address. I due metodi sono analoghi a quelli di travel infatti il metodo get restituisce la stringa di hash passandogli come parametro il solo id, questo utilizzerà la variabile msg.sender per identificare il mittente della transazione/chiamata al metodo e per selezionare nel mapping il Travel desiderato; questo viene eseguito sempre dopo un controllo sul mapping se il sender è inizializzato. Il metodo add, oltre ad effettuare le operazioni del metodo add di travel, deve porre attenzione ai controlli, siccome, se un address non ha un Travel associato bisogna rimediare e crearlo settando rispettivamente is\_inizialized a true.
+BusinessTravel viene utilizzato per associare un diverso contratto Travel ad ogni utente, ed è sviluppato con il mapping da un tipo address (indica la chiave pubblica di un utente) ad un oggetto di tipo Travel; questo è affiancato da un secondo mapping analogo che collegherà gli address di un account ad un booleano che, come il nome "is\_inizialized" lascia intendere, indicherà se nel primo mapping è già stato inizializzato un oggetto Travel per quel determinato address. I due metodi sono analoghi a quelli di travel infatti il metodo get restituisce la stringa di hash passandogli come parametro il solo id, questo utilizzerà la variabile msg.sender per identificare il mittente della transazione/chiamata al metodo e per selezionare nel mapping il Travel desiderato; questo viene eseguito sempre dopo un controllo sul mapping se il sender è inizializzato. Il metodo add, oltre ad effettuare le operazioni del metodo add di travel, deve porre attenzione ai controlli, siccome, se un address non ha un Travel associato bisogna rimediare e crearlo settando rispettivamente is\_inizialized a true.
 
 \section{WebApp}
 \subsection{Single Page Application}%descrizione html e js
