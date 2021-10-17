@@ -9,7 +9,7 @@
 \usepackage[nouppercase]{frontespizio}
 \usepackage{wrapfig} 
 \usepackage{listings}
-
+\usepackage[section]{placeins}
 
 %-----------For json--------------
 \usepackage{xcolor}
@@ -117,6 +117,7 @@ morestring=[b]"
 Il problema dei generali bizantini è un problema informatico su come raggiungere il consenso in situazioni in cui è possibile la presenza di errori. Il problema consiste nel trovare un accordo, comunicando solo tramite messaggi, tra componenti diversi nel caso in cui siano presenti informazioni discordanti. Il problema è stato teorizzato dai matematici Leslie Lamport, Marshall Pease e Robert Shostak nel 1982, i quali crearono la metafora dei generali, caso di studio molto utilizzato nei sistemi basati o che comunque utilizzano una network. La metafora si basa su diversi generali che durante un assedio sono sul punto di attaccare una città nemica. Essi sono dislocati in diverse aree strategiche e possono comunicare solo mediante messaggeri al fine di coordinare l'attacco decisivo (Figura \ref{fig:ByzantinFault}). I generali possono attaccare o ritirarsi, l'importante e che ci sia una decisione unanime, l'utilizzo di sola metà forza bellica porterebbe ad una sconfitta o una perdita. Il problema risiede quindi nell'alta probabilità che tra questi vi sia un generale traditore che mandi messaggi che vanno contro la strategia dell'esercito. La possibile soluzione punta al trovare un meccanismo secondo il quale un generale non traditore che riceva più messaggi sappia riconoscere quello veritiero. Secondo l'articolo di Lamport, Shostak e Pease non esiste una soluzione se il numero di processi non corretti è maggiore o uguale a un terzo del numero totale di processi. Una soluzione proposta è quella di Nakamoto che in una sua stesura sulla blockchain descrive un meccanisco per arrivare al consenso chiamato PoW Proof of Work.
 
 \section{Struttura di una blockchain}
+
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{bl1}
 	\centering
@@ -124,38 +125,48 @@ Il problema dei generali bizantini è un problema informatico su come raggiunger
 	\label{fig:blockchain1}
 \end{figure}
 
-Una Blockchain come suggerisce l'etimologia della parola è una catena di blocchi o DLT - Distributed Ledger Technology. È una struttura dati formata da un insieme di blocchi(struttura prioritaria) collegati univocamente 1 ad 1 così da creare una metaforica catena. Una blockchain è considerata una struttura condivisa e immutabile in quanto il suo contenuto una volta scritto non è più né modificabile né eliminabile, a meno di non invalidare l'intera struttura. Questa tecnologia fà parte dei Distributed Legder cioè dei "libri mastro distribuiti" o registri condivisi, infatti tutti i partecipanti della blockchain, detti anche nodi, posseggono lo stesso registro. Essi posseggono le stesse informazioni costruendo il contrapposto di una struttura centralizzata come un Database, quindi una struttura Decentralizzata in cui ogni nodo ha la possibilità di leggere autonomamente le informazioni contenute.
-Nella figura \ref{fig:blockchain1} viene visualizzata una semplice blockchain in cui sono presenti tre tipologie di blocchi quali: il blocco verde visto come il blocco di genes; i blocchi neri che vanno a costituire la catena principale e i blocchi viola considerati blocchi orfani. L'aggiunta di un nuovo blocco è globalmente regolata da un protocollo condiviso, se autorizzata ogni nodo aggiorna la propria copia privata del registro così da evitare manipolazioni future. In una blockchain i nodi partecipanti vengono anche chiamati minatori - miner o validatori, riferendosi al loro compito nella rete rispetto ai blocchi.
+Una Blockchain come suggerisce l'etimologia della parola è una catena di blocchi o DLT - Distributed Ledger Technology. È una struttura dati formata da un insieme di blocchi(struttura prioritaria) collegati univocamente 1 ad 1 così da creare una metaforica catena. Una blockchain è considerata una struttura condivisa e immutabile in quanto il suo contenuto una volta scritto non è più né modificabile né eliminabile. Questa tecnologia fà parte dei Distributed Legder cioè dei "libri mastro distribuiti" o registri condivisi, infatti tutti i partecipanti della blockchain, detti anche nodi, posseggono lo stesso registro. Essi posseggono le stesse informazioni costruendo il contrapposto di una struttura centralizzata come un Database, quindi una struttura Decentralizzata in cui ogni nodo ha la possibilità di leggere autonomamente le informazioni contenute.
+Nella figura \ref{fig:blockchain1} viene visualizzata una semplice blockchain in cui sono presenti tre tipologie di blocchi quali: il blocco verde visto come genesis block; i blocchi neri che vanno a costituire la catena principale e i blocchi viola considerati blocchi orfani. L'aggiunta di un nuovo blocco è globalmente regolata da un protocollo condiviso,in seguito ogni nodo aggiorna la propria copia privata del registro. In una blockchain i nodi partecipanti vengono anche chiamati minatori - miner o validatori, riferendosi al loro compito nella rete rispetto ai blocchi.
 
 \section{Hashing}
-Un codice hash è una qualunque sequenza di caratteri alfanumerici generati da una particolare funzione di hash. Questa funzione prende in input un qualunque tipo di informazione e restituisce una stringa di lunghezza prefissata, questo rende la funzione one-way o non invertibile in quanto conoscendo il digest(codice hash restituito) non è possibile risalire all'informazione che lo ha generato. In una blockchain l'Hash viene utilizzato per la costruzione della catena, viene calcolato l'hash di un blocco e il blocco successivo avrà come parametro questo hash. In questo modo ogni blocco è legato univocamente al blocco precedente "parent", siccome il codice hash di un blocco viene calcolato utilizzando anche il codice hash precedente modificando un singolo blocco verrà invalidata tutta la struttura blockchain immediatamente successiva.
-\begin{figure}[h]
+Un codice hash è una qualunque sequenza di caratteri alfanumerici generati da una particolare funzione di hash. Questa funzione prende in input un qualunque tipo di informazione e restituisce una stringa di lunghezza prefissata, questo rende la funzione one-way o non invertibile in quanto conoscendo il digest(codice hash restituito) non è possibile risalire all'informazione che lo ha generato. In una blockchain l'Hash viene utilizzato per la costruzione della catena, viene calcolato l'hash di un blocco e il blocco successivo avrà tra i parametri questo codice hash. In questo modo ogni blocco è legato univocamente al blocco precedente "parent", siccome il codice hash di un blocco viene calcolato utilizzando anche il codice hash precedente modificando un singolo blocco verrà invalidata tutta la struttura blockchain immediatamente successiva. Una blockchain utilizza la proprietà di un codice hash di essere univoco, così da poter creare il meccanismo denominato Hash Pointing. Un blocco contiene sempre il codice hash di un altro blocco (parent block - blocco precedente), questo essendo univoco ha una funzione di puntatore verso un altro blocco (che a sua volta punterà ad un altro blocco) costruendo così una catena di blocchi. 
+\begin{figure}[h] 
 	\includegraphics[width=\textwidth]{bc1}
 	\centering
 	\caption{Catena di una blockchain}
 	\label{fig:blockchain2}
 \end{figure}
 
+Tra le funzioni di hash più famose si ha MD5 e SHA256 (Figura \ref{fig:sha256}).
+\begin{figure}[h] 
+	\includegraphics[height=0.21\textheight]{sha256}
+	\centering
+	\caption{Esempio funzione hash sha256}
+	\label{fig:sha256}
+\end{figure}
+
 \section{Transazioni}
+
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{flusso_bc}
 	\centering
 	\caption{Flusso di esecuzione di una Transazione}
 	\label{fig:fl_bc}
 \end{figure}
-In una blockchain i dati vengono scritti sotto forma di transazioni, in seguito contenute in vari blocchi. L'uso più comune delle transazioni è l'invio di denaro o una qualche tipologia di moneta equivalente. Le transazioni devono quindi avere un mittente, un destinatario, un 'value' cioè il valore trasmesso; vengono quindi considerate come un cambio di stato riferendosi alle informazioni nella blockchain e saranno identificate da un Transaction Hash. Una volta inviata, la transazione entra in una transaction pool, da dove i miner andranno a selezionare randomicamente transazioni da includere nel prossimo blocco. Una transazione, per essere considerata valida, deve essere accettata da un nodo che la inserirà nel blocco che sta minando e non è certo che due nodi che minano lo stesso blocco la inseriscano nella stessa posizione.
+
+In una blockchain i dati vengono scritti sotto forma di transazioni, in seguito contenute in vari blocchi. L'uso più comune delle transazioni è l'invio di denaro o una qualche tipologia di moneta equivalente. Le transazioni devono quindi avere un mittente, un destinatario, un 'value' cioè il valore trasmesso; vengono quindi considerate come un cambio di stato riferendosi alle informazioni nella blockchain e saranno identificate da un Transaction Hash. quando un utente vuole effettuare una transazione,questa entra in una transaction pool (Ogni nodo miner ha la propria pool), da dove i miner andranno a selezionare randomicamente transazioni da includere nel prossimo blocco. Una transazione, per essere considerata valida, deve essere accettata da un nodo che la inserirà nel blocco che sta minando e non è certo che due nodi che minano lo stesso blocco la inseriscano nella stessa posizione.
 
 \section{Blocchi}
-La blockchain è una sequanza di blocchi che contengono una collezione di transazioni. Il numero di transazioni all'interno di ognuno di questi blocchi varia in base alla dimensione della transazione stessa. I blocchi sono prodotti dai nodi validators e vengono generati in un lasso di tempo definito dalle regole della blockchain (Es: 15 secondi per Ethereum, 10 min per BitCoin), nel momento in cui il blocco viene completato e aggiunto alla catena i dati contenuti diventano verificati.
+La blockchain è una sequanza di blocchi che contengono una collezione di transazioni. Il numero di transazioni all'interno di ognuno di questi blocchi varia in base alla dimensione della transazione stessa. I blocchi sono prodotti dai nodi validatori e vengono generati in un lasso di tempo definito dalle regole della blockchain (Es: 15 secondi per Ethereum, 10 min per Bitcoin).
 
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{bcbl}
 	\centering
-	\caption{Struttura di un Blocco}
+	\caption{Struttura di un Blocco (Bitcoin)}
 	\label{fig:blockblockchain1}
 \end{figure}
 
-Un Blocco è diviso in due parti: l`header e il body. Le transazioni sono racchiuse nel body del blocco e nell'header sono presenti i campi di gestione del blocco stesso come descritto nella figura \ref{fig:blockblockchain1}.
+La struttura di un blocco cambia secondo la struttura della rete, nella figura \ref{fig:blockblockchain1} si ha un riferimento alla struttura nella rete Bitcoin. Un Blocco è diviso in due parti: l`header e il body. Le transazioni sono racchiuse nel body del blocco e nell'header sono presenti i campi di gestione del blocco stesso come descritto nella figura \ref{fig:blockblockchain1}.
 
 \begin{itemize}
   \item Versione del blocco: indica le regole di validazione del blocco da rispettare
@@ -166,7 +177,7 @@ Un Blocco è diviso in due parti: l`header e il body. Le transazioni sono racchi
 \item Parent Block Hash: segna l'hash del blocco a cui verrà agganciato
 \end{itemize}
 
-Il Body è composto da un contatore di transazioni (transaction counter) e dalle transazioni (TX). Tali transazioni vengono memorizzate e organizzate tramite un Merkle Tree: una struttura ad albero in cui le foglie contengono i digest hash delle informazioni mentre i nodi contengono i digest hash dei nodi sottostanti (figli).
+Il Body è composto da un contatore di transazioni (transaction counter) e dalle transazioni (TX). Tali transazioni vengono memorizzate e organizzate tramite un Merkle Tree: una struttura ad albero in cui le foglie contengono i digest hash delle informazioni mentre i nodi contengono i digest hash dei nodi sottostanti (figli). In  questo modo la radice dell`albero assicura che le informazioni (transazioni) nel blocco siano corrette (Ad esempio: un nuovo nodo che entra nella blockchain deve scaricare tutta la catena, per far ciò si sincronizzerà alla rete, ma, essendo una blockchain una rete senza fiducia, controllerà le informazioni dei blocchi grazie alla Merkle Tree Root Hash).
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{Hash_Tree}
 	\centering
@@ -176,14 +187,14 @@ Il Body è composto da un contatore di transazioni (transaction counter) e dalle
 
 \section{Mining e Meccanismi del consenso}
 I miner sono i nodi partecipanti alla rete che  ascoltano le transazioni inviate, verificano che non siano malevole e compongono un blocco organizzando le transazioni in un Merkle Tree.
-I minatori che "calcolano" un blocco valido vengono premiati con un incentivo (Es: criptovaluta).
-È anche possibile che più miner producano lo stesso blocco e la scelta del blocco da seguire per la catena spetta al meccanismo del consenso cioè il set di regole che permette la finalizzazione delle transazioni e il funzionamento del sistema cosicché tutti i nodi della rete convergano ad una sola versione condivisa della catena, questo andrà a creare una biforcazione o Fork da cui si avranno una sequenza valida e una sequenza orfana (o anche un singolo nodo) (Figura \ref{fig:blockchain1}).
+%I minatori che "calcolano" un blocco valido vengono premiati con un incentivo (Es: criptovaluta).
+È anche possibile che più miner producano lo stesso blocco e la scelta del blocco da seguire per la catena spetta al meccanismo del consenso cioè il set di regole che permette la finalizzazione delle transazioni e il funzionamento del sistema cosicché tutti i nodi della rete convergano ad una sola versione condivisa della catena, questo andrà a creare una biforcazione o Fork da cui si avranno una sequenza valida e una sequenza orfana (o anche un singolo nodo) (Figura \ref{fig:blockchain1}). 
 
 \subsection{Consenso Trustless}
 La blockhain è considerata Trustless, letteralmente "senza fiducia" poiché a differenza di un sistema centralizzato non esiste nessun ente centrale in si ripone la fiducia (come ad esempio una Banca, governi o istituti finanziari). Utilizzando un sistema decentralizzato, la fiducia non viene eliminata definitivamente ma viene suddivisa tra tutti i partecipanti, in questo modo più sarà alto il numero dei partecipanti meno fiducia si dovrà affidare ad ogni singolo nodo. %La fiducia viene riposta nei singoli nodi e che questi rispettino le regole considerate valide.
 
 \subsection{Proof of Work}
-L'algoritmo del consenso più famoso e utilizzato (come da Bitcoin, Ethereum e Monero), nonché il primo algoritmo del consenso mai creato, è il PROOF OF WORK abbreviato PoW. Questo si basa sulla "Prova del Lavoro" svolto dai miner che dovranno risolvere una serie di operazioni considerate come un puzzle matematico per poter creare un blocco valido. Il primo miner che costruisce il blocco lo aggiunge alla catena, notifica in broadcast il resto della rete e di conseguenza tutte le transazioni in esso presenti vengono validate, infine il miner viene ricompensato con un incentivo, ad esempio una moneta che sarà relativa a quello che gli utenti pagano per effettuare le transazioni, cioè le "tasse" - fees. I miner quindi utilizzano la loro potenza e risorse computazionali per provare che hanno svolto del lavoro (questo produce anche un massivo consumo di elettricità), talvolta è possibile che due o più nodi producano lo stesso blocco creando un fork e quindi due differenti catene. Il sistema è incentivato a scrivere nuovi blocchi sulla catena più lunga così da eliminare la biforcazione orfana e ricondurre tutta la rete a un`unica catena, questo implica che, se si voglia creare un blocco "falso" e farlo accettare dalla blockchain bisognerà possedere una potenza di calcolo maggiore di tutta la rete. Il mining diventa sempre più competitivo con una partecipazione sempre maggiore di persone e con un relativo incremento della difficoltà, perciò si è vista la creazione delle Mining Pool: un insieme di persone che raggruppa la propria potenza di calcolo per il mining di criptomoneta, in questo modo la probabilità di costruire un blocco valido aumenta e di conseguenza aumenta anche il guadagno suddiviso tra i partecipanti.
+L'algoritmo del consenso più famoso e utilizzato (come da Bitcoin, Ethereum e Monero), nonché il primo algoritmo del consenso mai creato, è il PROOF OF WORK abbreviato PoW. Questo si basa sulla "Prova del Lavoro" svolto dai miner che dovranno risolvere una serie di operazioni considerate come un puzzle matematico per poter creare un blocco valido. Il primo miner che costruisce il blocco lo aggiunge alla catena, notifica in broadcast il resto della rete e di conseguenza tutte le transazioni in esso presenti vengono validate, infine il miner viene ricompensato con un incentivo, ad esempio una moneta che sarà relativa a quello che gli utenti pagano per effettuare le transazioni, cioè le "tasse" - fees. I miner quindi utilizzano la loro potenza e risorse computazionali per provare che hanno svolto del lavoro (questo produce anche un massivo consumo di elettricità), talvolta è possibile che due o più nodi producano lo stesso blocco creando un fork e quindi due differenti catene. Il sistema è incentivato a scrivere nuovi blocchi sulla catena più lunga così da eliminare la biforcazione orfana e ricondurre tutta la rete a un`unica catena. Il mining diventa sempre più competitivo con una partecipazione sempre maggiore di persone e con un relativo incremento della difficoltà, perciò si è vista la creazione delle Mining Pool: un insieme di persone che raggruppa la propria potenza di calcolo per il mining di criptomoneta, in questo modo la probabilità di costruire un blocco valido aumenta e di conseguenza aumenta anche il guadagno suddiviso tra i partecipanti.
 
 \subsection{Proof of Stake}
 \begin{figure}[h]
