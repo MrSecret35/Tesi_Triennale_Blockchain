@@ -4,10 +4,14 @@
 
 implementare meglio il login
 
-evento nello smart contract
+//evento nello smart contract
 require :
-registry con gli utenti che possono scrivere
+//registry con gli utenti che possono scrivere
 
-wallet crittografato della private key
+non voglio farlo -- wallet crittografato della private key 
 
 modello: passare da salvare il viaggio alle singole tappe
+1 - salvare le posizioni e non la stringa città 
+2 - creare una tabella con le fermate effettuate (identificativo fermata)
+
+	

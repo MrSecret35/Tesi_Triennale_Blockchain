@@ -1,0 +1,8 @@
+\subsection{Double Spending Attack}
+\begin{figure}[h]
+	\includegraphics[height=0.2\textheight]{dsa}
+	\centering
+	\caption{Double Spending Attack}
+	\label{fig:ds-attack}
+\end{figure}
+Il Double Spending Attack viene concepito per la possibilita di spedere due volte la stessa moneta. Questo potrebbe essere attuabile con la creazione di due diverse transazioni. Le due transazioni però dovranno appartenere a due blocchi diversi. E se due miner che competono nel minare un blocco utilizzano ognuno una transazione diversa? Allora verranno prodotti due blocchi con entrambe le transazioni ma verrà prodotta una Fork quindi solo una delle due transazioni verrà poi validata mentre la seconda sarà annullata, ricordando che una transazione o meglio un blocco ha una validità pari al numero di blocchi minati in seguito (In BitCoin un blocco è validato se sono stati prodotti 6 blocchi successivi).
