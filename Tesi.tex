@@ -10,23 +10,27 @@
 \usepackage{wrapfig} 
 \usepackage{listings}
 \usepackage[section]{placeins}
+\usepackage{xcolor}
 
 %-----------For json--------------
-\usepackage{xcolor}
-\colorlet{punct}{red!60!black}
-\definecolor{background}{HTML}{EEEEEE}
 \definecolor{delim}{RGB}{20,105,176}
-\colorlet{numb}{magenta!60!black}
+\definecolor{numb}{RGB}{106, 109, 32}
+\definecolor{string}{rgb}{0.64,0.08,0.08}
+
 \lstdefinelanguage{json}{
-    basicstyle=\normalfont\ttfamily,
     numbers=left,
-    numberstyle=\scriptsize,
-    stepnumber=1,
-    numbersep=8pt,
-    showstringspaces=false,
+    numberstyle=\small,
+    frame=single,
+    rulecolor=\color{black},
+    showspaces=false,
+    showtabs=false,
     breaklines=true,
-    frame=lines,
-    backgroundcolor=\color{background},
+    postbreak=\raisebox{0ex}[0ex][0ex]{\ensuremath{\color{gray}\hookrightarrow\space}},
+    breakatwhitespace=true,
+    basicstyle=\ttfamily\small,
+    upquote=true,
+    morestring=[b]",
+    stringstyle=\color{string},
     literate=
      *{0}{{{\color{numb}0}}}{1}
       {1}{{{\color{numb}1}}}{1}
@@ -38,8 +42,6 @@
       {7}{{{\color{numb}7}}}{1}
       {8}{{{\color{numb}8}}}{1}
       {9}{{{\color{numb}9}}}{1}
-      {:}{{{\color{punct}{:}}}}{1}
-      {,}{{{\color{punct}{,}}}}{1}
       {\{}{{{\color{delim}{\{}}}}{1}
       {\}}{{{\color{delim}{\}}}}}{1}
       {[}{{{\color{delim}{[}}}}{1}
@@ -102,6 +104,19 @@ morestring=[b]"
 %capitolo 1
 \chapter{Introduzione}
 \section{Descrizione del Progetto}
+Il seguente documento illustra la realizzazione di un prototipo di un sistema basato su blockchain. Il progetto si può quindi suddividere in tre fasi (affrontate dallo studente): studio, realizzazione e analisi. 
+
+Il periodo di studio prevede una fase iniziale per l'apprendimento della tecnologia blockchain(cosa è, come funziona), per poi incentrarsi sul come utilizzare questa all'interno del mobility-as-a-service. Nel progetto possiamo quindi vedere i vari enti fornitori di servizi come utenti della blockchain. Questi servizi prevedono degli "spostamenti" (tratte) che verranno certificate dalla blockchain. Per il progetto, in seguito ad uno studio, si è presa decisione di utilizzare una blockchain privata a fronte della pubblica, tenendo conto dei costi delle singole transazioni e per ottenere una minima centralizzazione.
+Durante lo studio si è incontrato il problema della memorizzazione (spazio di archiviazione) risolto tramite l'adozione di un database SQL, questo permette anche una facile interrogazione.
+
+La fase di realizzazione si suddivide in 3 sotto-progetti: Blockchain, smart contract e WebApp.
+Con BESU è stato costruito un prototipo di blockchain basata su Ethereum ma con la proprietà di Free gas Network. Seguendo la fase di studio è stato deciso di salvare sulla blockchain il solo hash delle tratte per cui sono stati scritti gli smart contract di conseguenza, formando anche un boxing per ogni ente e un registro per gli utenti autorizzati.
+In ultimo è stata scritta una WebApp utilizzando Node.js il cui compito era di interfacciarsi con le strutture dati, per cui è composta di un'interfaccia verso la blockchain e una verso il database.
+
+Per la fase di analisi ci si concentra sui problemi rimanenti nel progetto come la sicurezza o i costi.
+Per la sicurezza si è notato come la blockchain privata non garantisca una sicurezza pari al livello di una blockchain pubblica come Ethereum (dovuto, ad esempio, al numero di nodi). Questo propone un dilemma considerando, invece, i costi di una blockchain pubblica.
+
+
 \section{Descrizione dell'azienda}
 
 %capitolo 2
@@ -426,7 +441,7 @@ var web3 = new Web3(Web3.givenProvider || 'local-or-remote-address:8546');
 \chapter{Caso d'uso}
 
 \section{Problema Iniziale}
-Il progetto blockchain è stato ideato e sviluppato come proposta di soluzione ai problemi nella gestione del tracciamento, invio, certificazione e mantenimento di dati riguardanti "spostamenti". Questi spostamenti sono informazioni (LOG) inviate da un qualunque ente che metta a disposizione della società un servizio che preveda dei mezzi pubblici o privati quali ad esempio autobus, treni, taxi, etc. Ad oggi queste informazioni vengono raccolte, analizzate e utilizzate su di modelli di storage a fogli di calcolo (Ad Esempio EXCEL - Programma Microsoft). I fogli di calcolo offrono alcuni vantaggi come la semplicità con cui vengono creati, scritti e salvati benché offrano un'interfaccia poco user friendly ('facilmente utilizzabile') guardando tutti i possibili attori. Il progetto si focalizza sui difetti come la pubblicazione/condivisione delle informazioni o l'interrogazione di queste in quanto, utilizzando semplici fogli, non esistono regole di struttura e organizzazione, e si pone particolare importanza alla sicurezza e all'affidabilità di queste informazioni e che non vengano modificate durante la condivisione, quindi la possibile certificazione di esse.
+Il progetto blockchain è stato ideato e sviluppato come proposta di soluzione ai problemi nella gestione del tracciamento, invio, certificazione e mantenimento di dati riguardanti "spostamenti". Questi spostamenti sono informazioni (LOG) inviate da un qualunque ente che metta a disposizione della società un servizio che preveda dei mezzi pubblici o privati quali ad esempio autobus, treni, taxi, etc. Ad oggi queste informazioni vengono raccolte, analizzate e utilizzate su di modelli di storage a fogli di calcolo (Ad Esempio Excel - Programma Microsoft). I fogli di calcolo offrono alcuni vantaggi come la semplicità con cui vengono creati, scritti e salvati benché offrano un'interfaccia poco user friendly ('facilmente utilizzabile') guardando tutti i possibili attori. Il progetto si focalizza sui difetti come la pubblicazione/condivisione delle informazioni o l'interrogazione di queste in quanto, utilizzando semplici fogli, non esistono regole di struttura e organizzazione, per cui questi non sono una valida alternativa ad una struttura dati come un Database che permetterebbe una facile interrogazione ed un'ottimizzazione riguardante la memorizzazione di dati. Si pone particolare importanza alla sicurezza e all'affidabilità di queste informazioni e che non vengano modificate durante la condivisione, quindi la possibile certificazione di esse.
 
 \section{Soluzione}
 La soluzione proposta si offre di risolvere tutti i problemi sopra elencati come certificazione, salvataggio e interrogazioni di informazioni. Viene ideata una blockchain privata che avrà funzione di ente (decentralizzato) certificatore. Questa non utilizza nessuna moneta creando una Free Gas Network e con l'ausilio di appositi smart contract (scritti e caricati autonomamente) ci permette di salvare un codice che andrà ad identificare un determinato gruppo di spostamenti come un codice Hash che usufruendo della struttura e utilizzo della blockchain non potrà essere modificato. Ciò implica che si potrà sempre verificare la correttezza del gruppo di spostamenti richiesti ricreando e controllando il loro codice.
@@ -460,7 +475,7 @@ Il proprietario/gestore della blockchain avrà il compito di gestire l'intera bl
 Il Progetto prevede uno scenario di utilizzo diverso seguendo la distinzione degli attori.
 Per l'utilizzo si prevede che ad ogni ente partecipante al progetto venga assegnato un account, cioè una coppia di chiavi, privata e pubblica, che serviranno per interagire con la blockchain, inoltre ogni ente dovrà inserire i propri dipendenti nel Database e specificare il ruolo di essi, se Admin o Terminal User.
 
-Un Terminal User, una volta effettuato l'accesso, viene portato ad un'interfaccia in cui può inserire la città che sarà selezionata come Start dello spostamento e in seguito viene spostato in una seconda interfaccia da cui può terminare lo spostamento o annullarlo, se annullato potrà cominciare un nuovo spostamento dalla precedente interfaccia. Il completamento di questo avverrà solo se compila i campi necessari quali la città di Termine e la distanza percorsa indicata in Kilometri.
+Un Terminal User, una volta effettuato l'accesso, viene portato ad un'interfaccia in cui può inserire la città che sarà selezionata come Start dello spostamento e in seguito viene spostato in una seconda interfaccia da cui può terminare lo spostamento o annullarlo, se annullato potrà cominciare un nuovo spostamento dalla precedente interfaccia. Il completamento di questo avverrà solo se compila i campi necessari quali la città di Termine e la distanza percorsa indicata in Chilometri.
 
 Un Admin, una volta effettuato l'accesso, potrà, a differenza di un Terminal User, effettuare delle query/interrogazioni riguardo gli spostamenti compiuti. Inserendo una data otterrà tutti gli spostamenti che sono stati certificati da una transazione inserita in quella determinata data, da qui potrà anche accedere ai dettagli della transazione o del blocco che la contiene riferendosi alla blockchain, inoltre, quando il sistema lo richiede, ha il compito di inserire la Private Key dell'utente (ente) che verrà utilizzata per la scrittura su blockchain.
 
