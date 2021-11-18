@@ -1,0 +1,8 @@
+- Titolo
+- 1 - Blockchain, trilemma della scalabilitá, DLT
+- 2 - differenze sistema centralizzato e decentralizzato
+- 3 - schema finale del progetto
+- 4 -  Attori
+- 5 - smart contract 
+	quali ho scritto e che funzione hanno 
+- Ringraziamenti
