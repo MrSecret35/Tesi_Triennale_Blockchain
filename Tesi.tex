@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,titlepage]{report}
+\documentclass[11pt,a4paper,titlepage, twoside, openright]{report}
 %twoside,openright
 \usepackage[italian]{babel} %italiano
 \usepackage[T1]{fontenc}
@@ -151,7 +151,7 @@ Il problema dei generali bizantini è un problema informatico su come raggiunger
 	\label{fig:blockchain1}
 \end{figure}
 
-Una Blockchain come suggerisce l'etimologia della parola è una catena di blocchi o DLT - Distributed Ledger Technology. È una struttura dati formata da un insieme di blocchi(struttura prioritaria) collegati univocamente 1 ad 1 così da creare una metaforica catena. Una blockchain è considerata una struttura condivisa e immutabile in quanto il suo contenuto una volta scritto non è più né modificabile né eliminabile. Questa tecnologia fà parte dei Distributed Legder cioè dei "libri mastro distribuiti" o registri condivisi, infatti tutti i partecipanti della blockchain, detti anche nodi, posseggono lo stesso registro. Essi posseggono le stesse informazioni costruendo il contrapposto di una struttura centralizzata come un Database, quindi una struttura Decentralizzata in cui ogni nodo ha la possibilità di leggere autonomamente le informazioni contenute.
+Una Blockchain come suggerisce l'etimologia della parola è una catena di blocchi o DLT - Distributed Ledger Technology. È una struttura dati formata da un insieme di blocchi(struttura prioritaria) collegati univocamente 1 ad 1 così da creare una metaforica catena. Una blockchain è considerata una struttura condivisa e immutabile in quanto il suo contenuto una volta scritto non è più né modificabile né eliminabile. Questa tecnologia fa parte dei Distributed Legder cioè dei "libri mastro distribuiti" o registri condivisi, infatti tutti i partecipanti della blockchain, detti anche nodi, posseggono lo stesso registro. Essi posseggono le stesse informazioni costruendo il contrapposto di una struttura centralizzata come un Database, quindi una struttura Decentralizzata in cui ogni nodo ha la possibilità di leggere autonomamente le informazioni contenute.
 Nella figura \ref{fig:blockchain1} viene visualizzata una semplice blockchain in cui sono presenti tre tipologie di blocchi quali: il blocco verde visto come genesis block; i blocchi neri che vanno a costituire la catena principale e i blocchi viola considerati blocchi orfani. L'aggiunta di un nuovo blocco è globalmente regolata da un protocollo condiviso,in seguito ad ogni aggiunta ogni nodo aggiorna la propria copia privata del registro. In una blockchain i nodi partecipanti vengono anche chiamati minatori - miner o validatori, riferendosi al loro compito nella rete rispetto ai blocchi.
 
 \section{Hashing}
@@ -183,7 +183,7 @@ Tra le funzioni di hash più famose si ha MD5 e SHA256 (Figura \ref{fig:sha256})
 In una blockchain i dati vengono scritti sotto forma di transazioni, in seguito contenute in vari blocchi. L'uso più comune delle transazioni è l'invio di denaro o una qualche tipologia di moneta equivalente. Le transazioni devono quindi avere un mittente, un destinatario, un 'value' cioè il valore trasmesso; vengono quindi considerate come un cambio di stato riferendosi alle informazioni nella blockchain e saranno identificate da un Transaction Hash. Quando un utente vuole effettuare una transazione,questa entra in una transaction pool (ogni nodo miner ha la propria pool), da dove i miner andranno a selezionare randomicamente transazioni da includere nel prossimo blocco. Una transazione, per essere considerata valida, deve essere accettata da un nodo che la inserirà nel blocco che sta minando e non è certo che due nodi che minano lo stesso blocco la inseriscano nella stessa posizione.
 
 \section{Blocchi}
-La blockchain è una sequanza di blocchi che contengono una collezione di transazioni. Il numero di transazioni all'interno di ognuno di questi blocchi varia in base alla dimensione della transazione stessa. I blocchi sono prodotti dai nodi validatori e vengono generati in un lasso di tempo definito dalle regole della blockchain (Es: 15 secondi per Ethereum, 10 min per Bitcoin).
+La blockchain è una sequenza di blocchi che contengono una collezione di transazioni. Il numero di transazioni all'interno di ognuno di questi blocchi varia in base alla dimensione della transazione stessa. I blocchi sono prodotti dai nodi validatori e vengono generati in un lasso di tempo definito dalle regole della blockchain (Es: 15 secondi per Ethereum, 10 min per Bitcoin).
 
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{bcbl}
@@ -234,7 +234,7 @@ L'algoritmo del consenso più famoso e utilizzato (come da Bitcoin, Ethereum e M
 
 Nel 2011 basandosi sui problemi del PoW come il dispendio di energia elettrica o la creazione di grosse Mining Pool, che eliminano la decentralizzazione, si è sviluppata l`idea del PoS - Proof of Stake. Il PoS sostituisce i miner con i validatori o coniatori, questi, per far si che il loro blocco venga considerato valido devono depositare della moneta come "cauzione" chiamata Stake.
 Il criterio di scelta dei validatori si basa sulla quantità di moneta bloccata e la durata del blocco, con il secondo parametro si va in contro al problema generato dal primo parametro cioè che solo i più ricchi possono essere scelti e quindi diventare più ricchi.
-L’elezione del blocco leader (da aggiungere) avviene tramite l’algoritmo VRF – Verifiable Random Function che utilizza l’algoritmo “follow-the-coin” - “più denaro blocchi più hai fiducia”. Il PoS porta molteplici vantaggi rispetto al PoW come un minimo dispendio energetico e una maggiore sicurezza e decentralizzazione dovuta all`assenza di mining pool.
+L'elezione del blocco leader (da aggiungere) avviene tramite l'algoritmo VRF – Verifiable Random Function che utilizza l'algoritmo “follow-the-coin” - “ più denaro blocchi più hai fiducia ”. Il PoS porta molteplici vantaggi rispetto al PoW come un minimo dispendio energetico e una maggiore sicurezza e decentralizzazione dovuta all`assenza di mining pool.
 
 \subsection{Proof of Authority}
 \begin{wrapfigure}{l}{0.5\textwidth}
@@ -266,18 +266,18 @@ Un attacco del 51\% è un potenziale attacco ad una rete blockchain in cui un si
 \section{Blockchain Pubbliche/Private}
 Una blockchain pubblica solitamente è anche detta permissionless, letteralmente "senza permessi" cioè un nuovo nodo non ha bisogno di speciali permessi per partecipare, quindi minare o effettuare transazioni nella rete che viene definita pubblica. Le reti permissionless sono quindi decentralizzate in quanto nessuno ha il controllo della rete.
 
-Le blockchain private sono conosciute come permissioned, sono caratterizzate dalla presenza di un’autorità centrale che decide chi può accedere e assegna loro un ruolo nella rete che determinerà cosa il nuovo nodo avrà il permesso di fare, se ha la possibilità di partecipare alla rete o se potrà essere un nodo validatore o di sola lettura. La sicurezza di una blockchain privata fa maggiormente perno sull'affidabilità dei singoli partecipanti.
+Le blockchain private sono conosciute come permissioned, sono caratterizzate dalla presenza di un`autorità centrale che decide chi può accedere e assegna loro un ruolo nella rete che determinerà cosa il nuovo nodo avrà il permesso di fare, se ha la possibilità di partecipare alla rete o se potrà essere un nodo validatore o di sola lettura. La sicurezza di una blockchain privata fa maggiormente perno sull'affidabilità dei singoli partecipanti.
 
 \section{Ethereum}
 
 \begin{figure}[h]
 	\includegraphics[height=0.2\textheight]{eth}
 	\centering
-	\caption{Etherium Logo}
+	\caption{Ethereum Logo}
 	\label{fig:eth-logo}
 \end{figure}
 
-Ethereum è una piattaforma decentralizzata ideata nel 2013 (in seguito pubblicata nel 2015) come sostituto a BitCoin. Ethereum è una piattaforma basata su blockchain che permette la gestione di smart contract e, come Bitcoin, mette a disposizione una moneta che viene analogamente chiamata Ether e abbreviata con ETH. La moneta viene utilizzata per le varie transazioni ma viene anche usata per pagare le "tasse" - fees, nello specifico viene utilizzato un sottomultiplo dell'ETH chiamato wei che corrisponde a circa  $ 10^{-18} $ ETH  ( 1 ETH = $ 10^{18} $ wei). Per lo sviluppo e l'interfacciamento viene messa a disposizione da Ethereum la EVM - Ethereum Virtual Machine che funge da macchina turing completa in grado di eseguire byte code. La sua funzione è quella di consentire l'esecuzione di programmi o smart contract al fine di implementare una serie di funzionalità aggiuntive su detta blockchain; la EVM utilizza per gli smart contract un linguaggio di alto livello specializzato chiamato Solidity.
+Ethereum è una piattaforma decentralizzata ideata nel 2013 (in seguito pubblicata nel 2015) come sostituto a Bitcoin. Ethereum è una piattaforma basata su blockchain che permette la gestione di smart contract e, come Bitcoin, mette a disposizione una moneta che viene analogamente chiamata Ether e abbreviata con ETH. La moneta viene utilizzata per le varie transazioni ma viene anche usata per pagare le "tasse" - fees, nello specifico viene utilizzato un sottomultiplo dell'ETH chiamato wei che corrisponde a circa  $ 10^{-18} $ ETH  ( 1 ETH = $ 10^{18} $ wei). Per lo sviluppo e l'interfacciamento viene messa a disposizione da Ethereum la EVM - Ethereum Virtual Machine che funge da macchina turing completa in grado di eseguire byte code. La sua funzione è quella di consentire l'esecuzione di programmi o smart contract al fine di implementare una serie di funzionalità aggiuntive su detta blockchain; la EVM utilizza per gli smart contract un linguaggio di alto livello specializzato chiamato Solidity.
 
 \subsection{Smart Contract}
 \begin{wrapfigure}{l}{0.4\textwidth}
@@ -569,7 +569,7 @@ besu --data-path=data --genesis-file=..\genesis.json --bootnodes=enode://5c57943
 	\label{fig:besu-imported-produced}
 \end{figure}
 
-La principale differenza è che bisogna specificare l'address del bootnode a cui collegarsi, questo è chiamato enode address e ogni nodo ne posside uno, viene visualizzato all'avvio del nodo ed è composto da 
+La principale differenza è che bisogna specificare l'address del bootnode a cui collegarsi, questo è chiamato enode address e ogni nodo ne possiede uno, viene visualizzato all'avvio del nodo ed è composto da 
 enode://chiave-pubblica-nodo@indirizzo-or-127.0.0.1(localhost):porta-p2p; con rpc-http-port viene specificata una porta di interfaccia al nodo, se non specificata viene utilizzata la porta di default 8545. Una volta avviato il numero minino di nodi si verificherà l'avvio della connessione tramite l'import e il producing di blocchi.
 
 Una volta visualizzato ciò, la blockchain sarà attiva e si potrà comunicare con essa sulle rispettive porte dei nodi con librerie come WEB3.
@@ -794,7 +794,7 @@ Lo switch tra i vari blocchi avviene tramite il javascript \textit{HomeForm.js} 
 Con Input dei dati viene indicato l'inserimento di essi in una specifica struttura di immagazzinamento dati. Per il progetto questo viene suddiviso in due azioni separate: input verso il DB, input verso la Blockchain.
 \subsubsection{Inserimento in un DB}
 Nel Database vanno ad essere salvati i dati dei Log/trace (~\ref{Schema-Progetto}), questi vengono inseriti dagli utenti salvati nel DB con Admin=False. Questi vengono inseriti in 2 instanti diversi tramite la SPA.
-Nella prima schermata (\ref{fig:Init_Log}) si va ad inserire solo la posizione di partenza ottenuta tramite la geolocalizzazione e l'identificativo del veicolo utilizzato (verrà utilizzato un altro sistema/struttura per la correttezza egiusta associazione di questo ID).
+Nella prima schermata (\ref{fig:Init_Log}) si va ad inserire solo la posizione di partenza ottenuta tramite la geolocalizzazione e l'identificativo del veicolo utilizzato (verrà utilizzato un altro sistema/struttura per la correttezza e giusta associazione di questo ID).
 
 \begin{figure}[h]
 	\includegraphics[width=\textwidth]{Init_Log}
