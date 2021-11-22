@@ -1,61 +1,61 @@
 \babel@toc {italian}{}\relax 
 \babel@toc {italian}{}\relax 
-\contentsline {chapter}{\numberline {1}Introduzione}{5}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Descrizione del Progetto}{5}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Descrizione dell'azienda}{6}{section.1.2}%
-\contentsline {chapter}{\numberline {2}Blockchain}{7}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Problema dei generali bizantini}{7}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Struttura di una blockchain}{8}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Hashing}{9}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Transazioni}{10}{section.2.4}%
-\contentsline {section}{\numberline {2.5}Blocchi}{11}{section.2.5}%
-\contentsline {section}{\numberline {2.6}Mining e Meccanismi del consenso}{13}{section.2.6}%
-\contentsline {subsection}{\numberline {2.6.1}Consenso Trustless}{13}{subsection.2.6.1}%
-\contentsline {subsection}{\numberline {2.6.2}Proof of Work}{14}{subsection.2.6.2}%
-\contentsline {subsection}{\numberline {2.6.3}Proof of Stake}{14}{subsection.2.6.3}%
-\contentsline {subsection}{\numberline {2.6.4}Proof of Authority}{15}{subsection.2.6.4}%
-\contentsline {section}{\numberline {2.7}Attacchi}{16}{section.2.7}%
-\contentsline {subsection}{\numberline {2.7.1}Selfish Mining Attack}{16}{subsection.2.7.1}%
-\contentsline {subsection}{\numberline {2.7.2}51\% Attack}{17}{subsection.2.7.2}%
-\contentsline {section}{\numberline {2.8}Blockchain Pubbliche/Private}{17}{section.2.8}%
-\contentsline {section}{\numberline {2.9}Ethereum}{18}{section.2.9}%
-\contentsline {subsection}{\numberline {2.9.1}Smart Contract}{19}{subsection.2.9.1}%
-\contentsline {subsection}{\numberline {2.9.2}Solidity}{19}{subsection.2.9.2}%
-\contentsline {subsection}{\numberline {2.9.3}Gas}{20}{subsection.2.9.3}%
-\contentsline {subsection}{\numberline {2.9.4}DApps}{21}{subsection.2.9.4}%
-\contentsline {chapter}{\numberline {3}Tecnologie utilizzate}{23}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Hyperledger Besu}{23}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}IBFT}{24}{subsection.3.1.1}%
-\contentsline {subsubsection}{IBFT Methods / Besu API}{25}{section*.2}%
-\contentsline {subsection}{\numberline {3.1.2}Free Gas Network}{25}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Truffle}{26}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Compile}{26}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Test}{27}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Deploy}{27}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Node.js}{27}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Web3}{28}{subsection.3.3.1}%
-\contentsline {chapter}{\numberline {4}Caso d'uso}{29}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Problema Iniziale}{29}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Soluzione}{30}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Problematiche}{30}{subsection.4.2.1}%
-\contentsline {section}{\numberline {4.3}Attori}{31}{section.4.3}%
-\contentsline {section}{\numberline {4.4}Scenario di utilizzo}{32}{section.4.4}%
-\contentsline {chapter}{\numberline {5}Sviluppo}{33}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Schema Progetto}{33}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Costruzione di Blockchain Ibrida}{34}{section.5.2}%
-\contentsline {section}{\numberline {5.3}Smart Contract}{38}{section.5.3}%
-\contentsline {subsection}{\numberline {5.3.1}Boxing}{39}{subsection.5.3.1}%
-\contentsline {subsection}{\numberline {5.3.2}Business Registry}{41}{subsection.5.3.2}%
-\contentsline {section}{\numberline {5.4}WebApp}{42}{section.5.4}%
-\contentsline {subsection}{\numberline {5.4.1}Single Page Application}{42}{subsection.5.4.1}%
-\contentsline {subsection}{\numberline {5.4.2}Input}{44}{subsection.5.4.2}%
-\contentsline {subsubsection}{Inserimento in un DB}{44}{section*.3}%
-\contentsline {subsubsection}{Inserimento nella Blockchain}{47}{section*.4}%
-\contentsline {subsection}{\numberline {5.4.3}Output}{49}{subsection.5.4.3}%
-\contentsline {subsubsection}{Report di Controllo}{49}{section*.5}%
-\contentsline {subsubsection}{Monitor Blockchain}{51}{section*.6}%
-\contentsline {chapter}{\numberline {6}Sviluppi futuri}{53}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Analisi costi}{53}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Immissione nella blockchain pubblica}{53}{section.6.2}%
-\contentsline {section}{\numberline {6.3}Blockchain pubblica come certificazione}{54}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Svilupo full Blockchain}{54}{section.6.4}%
+\contentsline {chapter}{\numberline {1}Introduzione}{4}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Descrizione del Progetto}{4}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Descrizione dell'azienda}{5}{section.1.2}%
+\contentsline {chapter}{\numberline {2}Blockchain}{6}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Problema dei generali bizantini}{6}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Struttura di una blockchain}{7}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Hashing}{8}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Transazioni}{9}{section.2.4}%
+\contentsline {section}{\numberline {2.5}Blocchi}{10}{section.2.5}%
+\contentsline {section}{\numberline {2.6}Mining e Meccanismi del consenso}{12}{section.2.6}%
+\contentsline {subsection}{\numberline {2.6.1}Consenso Trustless}{12}{subsection.2.6.1}%
+\contentsline {subsection}{\numberline {2.6.2}Proof of Work}{13}{subsection.2.6.2}%
+\contentsline {subsection}{\numberline {2.6.3}Proof of Stake}{13}{subsection.2.6.3}%
+\contentsline {subsection}{\numberline {2.6.4}Proof of Authority}{14}{subsection.2.6.4}%
+\contentsline {section}{\numberline {2.7}Attacchi}{15}{section.2.7}%
+\contentsline {subsection}{\numberline {2.7.1}Selfish Mining Attack}{15}{subsection.2.7.1}%
+\contentsline {subsection}{\numberline {2.7.2}51\% Attack}{16}{subsection.2.7.2}%
+\contentsline {section}{\numberline {2.8}Blockchain Pubbliche/Private}{16}{section.2.8}%
+\contentsline {section}{\numberline {2.9}Ethereum}{17}{section.2.9}%
+\contentsline {subsection}{\numberline {2.9.1}Smart Contract}{18}{subsection.2.9.1}%
+\contentsline {subsection}{\numberline {2.9.2}Solidity}{18}{subsection.2.9.2}%
+\contentsline {subsection}{\numberline {2.9.3}Gas}{19}{subsection.2.9.3}%
+\contentsline {subsection}{\numberline {2.9.4}DApps}{20}{subsection.2.9.4}%
+\contentsline {chapter}{\numberline {3}Tecnologie utilizzate}{22}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Hyperledger Besu}{22}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}IBFT}{23}{subsection.3.1.1}%
+\contentsline {subsubsection}{IBFT Methods / Besu API}{24}{section*.2}%
+\contentsline {subsection}{\numberline {3.1.2}Free Gas Network}{24}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Truffle}{25}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Compile}{25}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Test}{26}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Deploy}{26}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Node.js}{26}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Web3}{27}{subsection.3.3.1}%
+\contentsline {chapter}{\numberline {4}Caso d'uso}{28}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Problema Iniziale}{28}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Soluzione}{29}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Problematiche}{29}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.3}Attori}{30}{section.4.3}%
+\contentsline {section}{\numberline {4.4}Scenario di utilizzo}{31}{section.4.4}%
+\contentsline {chapter}{\numberline {5}Sviluppo}{32}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Schema Progetto}{32}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Costruzione di Blockchain Ibrida}{33}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Smart Contract}{37}{section.5.3}%
+\contentsline {subsection}{\numberline {5.3.1}Boxing}{38}{subsection.5.3.1}%
+\contentsline {subsection}{\numberline {5.3.2}Business Registry}{40}{subsection.5.3.2}%
+\contentsline {section}{\numberline {5.4}WebApp}{41}{section.5.4}%
+\contentsline {subsection}{\numberline {5.4.1}Single Page Application}{41}{subsection.5.4.1}%
+\contentsline {subsection}{\numberline {5.4.2}Input}{43}{subsection.5.4.2}%
+\contentsline {subsubsection}{Inserimento in un DB}{43}{section*.3}%
+\contentsline {subsubsection}{Inserimento nella Blockchain}{46}{section*.4}%
+\contentsline {subsection}{\numberline {5.4.3}Output}{48}{subsection.5.4.3}%
+\contentsline {subsubsection}{Report di Controllo}{48}{section*.5}%
+\contentsline {subsubsection}{Monitor Blockchain}{50}{section*.6}%
+\contentsline {chapter}{\numberline {6}Sviluppi futuri}{52}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Analisi costi}{52}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Immissione nella blockchain pubblica}{52}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Blockchain pubblica come certificazione}{53}{section.6.3}%
+\contentsline {section}{\numberline {6.4}Svilupo full Blockchain}{53}{section.6.4}%

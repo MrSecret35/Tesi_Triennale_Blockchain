@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,titlepage, twoside, openright]{report}
+\documentclass[11pt,a4paper,titlepage, openright]{report}
 %twoside,openright
 \usepackage[italian]{babel} %italiano
 \usepackage[T1]{fontenc}
@@ -67,11 +67,11 @@ morestring=[b]"
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
 \fancyhf{}
-\fancyhead[R]{\small\bfseries\thepage}
-\fancyhead[L]{\small\bfseries\thechapter\ \leftmark}
+\fancyfoot[C]{\small\bfseries\thepage}
+\fancyhead[R]{\small\bfseries\thechapter\ \leftmark}
 \setlength{\headheight}{13.6pt} 
 \fancypagestyle{plain}{
-  \fancyhead[R]{\small\bfseries\thepage}\fancyfoot[C]{}%
+  \fancyfoot[C]{\small\bfseries\thepage}
   \renewcommand{\headrulewidth}{1pt}%
 }
 
@@ -97,7 +97,7 @@ morestring=[b]"
 \end{frontespizio}
 
 %Study and realization of a prototype of a blockchain-based system for mobility as a service
-
+\clearpage\null\newpage
 %indice
 \tableofcontents
 
@@ -318,6 +318,7 @@ Quando si effettua una transazione o si carica uno smart contract la EVM richied
 
 Le DApps - Decentralized APPlications sono applicazioni simili alle app tradizionali, con la differenza fondamentale che al posto di appoggiarsi su server centralizzati sfruttano le piattaforme blockchain e il loro network distribuito, in questo modo possono essere utilizzate da interfaccia con gli smart contract.
 
+\clearpage\null\newpage
 %capitolo 3
 \chapter{Tecnologie utilizzate}
 
