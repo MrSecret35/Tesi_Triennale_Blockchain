@@ -7,7 +7,7 @@ all'obiettivo finale di costruire un prototipo di un sistema (applicazione e str
 che abbia le sopracitate proprietà. 
 per la realizzazione del prototipo si è deciso di utilizzare una struttura blockchain 
 come ente certificatore e validatore delle nostre informazioni.
- - 3 - La blockchain fa parte delle strutture DLT ovvero Distributed Ledgers Technology,
+- 3 - La blockchain fa parte delle strutture DLT ovvero Distributed Ledgers Technology,
 in italiano tradotto con registro distribuito. Questo è formato da una rete perr to peer di nodi 
 partecipanti e tutti posseggono lo stesso registro. I dati nella blockchain sono strutturati in blocchi.
 Ogni blocco contiene diversi dati tra cui: 
@@ -16,3 +16,34 @@ e un codice hash di un'altro blocco.
 Questo viene utilizzato per la creazione dell'hash pointing cioé il collegamento dei blocchi tramite
 hash che funge da puntatore. infatti ogni blocco punterá al precedente creando così una catena
 di blocchi. ...
+- 4 - Può sedmbrare strano ma al giorno d'oggi ancora molte delle informazioni riguardanti tratte e 
+spostamenti sono salvati utilizzando dei semplici fogli di calcolo. Questi continuano ad avere
+piccoli vantaggi come ad esempio la velocitá con cui si interagisce con essi o l'essere intuibili.
+MA con l'aumentare costante di dati evincono edidendi difetti come ad esempio l'assenza di sicurezza 
+soprasttutto durante un possibile spostamento dei dati, oppure una difficoltá nell'interrogare questi
+e una possibile e problematica disorganizzazione nel memorizzare diversi file
+- 5 - in questa slide é mostrato uno schema generale del sistema in cui si notato titti gli attori e i vari 
+collegamenti. Si notano quindi gli utenti finali rappresentati come classici mezzi di trasporto (autobus, taxi e treni)
+che quindi sono i dipendenti dei vari enti partecipanti al constorzio. Questi comunicano con un serever che funge da proxy.
+e quindi da intermediario che comunicherá con entrambe le strutture: siua con il database che con la blockchain.
+Quest'ultima é costruita con un meccanismo del consenso PoA Proof of Autority in cui solo i nodi preassegnati possono fungere 
+da validatori. Lo schema prevede quindi che ogni Ente/ Azienda partecipante metta a disposizione uno ed un solo nodo.
+- 6 - Nel sistema sono quindi individuabili 4 diversi attori.
+Nella blockchain ci sono i vari Enti e ognuno di essi ha un proprioiaccount identificato da un address pubblico
+e una chiave privata e l'account dell'owner che rappresenta l'ente centrale.
+Nell'applicativo ogni Ente ha due tipologie di utenti identificati da classici username e password e sono:
+i classici dipendenti e quelli segnati come admin.
+- 7 - Il primo attore nell'applicazione é l'utente classico il cui compito é inserire i dati delle tratte.
+Sono riportate le schermate l'utente utilizza per inserire i dati. Inizialmente inserisce l'identificativo del veicolo
+e viene presa anche la posizione e data iniziale. In seguito ha la possibilita di inserire delle fermate (composte da una data e una posizione)
+o terminare la tratta e quindi salvare la posizione e la data finale
+- 8 - La seconda tipologia di attori nell'app è quella degli Admin. Questi hanno il copmpito di gestire la private key dell'ente
+e sono gli unici a poter effettuare delle interrogazioni al sistema inserendo una precisa data.
+- 9 - anche nella blockchain sono individuati due attori:
+i vari enti cioè le aziende partecipanti al consorzio che saranno gli utilizzatori del sistema e quindi salvare 
+e memorizzare informazioni 
+il secondo attore écolui che possiamo definire come owner della blockchian cioé l'ente centrale che ha il compito 
+di gestire i vari permessi nei contratti e dei vari nodi
+- 10 - 
+
+ 
