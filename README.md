@@ -16,3 +16,8 @@ Per l`utilizzo del sistema è stata costruita una WebApp SPA utilizzando le libr
 per permettere ai vari utenti di interfacciarsi con il sistema.
 
 File: [Tesi.pdf](https://github.com/MrDooD5/Tesi_Triennale_Blockchain/blob/master/Tesi.pdf)
+
+Nella sotto-directory presentazione_laurea é presenta la presentazione in formato pptx utilizzata nella discussione.
+
+File [presentazione laurea pptx](https://github.com/MrDooD5/Tesi_Triennale_Blockchain/blob/master/presentazione_laurea/Presentazione_Laurea.pptx)
+File [presentazione laurea pdf](https://github.com/MrDooD5/Tesi_Triennale_Blockchain/blob/master/presentazione_laurea/Presentazione_Laurea.pdf)
