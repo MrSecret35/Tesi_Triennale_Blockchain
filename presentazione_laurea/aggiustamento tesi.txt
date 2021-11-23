@@ -1,0 +1,23 @@
+è stato fatto NOOO == IO ho fatto
+
+mancano le conclusioni:
+costruzione dell'app
+testing con docker
+
+
+
+
+---------------
+scenario di partenza e descrizione dell'azienda
+
+1 slide frontespizio della tesi
+2 piccola introduzione alla blockchain
+
+attori 2 slides 
+
+esempio di query di verifica // utilizzo dell'app // dettagli dell'app
+
+levare 4
+
+fare molti esempi 
+
