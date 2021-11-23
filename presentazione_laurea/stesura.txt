@@ -1,0 +1,18 @@
+- 1 - 0sec - Titolo
+- 2 - 40sec -  Gli obiettivi della mia tesi sono incentrati sulla gestione di determinate informazioni.
+Con gestione si intende il salvataggio, e quindi, la memorizzazione di esse ma nello specifico
+ci si sofferma sulla certificazione di queste; cioè il far si che, in qualunque momento si possa 
+accedere ai dati con la sicurezza che questi non siano stati alterati. Quindi si è arrivati
+all'obiettivo finale di costruire un prototipo di un sistema (applicazione e struttura)
+che abbia le sopracitate proprietà. 
+per la realizzazione del prototipo si è deciso di utilizzare una struttura blockchain 
+come ente certificatore e validatore delle nostre informazioni.
+ - 3 - La blockchain fa parte delle strutture DLT ovvero Distributed Ledgers Technology,
+in italiano tradotto con registro distribuito. Questo è formato da una rete perr to peer di nodi 
+partecipanti e tutti posseggono lo stesso registro. I dati nella blockchain sono strutturati in blocchi.
+Ogni blocco contiene diversi dati tra cui: 
+Varie transazioni che saranno memorizzate in quel blocco
+e un codice hash di un'altro blocco.
+Questo viene utilizzato per la creazione dell'hash pointing cioé il collegamento dei blocchi tramite
+hash che funge da puntatore. infatti ogni blocco punterá al precedente creando così una catena
+di blocchi. ...
