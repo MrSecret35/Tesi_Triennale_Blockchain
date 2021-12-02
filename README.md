@@ -19,5 +19,5 @@ File: [Tesi.pdf](https://github.com/MrDooD5/Tesi_Triennale_Blockchain/blob/maste
 
 Nella sotto-directory presentazione_laurea é presenta la presentazione in formato pptx utilizzata nella discussione.
 
-File [presentazione laurea pptx](https://github.com/MrDooD5/Tesi_Triennale_Blockchain/blob/master/presentazione_laurea/Mecca_Giorgio_880847_FINALE.pptx)
-File [presentazione laurea pdf](https://github.com/MrDooD5/Tesi_Triennale_Blockchain/blob/master/presentazione_laurea/Presentazione_Laurea.pdf)
+File [presentazione laurea pptx](https://github.com/MrDooD5/Tesi_Triennale_Blockchain/blob/master/presentazione_laurea/Mecca-Giorgio-880847_FINALE.pptx)
+File [presentazione laurea pdf](https://github.com/MrDooD5/Tesi_Triennale_Blockchain/blob/master/presentazione_laurea/Mecca-Giorgio-880847.pdf)
